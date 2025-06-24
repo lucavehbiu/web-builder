@@ -3,83 +3,115 @@ import Link from 'next/link'
 export default function Portfolio() {
   const projects = [
     {
-      title: "Chen's Kitchen",
-      category: "Restaurant",
-      description: "A family-owned Chinese restaurant needed an online presence to showcase their menu and accept reservations. The website features an elegant design that reflects their traditional cooking with modern presentation.",
+      title: "OdaShop",
+      category: "E-commerce",
+      description: "An innovative e-commerce platform that uses Instagram API to collect posts and OpenAI API to parse product information, automating product creation from Instagram sources. Built for the Albanian market where Instagram dominates social commerce, featuring Make.com automation, newsletter integration, Algolia search with suggestions, purchase history, and similar item recommendations.",
       results: [
-        "300% increase in online reservations",
-        "Reduced phone calls by 60%",
-        "Featured in local food blogs",
-        "Average 4.8/5 customer rating"
+        "Automated product creation from Instagram",
+        "Advanced search with AI-powered suggestions",
+        "Complete e-commerce solution from scratch",
+        "Daily automation for new product updates"
       ],
-      technologies: ["Next.js", "Responsive Design", "Online Reservations", "SEO"],
-      screenshot: "Screenshot of Chen's Kitchen"
+      technologies: ["Instagram API", "OpenAI API", "Make.com Automation", "Algolia Search"],
+      screenshot: "https://storage.googleapis.com/web-builder-luca/odashop.webp",
+      url: "https://odashop.al/"
     },
     {
-      title: "Rodriguez Plumbing",
-      category: "Home Services",
-      description: "A local plumbing service wanted to establish credibility and make it easy for customers to request service calls. The site emphasizes trust, experience, and quick response times.",
+      title: "Mosaic AML",
+      category: "FinTech",
+      description: "An AI-powered anti-money laundering educational platform designed to train AML analysts to detect hard fraud cases and reduce false positives and false negatives. Features a comprehensive learning system similar to Duolingo with progress tracking, user authentication, dashboard, and AI-generated use cases via OpenAI API.",
       results: [
-        "40% increase in service calls",
-        "Improved Google search ranking",
-        "Reduced no-shows by 25%",
-        "Built customer trust"
+        "Full-stack application with authentication",
+        "AI-powered educational content generation",
+        "User progress tracking and analytics",
+        "Comprehensive user dashboard and profiles"
       ],
-      technologies: ["Contact Forms", "Mobile-First", "Local SEO", "Fast Loading"],
-      screenshot: "Screenshot of Rodriguez Plumbing"
+      technologies: ["OpenAI API", "User Authentication", "Progress Tracking", "AI Integration"],
+      screenshot: "https://mosaic-aml.com",
+      url: "https://mosaic-aml.com"
     },
     {
-      title: "Watson Wellness Studio",
-      category: "Health & Wellness",
-      description: "A wellness coach needed a calming, professional website to attract new clients and showcase her services. The design emphasizes tranquility and personal transformation.",
+      title: "Kallmi Bukur Restaurant",
+      category: "Restaurant & E-commerce",
+      description: "A family-owned restaurant in Kallmi, Durres that created a small paradise corner. The website integrates both restaurant services and an online shop for their locally produced products, combining dining experience with local product sales.",
       results: [
-        "50% increase in new clients",
-        "Higher quality lead generation",
-        "Streamlined booking process",
-        "Enhanced professional image"
+        "Integrated restaurant and e-commerce platform",
+        "Local product marketplace",
+        "Family business digital presence",
+        "Enhanced customer engagement"
       ],
-      technologies: ["Booking System", "Content Management", "Social Integration", "Analytics"],
-      screenshot: "Screenshot of Watson Wellness Studio"
+      technologies: ["E-commerce Integration", "Restaurant Management", "Product Catalog", "Local Business"],
+      screenshot: "https://storage.googleapis.com/web-builder-luca/kallmibukur.webp",
+      url: "https://www.kallmibukur.al/"
     },
     {
-      title: "Mountain View Accounting",
-      category: "Professional Services",
-      description: "A CPA firm wanted to modernize their online presence and attract small business clients. The website emphasizes trust, expertise, and personalized service.",
+      title: "PlayPals",
+      category: "Social Platform",
+      description: "A comprehensive social media platform for sports enthusiasts looking to join teams, create them, and participate in nearby events for any kind of sports. Features include social feed, chat, notifications, team creation, user profiles, polls, calendars, and event management.",
       results: [
-        "35% growth in new clients",
-        "Reduced client onboarding time",
-        "Improved client communication",
-        "Enhanced professional credibility"
+        "Full social media platform for sports",
+        "Real-time chat and notifications",
+        "Team and event management system",
+        "Complete user engagement features"
       ],
-      technologies: ["Secure Forms", "Client Portal", "Resource Library", "Contact Management"],
-      screenshot: "Screenshot of Mountain View Accounting"
+      technologies: ["Social Media Features", "Real-time Chat", "Event Management", "User Profiles"],
+      screenshot: "https://storage.googleapis.com/web-builder-luca/playpals.webp",
+      url: "https://play-pals-adengripshi.replit.app/auth"
+    },
+    {
+      title: "Cocomoco",
+      category: "Food & Beverage",
+      description: "A healthy snack startup revolutionizing the food industry in the Balkans by providing healthy snack alternatives to chips, gummies, and other processed foods. The landing page showcases their mission to bring healthier snacking options to the region.",
+      results: [
+        "Modern landing page for startup launch",
+        "Clear brand positioning in health food market",
+        "Engaging product showcase",
+        "Mobile-optimized for target demographic"
+      ],
+      technologies: ["Next.js", "Responsive Design", "Modern UI/UX", "Brand Showcase"],
+      screenshot: "https://storage.googleapis.com/web-builder-luca/cocomoco.webp",
+      url: "https://v0-new-project-syx0fd1pxxb-8v97caug2-lucas-projects-7cbc24c5.vercel.app/"
+    },
+    {
+      title: "ReelMetrics",
+      category: "Casino Analytics",
+      description: "A comprehensive casino consultancy platform where casinos upload their data and receive complex dashboards with detailed insights for optimizing their floors and making strategic decisions. Built with enterprise-grade architecture using AWS, PostgreSQL, Vertica, Lambda, Rails, React, Python, Pentaho, ECS, and Kubernetes.",
+      results: [
+        "Enterprise-scale data analytics platform",
+        "Complex dashboard with actionable insights",
+        "Strategic decision-making tools for casinos",
+        "Scalable cloud infrastructure implementation"
+      ],
+      technologies: ["AWS", "PostgreSQL", "Vertica", "Lambda", "Rails", "React", "Python", "Pentaho", "ECS", "Kubernetes"],
+      screenshot: "https://storage.googleapis.com/web-builder-luca/reelmetrics.webp",
+      url: "https://www.reelmetrics.com/"
     }
   ]
 
   const testimonials = [
     {
-      quote: "The website has transformed how customers find and interact with our restaurant. We're booked solid most nights now!",
-      name: "Sarah Chen",
-      business: "Chen's Kitchen",
-      avatar: "SC"
+      quote: "The platform perfectly captures our mission to revolutionize healthy snacking in the Balkans. The modern design and clear messaging have been instrumental in our startup launch.",
+      name: "Cocomoco Team",
+      business: "Cocomoco",
+      avatar: "CC"
     },
     {
-      quote: "Professional, reliable, and affordable. The website pays for itself with just one new client per month.",
-      name: "Mike Rodriguez",
-      business: "Rodriguez Plumbing",
-      avatar: "MR"
+      quote: "The AI-powered educational platform has transformed how we train AML analysts. The progress tracking and interactive learning approach significantly improved our training outcomes.",
+      name: "Mosaic Team",
+      business: "Mosaic AML",
+      avatar: "MA"
     },
     {
-      quote: "I was amazed at how quickly my professional image improved. The website perfectly captures what my practice is about.",
-      name: "Dr. Emily Watson",
-      business: "Watson Wellness Studio",
-      avatar: "DEW"
+      quote: "Integrating our restaurant with an online shop for local products was exactly what our family business needed. The platform beautifully showcases both our dining experience and local products.",
+      name: "Kallmi Bukur Family",
+      business: "Kallmi Bukur Restaurant",
+      avatar: "KB"
     },
     {
-      quote: "The best investment I've made for my business. Clear communication and excellent results.",
-      name: "David Park",
-      business: "Mountain View Accounting",
-      avatar: "DP"
+      quote: "PlayPals has become the go-to platform for sports enthusiasts in our community. The comprehensive features for team management and event organization exceeded our expectations.",
+      name: "PlayPals Community",
+      business: "PlayPals",
+      avatar: "PP"
     }
   ]
 
@@ -164,14 +196,12 @@ export default function Portfolio() {
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl">
                     <div className="bg-white rounded-lg p-6 shadow-sm">
-                      <div className="text-center text-gray-500 text-sm mb-4">
-                        {project.screenshot}
-                      </div>
-                      <div className="space-y-3">
-                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-                        <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                        <div className="h-20 bg-gradient-to-br from-blue-50 to-purple-50 rounded mt-4"></div>
+                      <div className="overflow-hidden rounded-lg">
+                        <img
+                          src={project.screenshot}
+                          alt={`${project.title} screenshot`}
+                          className="w-full h-auto object-cover"
+                        />
                       </div>
                     </div>
                   </div>
@@ -212,6 +242,18 @@ export default function Portfolio() {
                         {tech}
                       </span>
                     ))}
+                  </div>
+
+                  {/* URL */}
+                  <div className="mt-8">
+                    <Link
+                      href={project.url}
+                      className="text-blue-600 font-medium hover:text-blue-700"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Project
+                    </Link>
                   </div>
                 </div>
               </div>
