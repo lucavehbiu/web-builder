@@ -1,4 +1,6 @@
 import Hero from '@/components/sections/hero'
+import Features from '@/components/sections/features'
+import Pricing from '@/components/sections/pricing'
 import Link from 'next/link'
 
 export default function Home() {
@@ -42,6 +44,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <Hero />
+
+      {/* Features Section */}
+      <Features />
+
+      {/* Pricing Section */}
+      <Pricing />
 
       {/* Features Preview Section */}
       <section className="py-24 bg-white">
