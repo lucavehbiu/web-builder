@@ -51,7 +51,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="/features"
+              href="/services"
               className="inline-flex items-center justify-center rounded-lg border border-gray-600 bg-gray-800/50 px-8 py-4 text-lg font-semibold text-white hover:bg-gray-700/50 hover:border-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 transition-all duration-200 backdrop-blur-sm"
             >
               See What&apos;s Included

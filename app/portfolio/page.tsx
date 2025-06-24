@@ -27,7 +27,7 @@ export default function Portfolio() {
         "Comprehensive user dashboard and profiles"
       ],
       technologies: ["OpenAI API", "User Authentication", "Progress Tracking", "AI Integration"],
-      screenshot: "https://mosaic-aml.com",
+      screenshot: "https://storage.googleapis.com/web-builder-luca/mosaic.webp",
       url: "https://mosaic-aml.com"
     },
     {

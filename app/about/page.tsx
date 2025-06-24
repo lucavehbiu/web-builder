@@ -90,13 +90,15 @@ export default function About() {
               </p>
             </div>
 
-            {/* Photo Placeholder */}
+            {/* Profile Photo */}
             <div className="flex justify-center lg:justify-end">
-              <div className="w-80 h-80 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center shadow-xl">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">👨‍💻</div>
-                  <p className="text-gray-600 font-medium">Your photo here</p>
-                </div>
+              <div className="w-96 h-[28rem] bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center shadow-xl">
+                <img
+                  src="https://storage.googleapis.com/web-builder-luca/profile.webp"
+                  alt="Profile photo"
+                  className="w-80 h-[24rem] object-cover rounded-xl shadow-lg border-4 border-white"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>

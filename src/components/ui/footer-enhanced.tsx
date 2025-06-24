@@ -22,10 +22,10 @@ const LinkedInIcon = () => (
 )
 
 const socialLinks = [
-  { name: 'GitHub', href: '#', icon: GitHubIcon },
+  { name: 'GitHub', href: 'https://github.com/lucavehbiu/', icon: GitHubIcon },
   { name: 'Twitter', href: '#', icon: TwitterIcon },
-  { name: 'LinkedIn', href: '#', icon: LinkedInIcon },
-]
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/luca-vehbiu/', icon: LinkedInIcon },
+] 
 
 export default function FooterEnhanced() {
   const currentYear = new Date().getFullYear()
