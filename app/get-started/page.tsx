@@ -89,7 +89,7 @@ export default function GetStarted() {
     e.preventDefault()
     // Here you would typically submit to your backend or Google Forms
     console.log('Form submitted:', formData)
-    alert('Thank you! Your application has been submitted. We\'ll be in touch within 24 hours.')
+    alert('Thank you! Your application has been submitted. We&apos;ll be in touch within 24 hours.')
   }
 
   const nextStep = () => {
@@ -126,7 +126,7 @@ export default function GetStarted() {
             </span>
           </h1>
           <p className="text-xl text-gray-600">
-            Just a few questions and you'll be on your way to a professional website.
+            Just a few questions and you&apos;ll be on your way to a professional website.
           </p>
         </div>
 
@@ -151,7 +151,7 @@ export default function GetStarted() {
             <div className="space-y-6">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">Tell Us About Your Business</h2>
-                <p className="text-gray-600">Let's start with the basics</p>
+                <p className="text-gray-600">Let&apos;s start with the basics</p>
               </div>
 
               <div>
@@ -520,15 +520,15 @@ export default function GetStarted() {
                 <ol className="space-y-2 text-sm text-gray-700">
                   <li className="flex items-start">
                     <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">1</span>
-                    I'll review your information within 24 hours
+                    I&apos;ll review your information within 24 hours
                   </li>
                   <li className="flex items-start">
                     <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">2</span>
-                    We'll schedule a brief call to discuss your project
+                    We&apos;ll schedule a brief call to discuss your project
                   </li>
                   <li className="flex items-start">
                     <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">3</span>
-                    I'll create a design mockup for your approval
+                    I&apos;ll create a design mockup for your approval
                   </li>
                   <li className="flex items-start">
                     <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">4</span>

@@ -38,7 +38,7 @@ export default function Testimonials() {
 
         {/* Testimonials Grid */}
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
               className="group relative flex flex-col justify-between rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-200 hover:shadow-xl hover:ring-blue-300 transition-all duration-300"
@@ -52,7 +52,7 @@ export default function Testimonials() {
 
               {/* Quote */}
               <blockquote className="text-lg leading-8 text-gray-700 mb-8">
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </blockquote>
 
               {/* Author */}

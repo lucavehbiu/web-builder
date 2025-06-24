@@ -204,10 +204,10 @@ export default function Services() {
       {/* What's Included */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">What's Included</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">What&apos;s Included</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+            {features.map((feature) => (
               <div key={feature.title} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
                 <p className="text-gray-600 mb-6">{feature.description}</p>
@@ -235,7 +235,7 @@ export default function Services() {
           <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">How It Works</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, index) => (
+            {process.map((step) => (
               <div key={step.step} className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
                   {step.step}
@@ -255,7 +255,7 @@ export default function Services() {
           <p className="text-xl text-gray-600 mb-16 text-center">Compare the real costs and see the difference</p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {comparison.map((option, index) => (
+            {comparison.map((option) => (
               <div key={option.category} className={`rounded-2xl p-8 ${option.highlight ? 'bg-gradient-to-br from-blue-50 to-purple-50 ring-2 ring-blue-200 relative' : 'bg-gray-50'}`}>
                 {option.highlight && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">

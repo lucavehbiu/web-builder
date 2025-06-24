@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Portfolio() {
   const projects = [
@@ -146,7 +145,7 @@ export default function Portfolio() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             See{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              What's Possible
+              What&apos;s Possible
             </span>
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed">
@@ -227,11 +226,11 @@ export default function Portfolio() {
           <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">What Clients Say</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial) => (
               <div key={testimonial.name} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300">
                 {/* Quote */}
                 <blockquote className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </blockquote>
 
                 {/* Author */}
@@ -257,7 +256,7 @@ export default function Portfolio() {
           <p className="text-xl text-gray-600 mb-16 text-center">This systematic approach ensures consistent results and happy clients, every time.</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, index) => (
+            {process.map((step) => (
               <div key={step.step} className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
                   {step.step}

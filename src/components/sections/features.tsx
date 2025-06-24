@@ -13,7 +13,7 @@ export default function Features() {
     {
       icon: "⚡",
       title: "Lightning Fast",
-      description: "Optimized for speed with 99.9% uptime. Your customers won't wait for slow pages."
+      description: "Optimized for speed with 99.9% uptime. Your customers won&apos;t wait for slow pages."
     },
     {
       icon: "🔒",
@@ -23,7 +23,7 @@ export default function Features() {
     {
       icon: "🔄",
       title: "Monthly Updates",
-      description: "Keep your content fresh. We'll update your website monthly as part of the service."
+      description: "Keep your content fresh. We&apos;ll update your website monthly as part of the service."
     },
     {
       icon: "🛟",
@@ -40,7 +40,7 @@ export default function Features() {
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             Everything You Need,{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Nothing You Don't
+              Nothing You Don&apos;t
             </span>
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
@@ -51,7 +51,7 @@ export default function Features() {
         {/* Features Grid */}
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <div className="grid max-w-xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
-            {features.map((feature, index) => (
+            {features.map((feature) => (
               <div
                 key={feature.title}
                 className="group relative flex flex-col items-start p-8 bg-white rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300"

@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function About() {
   const beliefs = [
@@ -11,7 +10,7 @@ export default function About() {
     {
       icon: "🤝",
       title: "Partnership",
-      description: "I'm not just a service provider - I'm your partner in building your online presence."
+      description: "I&apos;m not just a service provider - I&apos;m your partner in building your online presence."
     },
     {
       icon: "⚡",
@@ -81,7 +80,7 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Hi, I'm Your{" "}
+                Hi, I&apos;m Your{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   Web Developer
                 </span>
@@ -113,7 +112,7 @@ export default function About() {
               After years of working with enterprise clients, I noticed something troubling: small businesses were being priced out of having a professional web presence.
             </p>
             <p className="mb-6">
-              Quotes of $5,000+ for a simple website, plus hundreds per month for hosting? That didn't sit right with me. I knew there had to be a better way.
+              Quotes of $5,000+ for a simple website, plus hundreds per month for hosting? That didn&apos;t sit right with me. I knew there had to be a better way.
             </p>
             <p className="mb-6">
               So I created WebBuilder - a simple, transparent service that gives small businesses everything they need for one affordable monthly price.
@@ -130,7 +129,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">What I Believe In</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {beliefs.map((belief, index) => (
+            {beliefs.map((belief) => (
               <div key={belief.title} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 text-center">
                 <div className="text-4xl mb-4">{belief.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{belief.title}</h3>
@@ -151,7 +150,7 @@ export default function About() {
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-8">Technical Skills</h3>
               <div className="space-y-6">
-                {skills.map((skill, index) => (
+                {skills.map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between items-center mb-2">
                       <span className="font-medium text-gray-900">{skill.name}</span>
@@ -192,7 +191,7 @@ export default function About() {
       <section className="py-24 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Let's Build Something Great Together
+            Let&apos;s Build Something Great Together
           </h2>
           <p className="text-xl mb-8 opacity-90">
             Ready to give your business the professional web presence it deserves?
