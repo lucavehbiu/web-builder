@@ -2,6 +2,7 @@ import Hero from '@/components/sections/hero'
 import Features from '@/components/sections/features'
 import Pricing from '@/components/sections/pricing'
 import Testimonials from '@/components/sections/testimonials'
+import FeaturesCompact from '@/components/sections/features-compact'
 import Link from 'next/link'
 
 export default function Home() {

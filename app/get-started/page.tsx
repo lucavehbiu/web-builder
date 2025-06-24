@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import FeaturesCompact from '@/components/sections/features-compact'
 
 export default function GetStarted() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -572,6 +573,9 @@ export default function GetStarted() {
           )}
         </form>
       </div>
+
+      {/* Compact Features Section */}
+      <FeaturesCompact />
     </div>
   )
 }
