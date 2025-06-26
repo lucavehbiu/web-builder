@@ -34,7 +34,7 @@ function StarRating({
         <span className="sr-only">{rating} out of 5 stars</span>
         {[...Array(5)].map((_, i) => (
           <svg 
-            key={i} 
+            key={`star-${i}`} 
             className={`${sizeClasses[size]} ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`} 
             fill="currentColor" 
             viewBox="0 0 20 20"

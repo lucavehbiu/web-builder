@@ -123,7 +123,7 @@ export default function GetStarted() {
     
     try {
       // Here you would typically submit to your backend or Google Forms
-      console.log('Form submitted:', formData)
+      // Form submitted with formData
       
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000))
@@ -133,8 +133,8 @@ export default function GetStarted() {
       // Optionally reset form or redirect
       // setFormData({ ... }) // Reset form if needed
       
-    } catch (error) {
-      console.error('Form submission error:', error)
+    } catch {
+      // Form submission error occurred
       showNotification('Sorry, there was an error submitting your application. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)

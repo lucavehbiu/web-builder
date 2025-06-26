@@ -216,8 +216,8 @@ export default function Services() {
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
                 <p className="text-gray-600 mb-6">{feature.description}</p>
                 <ul className="space-y-2">
-                  {feature.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex items-start">
+                  {feature.details.map((detail) => (
+                    <li key={detail} className="flex items-start">
                       <div className="flex-shrink-0 w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <svg className="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -315,8 +315,8 @@ export default function Services() {
           <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">Frequently Asked Questions</h2>
 
           <div className="space-y-8">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-xs">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="bg-white rounded-2xl p-8 shadow-xs">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">{faq.question}</h3>
                 <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
               </div>

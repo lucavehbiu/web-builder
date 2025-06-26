@@ -180,8 +180,8 @@ export default function About() {
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-8">What I Bring</h3>
               <div className="space-y-4">
-                {highlights.map((highlight, index) => (
-                  <div key={index} className="flex items-start">
+                {highlights.map((highlight) => (
+                  <div key={highlight} className="flex items-start">
                     <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
                       <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

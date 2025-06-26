@@ -227,8 +227,8 @@ export default function Portfolio() {
                   <div className="mb-8">
                     <h4 className="text-lg font-semibold text-gray-900 mb-4">Results:</h4>
                     <ul className="space-y-3">
-                      {project.results.map((result, resultIndex) => (
-                        <li key={resultIndex} className="flex items-start">
+                      {project.results.map((result) => (
+                        <li key={result} className="flex items-start">
                           <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
                             <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -242,8 +242,8 @@ export default function Portfolio() {
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="bg-gray-100 text-gray-700 text-sm font-medium px-3 py-1 rounded-lg">
+                    {project.technologies.map((tech) => (
+                      <span key={tech} className="bg-gray-100 text-gray-700 text-sm font-medium px-3 py-1 rounded-lg">
                         {tech}
                       </span>
                     ))}

@@ -34,7 +34,7 @@ function StarRating({
         <span className="sr-only">{rating} out of 5 stars</span>
         {[...Array(5)].map((_, i) => (
           <svg 
-            key={i} 
+            key={`star-${i}`} 
             className={`${sizeClasses[size]} ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`} 
             fill="currentColor" 
             viewBox="0 0 20 20"
@@ -192,8 +192,8 @@ export default function Pricing() {
               {/* Features list */}
               <div className="mt-8">
                 <ul className="space-y-4">
-                  {features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
+                  {features.map((feature) => (
+                    <li key={feature} className="flex items-start">
                       <div className="flex-shrink-0">
                         <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

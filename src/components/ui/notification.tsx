@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 interface NotificationProps {
   message: string
@@ -21,6 +21,13 @@ export default function Notification({
 }: NotificationProps) {
   const [isAnimating, setIsAnimating] = useState(false)
 
+  const handleClose = useCallback(() => {
+    setIsAnimating(false)
+    setTimeout(() => {
+      onClose()
+    }, 300) // Match animation duration
+  }, [onClose])
+
   useEffect(() => {
     if (isVisible) {
       setIsAnimating(true)
@@ -31,14 +38,7 @@ export default function Notification({
         return () => clearTimeout(timer)
       }
     }
-  }, [isVisible, autoClose, duration])
-
-  const handleClose = () => {
-    setIsAnimating(false)
-    setTimeout(() => {
-      onClose()
-    }, 300) // Match animation duration
-  }
+  }, [isVisible, autoClose, duration, handleClose])
 
   if (!isVisible) return null
 

@@ -80,13 +80,13 @@ export default function FooterEnhanced() {
       await new Promise(resolve => setTimeout(resolve, 1500))
       
       // Here you would typically send to your newsletter service
-      console.log('Newsletter subscription:', email)
+      // Newsletter subscription for: email
       
       showNotification('Thank you for subscribing! You\'ll receive updates soon.', 'success')
       setEmail('') // Clear the input
       
-    } catch (error) {
-      console.error('Newsletter subscription error:', error)
+    } catch {
+      // Newsletter subscription error occurred
       showNotification('Sorry, there was an error. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)
