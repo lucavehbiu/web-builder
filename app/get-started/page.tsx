@@ -3,9 +3,21 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import FeaturesCompact from '@/components/sections/features-compact'
+import MobileNav from '@/components/ui/mobile-nav'
+import Notification from '@/components/ui/notification'
 
 export default function GetStarted() {
   const [currentStep, setCurrentStep] = useState(1)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [notification, setNotification] = useState<{
+    message: string
+    type: 'success' | 'error' | 'info'
+    isVisible: boolean
+  }>({
+    message: '',
+    type: 'success',
+    isVisible: false
+  })
   const [formData, setFormData] = useState({
     // Step 1
     businessName: '',
@@ -72,6 +84,18 @@ export default function GetStarted() {
     'Other'
   ]
 
+  const showNotification = (message: string, type: 'success' | 'error' | 'info') => {
+    setNotification({
+      message,
+      type,
+      isVisible: true
+    })
+  }
+
+  const hideNotification = () => {
+    setNotification(prev => ({ ...prev, isVisible: false }))
+  }
+
   const handleInputChange = (field: string, value: string | string[]) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
@@ -87,9 +111,34 @@ export default function GetStarted() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically submit to your backend or Google Forms
-    console.log('Form submitted:', formData)
-    alert('Thank you! Your application has been submitted. We&apos;ll be in touch within 24 hours.')
+    
+    // Basic validation
+    if (!formData.businessName || !formData.industry || !formData.businessDescription || 
+        !formData.fullName || !formData.email) {
+      showNotification('Please fill in all required fields.', 'error')
+      return
+    }
+
+    setIsSubmitting(true)
+    
+    try {
+      // Here you would typically submit to your backend or Google Forms
+      console.log('Form submitted:', formData)
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      showNotification('Thank you! Your application has been submitted. We\'ll be in touch within 24 hours.', 'success')
+      
+      // Optionally reset form or redirect
+      // setFormData({ ... }) // Reset form if needed
+      
+    } catch (error) {
+      console.error('Form submission error:', error)
+      showNotification('Sorry, there was an error submitting your application. Please try again.', 'error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const nextStep = () => {
@@ -103,15 +152,36 @@ export default function GetStarted() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="text-xl font-bold text-gray-900">
               WebBuilder
             </Link>
-            <Link href="/" className="text-gray-600 hover:text-gray-900">
-              ← Back to Home
-            </Link>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
+              <nav className="flex items-center space-x-8">
+                <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                  Home
+                </Link>
+                <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                  About
+                </Link>
+                <Link href="/services" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                  Services
+                </Link>
+                <Link href="/portfolio" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                  Portfolio
+                </Link>
+              </nav>
+              <Link href="/" className="text-gray-600 hover:text-gray-900">
+                ← Back to Home
+              </Link>
+            </div>
+            
+            {/* Mobile Navigation */}
+            <MobileNav theme="light" />
           </div>
         </div>
       </header>
@@ -554,12 +624,30 @@ export default function GetStarted() {
                 </button>
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center"
+                  disabled={isSubmitting}
+                  className={`
+                    px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center
+                    ${isSubmitting 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
+                    } text-white
+                  `}
                 >
-                  Submit Application
-                  <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
+                  {isSubmitting ? (
+                    <>
+                      <svg className="mr-2 h-5 w-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </svg>
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      Submit Application
+                      <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                    </>
+                  )}
                 </button>
               </div>
 
@@ -576,6 +664,14 @@ export default function GetStarted() {
 
       {/* Compact Features Section */}
       <FeaturesCompact />
+
+      {/* Notification */}
+      <Notification
+        message={notification.message}
+        type={notification.type}
+        isVisible={notification.isVisible}
+        onClose={hideNotification}
+      />
     </div>
   )
 }

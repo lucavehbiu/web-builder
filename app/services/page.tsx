@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import MobileNav from '@/components/ui/mobile-nav'
 
 export default function Services() {
   const features = [
@@ -156,7 +157,7 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="text-xl font-bold text-gray-900">
@@ -178,10 +179,13 @@ export default function Services() {
             </nav>
             <Link
               href="/get-started"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm"
+              className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-xs"
             >
               Get Started
             </Link>
+            
+            {/* Mobile Navigation */}
+            <MobileNav theme="light" />
           </div>
         </div>
       </header>
@@ -312,7 +316,7 @@ export default function Services() {
 
           <div className="space-y-8">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-sm">
+              <div key={index} className="bg-white rounded-2xl p-8 shadow-xs">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">{faq.question}</h3>
                 <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
               </div>

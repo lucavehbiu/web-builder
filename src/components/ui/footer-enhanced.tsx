@@ -1,6 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
+import Notification from './notification'
 
 // Social media icons (you can replace with your preferred icon library)
 const GitHubIcon = () => (
@@ -29,6 +31,67 @@ const socialLinks = [
 
 export default function FooterEnhanced() {
   const currentYear = new Date().getFullYear()
+  const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [notification, setNotification] = useState<{
+    message: string
+    type: 'success' | 'error' | 'info'
+    isVisible: boolean
+  }>({
+    message: '',
+    type: 'success',
+    isVisible: false
+  })
+
+  const showNotification = (message: string, type: 'success' | 'error' | 'info') => {
+    setNotification({
+      message,
+      type,
+      isVisible: true
+    })
+  }
+
+  const hideNotification = () => {
+    setNotification(prev => ({ ...prev, isVisible: false }))
+  }
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!email.trim()) {
+      showNotification('Please enter your email address.', 'error')
+      return
+    }
+
+    if (!validateEmail(email)) {
+      showNotification('Please enter a valid email address.', 'error')
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      // Simulate API call for newsletter subscription
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      // Here you would typically send to your newsletter service
+      console.log('Newsletter subscription:', email)
+      
+      showNotification('Thank you for subscribing! You\'ll receive updates soon.', 'success')
+      setEmail('') // Clear the input
+      
+    } catch (error) {
+      console.error('Newsletter subscription error:', error)
+      showNotification('Sorry, there was an error. Please try again.', 'error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <footer className="bg-gray-900 text-white" role="contentinfo">
@@ -69,7 +132,7 @@ export default function FooterEnhanced() {
                 <li>
                   <Link
                     href="/services/website-creation"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
                   >
                     Website Creation
                   </Link>
@@ -77,7 +140,7 @@ export default function FooterEnhanced() {
                 <li>
                   <Link
                     href="/services/hosting"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
                   >
                     Hosting & Maintenance
                   </Link>
@@ -85,7 +148,7 @@ export default function FooterEnhanced() {
                 <li>
                   <Link
                     href="/services/updates"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
                   >
                     Monthly Updates
                   </Link>
@@ -100,7 +163,7 @@ export default function FooterEnhanced() {
                 <li>
                   <Link
                     href="/about"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
                   >
                     About Me
                   </Link>
@@ -108,7 +171,7 @@ export default function FooterEnhanced() {
                 <li>
                   <Link
                     href="/portfolio"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
                   >
                     Portfolio
                   </Link>
@@ -116,7 +179,7 @@ export default function FooterEnhanced() {
                 <li>
                   <Link
                     href="/get-started"
-                    className="inline-flex items-center text-sm leading-6 text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                    className="inline-flex items-center text-sm leading-6 text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
                   >
                     Get Started
                     <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,7 +197,7 @@ export default function FooterEnhanced() {
                 <li>
                   <Link
                     href="/contact"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
                   >
                     Contact
                   </Link>
@@ -142,7 +205,7 @@ export default function FooterEnhanced() {
                 <li>
                   <Link
                     href="/faq"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
                   >
                     FAQ
                   </Link>
@@ -150,7 +213,7 @@ export default function FooterEnhanced() {
                 <li>
                   <Link
                     href="/terms"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
                   >
                     Terms of Service
                   </Link>
@@ -169,7 +232,7 @@ export default function FooterEnhanced() {
                 Get the latest news and updates about our services.
               </p>
             </div>
-            <form className="mt-6 sm:flex sm:max-w-md md:mt-0" onSubmit={(e) => e.preventDefault()}>
+            <form className="mt-6 sm:flex sm:max-w-md md:mt-0" onSubmit={handleNewsletterSubmit}>
               <label htmlFor="email-address" className="sr-only">
                 Email address
               </label>
@@ -179,15 +242,37 @@ export default function FooterEnhanced() {
                 id="email-address"
                 autoComplete="email"
                 required
-                className="w-full min-w-0 appearance-none rounded-md border-0 bg-white/5 px-3 py-1.5 text-base text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:w-56 sm:text-sm sm:leading-6"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isSubmitting}
+                className={`
+                  w-full min-w-0 appearance-none rounded-md border-0 bg-white/5 px-3 py-1.5 text-base text-white placeholder:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:w-56 sm:text-sm sm:leading-6
+                  ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}
+                `}
                 placeholder="Enter your email"
               />
               <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors duration-200"
+                  disabled={isSubmitting}
+                  className={`
+                    flex w-full items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-white shadow-xs transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600
+                    ${isSubmitting 
+                      ? 'bg-gray-500 cursor-not-allowed' 
+                      : 'bg-blue-600 hover:bg-blue-500'
+                    }
+                  `}
                 >
-                  Subscribe
+                  {isSubmitting ? (
+                    <>
+                      <svg className="mr-2 h-4 w-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </svg>
+                      Subscribing...
+                    </>
+                  ) : (
+                    'Subscribe'
+                  )}
                 </button>
               </div>
             </form>
@@ -200,13 +285,13 @@ export default function FooterEnhanced() {
             <div className="flex space-x-6 md:order-2">
               <Link
                 href="/privacy"
-                className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-sm"
+                className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
               >
                 Terms of Service
               </Link>
@@ -217,6 +302,14 @@ export default function FooterEnhanced() {
           </div>
         </div>
       </div>
+
+      {/* Notification */}
+      <Notification
+        message={notification.message}
+        type={notification.type}
+        isVisible={notification.isVisible}
+        onClose={hideNotification}
+      />
     </footer>
   )
 }

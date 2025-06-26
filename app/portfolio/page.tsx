@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import MobileNav from '@/components/ui/mobile-nav'
 
 export default function Portfolio() {
   const projects = [
@@ -141,7 +142,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="text-xl font-bold text-gray-900">
@@ -163,10 +164,13 @@ export default function Portfolio() {
             </nav>
             <Link
               href="/get-started"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm"
+              className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-xs"
             >
               Get Started
             </Link>
+            
+            {/* Mobile Navigation */}
+            <MobileNav theme="light" />
           </div>
         </div>
       </header>
@@ -195,12 +199,13 @@ export default function Portfolio() {
                 {/* Screenshot */}
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 shadow-xl">
-                    <div className="bg-white rounded-lg p-6 shadow-sm">
+                    <div className="bg-white rounded-lg p-6 shadow-xs">
                       <div className="overflow-hidden rounded-lg">
                         <img
                           src={project.screenshot}
                           alt={`${project.title} screenshot`}
                           className="w-full h-auto object-cover"
+                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -269,7 +274,7 @@ export default function Portfolio() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300">
+              <div key={testimonial.name} className="bg-white rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300">
                 {/* Quote */}
                 <blockquote className="text-lg text-gray-700 mb-6 leading-relaxed">
                   &quot;{testimonial.quote}&quot;

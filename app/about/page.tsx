@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import MobileNav from '@/components/ui/mobile-nav'
+import OptimizedImage from '@/components/ui/optimized-image'
 
 export default function About() {
   const beliefs = [
@@ -44,7 +46,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="text-xl font-bold text-gray-900">
@@ -66,10 +68,13 @@ export default function About() {
             </nav>
             <Link
               href="/get-started"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm"
+              className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-xs"
             >
               Get Started
             </Link>
+            
+            {/* Mobile Navigation */}
+            <MobileNav theme="light" />
           </div>
         </div>
       </header>
@@ -93,11 +98,13 @@ export default function About() {
             {/* Profile Photo */}
             <div className="flex justify-center lg:justify-end">
               <div className="w-96 h-[28rem] bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center shadow-xl">
-                <img
+                <OptimizedImage
                   src="https://storage.googleapis.com/web-builder-luca/profile.webp"
                   alt="Profile photo"
-                  className="w-80 h-[24rem] object-cover rounded-xl shadow-lg border-4 border-white"
-                  loading="lazy"
+                  width={320}
+                  height={384}
+                  className="rounded-xl shadow-lg border-4 border-white"
+                  priority={true}
                 />
               </div>
             </div>
@@ -132,7 +139,7 @@ export default function About() {
           <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">What I Believe In</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {beliefs.map((belief) => (
-              <div key={belief.title} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+              <div key={belief.title} className="bg-white rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 text-center">
                 <div className="text-4xl mb-4">{belief.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{belief.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{belief.description}</p>

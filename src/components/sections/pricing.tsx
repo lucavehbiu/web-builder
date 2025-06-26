@@ -1,5 +1,140 @@
 import Link from 'next/link'
 
+// Reusable StarRating Component
+interface StarRatingProps {
+  rating: number;
+  size?: 'sm' | 'md' | 'lg';
+  showText?: boolean;
+  text?: string;
+  className?: string;
+}
+
+function StarRating({ 
+  rating = 5, 
+  size = 'md', 
+  showText = false, 
+  text,
+  className = '' 
+}: StarRatingProps) {
+  const sizeClasses = {
+    sm: 'h-4 w-4',
+    md: 'h-5 w-5', 
+    lg: 'h-6 w-6'
+  }
+
+  const textSizeClasses = {
+    sm: 'text-xs',
+    md: 'text-sm',
+    lg: 'text-base'
+  }
+
+  return (
+    <div className={`flex items-center ${className}`}>
+      <div className="flex" role="img" aria-label={`${rating} out of 5 stars`}>
+        <span className="sr-only">{rating} out of 5 stars</span>
+        {[...Array(5)].map((_, i) => (
+          <svg 
+            key={i} 
+            className={`${sizeClasses[size]} ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`} 
+            fill="currentColor" 
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+      </div>
+      {showText && text && (
+        <span className={`ml-2 ${textSizeClasses[size]} text-gray-300`}>
+          {text}
+        </span>
+      )}
+    </div>
+  )
+}
+
+// Reusable AnimatedIndicator Component  
+interface AnimatedIndicatorProps {
+  variant?: 'ping' | 'pulse' | 'bounce';
+  color?: 'blue' | 'green' | 'red' | 'white';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+}
+
+function AnimatedIndicator({ 
+  variant = 'ping', 
+  color = 'blue', 
+  size = 'md',
+  className = '' 
+}: AnimatedIndicatorProps) {
+  const sizeClasses = {
+    sm: 'h-1 w-1',
+    md: 'h-2 w-2',
+    lg: 'h-3 w-3'
+  }
+
+  const colorClasses = {
+    blue: {
+      bg: 'bg-blue-500',
+      ping: 'bg-blue-400'
+    },
+    green: {
+      bg: 'bg-green-500', 
+      ping: 'bg-green-400'
+    },
+    red: {
+      bg: 'bg-red-500',
+      ping: 'bg-red-400'
+    },
+    white: {
+      bg: 'bg-white',
+      ping: 'bg-white'
+    }
+  }
+
+  const colorConfig = colorClasses[color]
+
+  return (
+    <span className={`relative flex ${sizeClasses[size]} ${className}`}>
+      <span 
+        className={`animate-${variant} absolute inline-flex h-full w-full rounded-full ${colorConfig.ping} opacity-75`}
+      ></span>
+      <span 
+        className={`relative inline-flex rounded-full ${sizeClasses[size]} ${colorConfig.bg}`}
+      ></span>
+    </span>
+  )
+}
+
+// Reusable GradientText Component
+interface GradientTextProps {
+  children: React.ReactNode;
+  gradient?: 'primary' | 'secondary' | 'custom';
+  from?: string;
+  to?: string;
+  className?: string;
+}
+
+function GradientText({ 
+  children, 
+  gradient = 'primary', 
+  from,
+  to,
+  className = '' 
+}: GradientTextProps) {
+  const gradientClasses = {
+    primary: 'from-blue-600 to-purple-600',
+    secondary: 'from-purple-600 to-pink-600',
+    custom: from && to ? `from-${from} to-${to}` : 'from-blue-600 to-purple-600'
+  }
+
+  return (
+    <span className={`text-transparent bg-clip-text bg-gradient-to-r ${gradientClasses[gradient]} ${className}`}>
+      {children}
+    </span>
+  )
+}
+
 export default function Pricing() {
   const features = [
     "Professional 4-5 page website",
@@ -23,9 +158,9 @@ export default function Pricing() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             Simple,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <GradientText gradient="primary">
               Transparent Pricing
-            </span>
+            </GradientText>
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
             No setup fees. No hidden costs. Just one monthly payment.
@@ -38,16 +173,13 @@ export default function Pricing() {
             {/* Popular badge */}
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
               <div className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-medium text-white shadow-lg">
-                <span className="relative flex h-2 w-2 mr-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-                </span>
+                <AnimatedIndicator color="white" size="md" className="mr-2" />
                 Most Popular Plan
               </div>
             </div>
 
             {/* Main pricing card */}
-            <div className="relative rounded-3xl bg-white p-8 shadow-2xl ring-1 ring-gray-200 hover:shadow-3xl transition-all duration-300">
+            <div className="relative rounded-3xl bg-white p-8 shadow-2xl ring-1 ring-gray-200 hover:shadow-2xl transition-all duration-300">
               {/* Price */}
               <div className="text-center">
                 <div className="flex items-center justify-center">
@@ -63,7 +195,7 @@ export default function Pricing() {
                   {features.map((feature, index) => (
                     <li key={index} className="flex items-start">
                       <div className="flex-shrink-0">
-                        <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                        <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
@@ -77,7 +209,7 @@ export default function Pricing() {
               <div className="mt-8">
                 <Link
                   href="/get-started"
-                  className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-center text-lg font-semibold text-white shadow-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-center text-lg font-semibold text-white shadow-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
                   Get Started Today
                 </Link>
@@ -99,16 +231,7 @@ export default function Pricing() {
         {/* Bottom testimonial/trust signals */}
         <div className="mt-16 text-center">
           <div className="inline-flex items-center space-x-6">
-            <div className="flex items-center">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <span className="ml-2 text-sm text-gray-600">4.9/5 from 200+ clients</span>
-            </div>
+            <StarRating rating={5} size="md" showText={true} text="4.9/5 from 200+ clients" />
             <div className="text-sm text-gray-500">•</div>
             <div className="text-sm text-gray-600">500+ websites launched</div>
             <div className="text-sm text-gray-500">•</div>

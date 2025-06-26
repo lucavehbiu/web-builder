@@ -39,7 +39,7 @@ export default function FeaturesCompact() {
               className="text-center group"
             >
               {/* Feature */}
-              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 group-hover:scale-105">
+              <div className="bg-white rounded-xl p-6 shadow-xs hover:shadow-md transition-all duration-300 group-hover:scale-105">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                   {feature.title}
                 </h3>
@@ -53,7 +53,7 @@ export default function FeaturesCompact() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-12">
-          <div className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-medium text-gray-700 shadow-sm border border-gray-200">
+          <div className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-medium text-gray-700 shadow-xs border border-gray-200">
             <span className="relative flex h-2 w-2 mr-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>

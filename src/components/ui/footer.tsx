@@ -1,6 +1,6 @@
-'use client'
-
 import Link from 'next/link'
+
+
 
 export default function Footer() {
   return (
@@ -137,7 +137,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
-              © 2025 WebBuilder. All rights reserved.
+              © {new Date().getFullYear()} WebBuilder. All rights reserved.
             </p>
           </div>
         </div>
@@ -145,3 +145,4 @@ export default function Footer() {
     </footer>
   )
 }
+

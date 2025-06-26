@@ -1,3 +1,85 @@
+// Reusable StarRating Component
+interface StarRatingProps {
+  rating: number;
+  size?: 'sm' | 'md' | 'lg';
+  showText?: boolean;
+  text?: string;
+  className?: string;
+}
+
+function StarRating({ 
+  rating = 5, 
+  size = 'md', 
+  showText = false, 
+  text,
+  className = '' 
+}: StarRatingProps) {
+  const sizeClasses = {
+    sm: 'h-4 w-4',
+    md: 'h-5 w-5', 
+    lg: 'h-6 w-6'
+  }
+
+  const textSizeClasses = {
+    sm: 'text-xs',
+    md: 'text-sm',
+    lg: 'text-base'
+  }
+
+  return (
+    <div className={`flex items-center ${className}`}>
+      <div className="flex" role="img" aria-label={`${rating} out of 5 stars`}>
+        <span className="sr-only">{rating} out of 5 stars</span>
+        {[...Array(5)].map((_, i) => (
+          <svg 
+            key={i} 
+            className={`${sizeClasses[size]} ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`} 
+            fill="currentColor" 
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+      </div>
+      {showText && text && (
+        <span className={`ml-2 ${textSizeClasses[size]} text-gray-300`}>
+          {text}
+        </span>
+      )}
+    </div>
+  )
+}
+
+// Reusable GradientText Component
+interface GradientTextProps {
+  children: React.ReactNode;
+  gradient?: 'primary' | 'secondary' | 'custom';
+  from?: string;
+  to?: string;
+  className?: string;
+}
+
+function GradientText({ 
+  children, 
+  gradient = 'primary', 
+  from,
+  to,
+  className = '' 
+}: GradientTextProps) {
+  const gradientClasses = {
+    primary: 'from-blue-600 to-purple-600',
+    secondary: 'from-purple-600 to-pink-600',
+    custom: from && to ? `from-${from} to-${to}` : 'from-blue-600 to-purple-600'
+  }
+
+  return (
+    <span className={`text-transparent bg-clip-text bg-gradient-to-r ${gradientClasses[gradient]} ${className}`}>
+      {children}
+    </span>
+  )
+}
+
 export default function Testimonials() {
   const testimonials = [
     {
@@ -27,9 +109,9 @@ export default function Testimonials() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             What{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <GradientText gradient="primary">
               Clients Say
-            </span>
+            </GradientText>
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
             Join dozens of satisfied small business owners
@@ -70,13 +152,7 @@ export default function Testimonials() {
               </div>
 
               {/* Star Rating */}
-              <div className="mt-4 flex">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
+              <StarRating rating={5} size="md" className="mt-4" />
 
               {/* Hover Effect Background */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/30 to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
@@ -88,9 +164,10 @@ export default function Testimonials() {
         <div className="mt-16 text-center">
           <div className="inline-flex flex-col items-center space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex">
+              <div className="flex" role="img" aria-label="4.9 out of 5 stars rating">
+                <span className="sr-only">4.9 out of 5 stars</span>
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="h-6 w-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <svg key={i} className="h-6 w-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
