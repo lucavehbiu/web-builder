@@ -1,14 +1,5 @@
-import Link from 'next/link'
-
-// Reusable StarRating Component
-interface StarRatingProps {
-  rating: number;
-  size?: 'sm' | 'md' | 'lg';
-  showText?: boolean;
-  text?: string;
-  className?: string;
-}
-
+// Removed unused StarRating component
+/*
 function StarRating({ 
   rating = 5, 
   size = 'md', 
@@ -52,8 +43,10 @@ function StarRating({
     </div>
   )
 }
+*/
 
-// Reusable AnimatedIndicator Component  
+// Removed unused AnimatedIndicator component
+/*  
 interface AnimatedIndicatorProps {
   variant?: 'ping' | 'pulse' | 'bounce';
   color?: 'blue' | 'green' | 'red' | 'white';
@@ -105,8 +98,10 @@ function AnimatedIndicator({
     </span>
   )
 }
+*/
 
-// Reusable GradientText Component
+// Removed unused GradientText component
+/*
 interface GradientTextProps {
   children: React.ReactNode;
   gradient?: 'primary' | 'secondary' | 'custom';
@@ -134,108 +129,113 @@ function GradientText({
     </span>
   )
 }
+*/
 
-export default function Pricing() {
-  const features = [
-    "Professional 4-5 page website",
-    "Custom design tailored to your brand",
-    "Mobile responsive on all devices",
-    "Fast, secure hosting included",
-    "SSL certificate for security",
-    "Monthly content updates",
-    "Basic SEO optimization",
-    "Contact forms and social media integration",
-    "Google Analytics setup",
-    "Domain registration (if under $15/year)",
-    "99.9% uptime guarantee",
-    "Direct developer support"
-  ]
+import type { Dictionary } from '@/lib/i18n/types'
 
+export default function Pricing({ locale, dictionary }: { locale: string, dictionary: Dictionary }) {
+  const currency = locale === 'sq' ? '€' : '$'
+  const price = locale === 'sq' ? '50' : '60'
+  
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="bg-gradient-to-br from-gray-50 to-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            Simple,{" "}
-            <GradientText gradient="primary">
-              Transparent Pricing
-            </GradientText>
+            {dictionary.pricing.title}
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
-            No setup fees. No hidden costs. Just one monthly payment.
+            {dictionary.pricing.subtitle}
           </p>
         </div>
 
         {/* Pricing Card */}
-        <div className="mx-auto mt-16 max-w-lg">
-          <div className="relative">
-            {/* Popular badge */}
+        <div className="mx-auto mt-16 max-w-2xl lg:mt-24">
+          <div className="relative rounded-3xl bg-white p-8 shadow-2xl ring-1 ring-gray-200 sm:p-10">
+            {/* Popular Badge */}
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <div className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-medium text-white shadow-lg">
-                <AnimatedIndicator color="white" size="md" className="mr-2" />
-                Most Popular Plan
-              </div>
+              <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-semibold text-white shadow-md">
+                {dictionary.pricing.mostPopular}
+              </span>
             </div>
 
-            {/* Main pricing card */}
-            <div className="relative rounded-3xl bg-white p-8 shadow-2xl ring-1 ring-gray-200 hover:shadow-2xl transition-all duration-300">
-              {/* Price */}
+            {/* Pricing Header */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900">
+                {locale === 'sq' ? 'Gjithçka që ju Nevojitet' : 'Everything You Need'}
+              </h3>
+              <div className="mt-6 flex items-baseline justify-center gap-x-2">
+                <span className="text-5xl font-bold tracking-tight text-gray-900">
+                  {currency}{price}
+                </span>
+                <span className="text-base font-semibold leading-7 text-gray-600">
+                  /{locale === 'sq' ? 'muaj' : 'month'}
+                </span>
+              </div>
+              <p className="mt-4 text-base text-gray-600">
+                {locale === 'sq' 
+                  ? 'Anulo në çdo kohë. Pa kontratë afatgjatë.'
+                  : 'Cancel anytime. No long-term contract.'}
+              </p>
+            </div>
+
+            {/* Features List */}
+            <div className="mt-10">
+              <ul role="list" className="space-y-4 text-base leading-7 text-gray-600">
+                {[
+                  locale === 'sq' ? 'Dizajn profesional i personalizuar' : 'Professional custom design',
+                  locale === 'sq' ? 'Hosting dhe domain të përfshirë' : 'Hosting and domain included',
+                  locale === 'sq' ? 'Certifikatë SSL për siguri' : 'SSL certificate for security',
+                  locale === 'sq' ? 'Optimizim për motorët e kërkimit (SEO)' : 'Search engine optimization (SEO)',
+                  locale === 'sq' ? 'Dizajn plotësisht responsiv' : 'Fully responsive design',
+                  locale === 'sq' ? 'Përditësime mujore të përmbajtjes' : 'Monthly content updates',
+                  locale === 'sq' ? 'Mbështetje direkte nga zhvilluesi' : 'Direct developer support',
+                  locale === 'sq' ? '99.9% garanci funksionimi' : '99.9% uptime guarantee',
+                  locale === 'sq' ? 'Backup automatik ditor' : 'Automatic daily backups',
+                  locale === 'sq' ? 'Email biznesi të përfshirë' : 'Business email included'
+                ].map((feature) => (
+                  <li key={feature} className="flex items-start">
+                    <svg 
+                      className="h-6 w-6 flex-shrink-0 text-green-500 mr-3" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M5 13l4 4L19 7" 
+                      />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA Button */}
+            <div className="mt-10">
+              <a
+                href={`/${locale}/get-started`}
+                className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-center text-lg font-semibold text-white shadow-md hover:from-blue-500 hover:to-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-200 transform hover:scale-105"
+              >
+                {dictionary.pricing.getStarted}
+              </a>
+            </div>
+
+            {/* Additional Info */}
+            <div className="mt-8 border-t border-gray-200 pt-8">
               <div className="text-center">
-                <div className="flex items-center justify-center">
-                  <span className="text-5xl font-bold text-gray-900">$60</span>
-                  <span className="text-xl text-gray-500 ml-2">/month</span>
-                </div>
-                <p className="mt-2 text-sm text-gray-500">Everything included, no surprises</p>
-              </div>
-
-              {/* Features list */}
-              <div className="mt-8">
-                <ul className="space-y-4">
-                  {features.map((feature) => (
-                    <li key={feature} className="flex items-start">
-                      <div className="flex-shrink-0">
-                        <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <p className="ml-3 text-sm leading-6 text-gray-700">{feature}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* CTA Button */}
-              <div className="mt-8">
-                <Link
-                  href="/get-started"
-                  className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-center text-lg font-semibold text-white shadow-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                >
-                  Get Started Today
-                </Link>
-              </div>
-
-              {/* Money back guarantee */}
-              <div className="mt-6 text-center">
-                <p className="text-xs text-gray-500">
-                  30-day money-back guarantee • Cancel anytime
+                <p className="text-sm text-gray-500">
+                  {locale === 'sq'
+                    ? '✓ Pa tarifa fillimi  ✓ Pa kosto të fshehura  ✓ Anulo në çdo kohë'
+                    : '✓ No setup fees  ✓ No hidden costs  ✓ Cancel anytime'}
                 </p>
               </div>
-
-              {/* Background decoration */}
-              <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom testimonial/trust signals */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-6">
-            <StarRating rating={5} size="md" showText={true} text="4.9/5 from 200+ clients" />
-            <div className="text-sm text-gray-500">•</div>
-            <div className="text-sm text-gray-600">500+ websites launched</div>
-            <div className="text-sm text-gray-500">•</div>
-            <div className="text-sm text-gray-600">99.9% uptime</div>
           </div>
         </div>
       </div>

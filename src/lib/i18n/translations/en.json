@@ -1,0 +1,73 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "getStarted": "Start Your Project",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "close": "Close",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Build Your Dream Website",
+    "subtitle": "Professional web development services tailored to your business needs",
+    "description": "Transform your online presence with custom websites that drive results",
+    "cta": "Get Started Today",
+    "secondaryCta": "View Our Work"
+  },
+  "navigation": {
+    "logoText": "WebBuilder",
+    "homeLabel": "Go to homepage",
+    "aboutLabel": "Learn about the founder and company",
+    "servicesLabel": "View our website services",
+    "portfolioLabel": "View our portfolio of completed websites"
+  },
+  "features": {
+    "title": "Why Choose Us",
+    "subtitle": "We deliver exceptional web solutions",
+    "feature1": {
+      "title": "Custom Design",
+      "description": "Unique designs tailored to your brand"
+    },
+    "feature2": {
+      "title": "Responsive Development",
+      "description": "Perfect on all devices and screen sizes"
+    },
+    "feature3": {
+      "title": "SEO Optimized",
+      "description": "Built to rank high in search engines"
+    },
+    "feature4": {
+      "title": "Fast Performance",
+      "description": "Lightning-fast load times for better user experience"
+    }
+  },
+  "pricing": {
+    "title": "Pricing Plans",
+    "subtitle": "Choose the perfect plan for your needs",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "mostPopular": "Most Popular",
+    "getStarted": "Get Started",
+    "currency": "$"
+  },
+  "footer": {
+    "copyright": "© 2024 WebBuilder. All rights reserved.",
+    "newsletter": {
+      "title": "Subscribe to our newsletter",
+      "placeholder": "Enter your email",
+      "button": "Subscribe"
+    },
+    "links": {
+      "company": "Company",
+      "support": "Support",
+      "legal": "Legal",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service"
+    }
+  }
+}

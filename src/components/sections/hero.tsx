@@ -135,7 +135,9 @@ function GradientText({
   )
 }
 
-export default function Hero() {
+import type { Dictionary } from '@/lib/i18n/types'
+
+export default function Hero({ locale, dictionary }: { locale: string, dictionary: Dictionary }) {
   return (
     <section className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white overflow-hidden">
       {/* Background decoration */}
@@ -153,52 +155,55 @@ export default function Hero() {
           {/* Badge */}
           <div className="mb-8 inline-flex items-center rounded-full bg-blue-600/10 px-6 py-2 text-sm font-medium text-blue-300 ring-1 ring-inset ring-blue-600/20">
             <AnimatedIndicator color="blue" size="md" className="mr-2" />
-            No Setup Fees • No Hidden Costs
+            {locale === 'sq' ? 'Pa Tarifa Fillimi • Pa Kosto të Fshehura' : 'No Setup Fees • No Hidden Costs'}
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="block">Professional Websites</span>
+            <span className="block">{dictionary.hero.title.split(' ').slice(0, 2).join(' ')}</span>
             <span className="block">
               <GradientText gradient="custom" from="blue-400" to="purple-400">
-                for $60/month
+                {dictionary.hero.title.split(' ').slice(2).join(' ')}
               </GradientText>
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="mt-6 text-lg leading-8 text-gray-300 sm:text-xl lg:text-2xl max-w-3xl mx-auto">
-            Get a stunning website for your small business. No setup fees, no hidden costs.
-            Just one simple monthly payment that includes everything.
+            {dictionary.hero.subtitle}
           </p>
 
           {/* CTAs */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <Link
-              href="/get-started"
+              href={`/${locale}/get-started`}
               className="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-200 transform hover:scale-105"
             >
-              Start Your Website Today
+              {dictionary.hero.cta}
               <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
 
             <Link
-              href="/services"
+              href={`/${locale}/services`}
               className="inline-flex items-center justify-center rounded-lg border border-gray-600 bg-gray-800/50 px-8 py-4 text-lg font-semibold text-white hover:bg-gray-700/50 hover:border-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 transition-all duration-200 backdrop-blur-sm"
             >
-              See What&apos;s Included
+              {dictionary.hero.secondaryCta}
             </Link>
           </div>
 
           {/* Social Proof */}
           <div className="mt-16 flex flex-col items-center">
-            <p className="text-sm text-gray-400 mb-4">Trusted by 500+ small businesses</p>
+            <p className="text-sm text-gray-400 mb-4">
+              {locale === 'sq' ? 'Besuar nga 500+ biznese të vogla' : 'Trusted by 500+ small businesses'}
+            </p>
             <div className="flex items-center space-x-2">
               {/* Star rating */}
               <StarRating rating={5} size="md" />
-              <span className="text-sm text-gray-300 ml-2">4.9/5 from 200+ reviews</span>
+              <span className="text-sm text-gray-300 ml-2">
+                {locale === 'sq' ? '4.9/5 nga 200+ vlerësime' : '4.9/5 from 200+ reviews'}
+              </span>
             </div>
           </div>
         </div>

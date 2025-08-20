@@ -1,0 +1,73 @@
+{
+  "common": {
+    "home": "Ballina",
+    "about": "Rreth Nesh",
+    "services": "Shërbimet",
+    "portfolio": "Portofoli",
+    "contact": "Kontakt",
+    "getStarted": "Fillo Projektin Tënd",
+    "learnMore": "Mëso Më Shumë",
+    "viewAll": "Shiko të Gjitha",
+    "close": "Mbyll",
+    "menu": "Menu",
+    "language": "Gjuha"
+  },
+  "hero": {
+    "title": "Ndërto Faqen Tënde të Ëndrrave",
+    "subtitle": "Shërbime profesionale të zhvillimit të ueb-it të përshtatura për nevojat e biznesit tuaj",
+    "description": "Transformoni praninë tuaj online me faqe interneti të personalizuara që japin rezultate",
+    "cta": "Fillo Sot",
+    "secondaryCta": "Shiko Punën Tonë"
+  },
+  "navigation": {
+    "logoText": "WebBuilder",
+    "homeLabel": "Shko te faqja kryesore",
+    "aboutLabel": "Mëso rreth themeluesit dhe kompanisë",
+    "servicesLabel": "Shiko shërbimet tona të faqeve të internetit",
+    "portfolioLabel": "Shiko portofolin tonë të faqeve të përfunduara"
+  },
+  "features": {
+    "title": "Pse të Na Zgjidhni",
+    "subtitle": "Ne ofrojmë zgjidhje të jashtëzakonshme për ueb",
+    "feature1": {
+      "title": "Dizajn i Personalizuar",
+      "description": "Dizajne unike të përshtatura për markën tuaj"
+    },
+    "feature2": {
+      "title": "Zhvillim Responsiv",
+      "description": "Perfekt në të gjitha pajisjet dhe madhësitë e ekranit"
+    },
+    "feature3": {
+      "title": "Optimizuar për SEO",
+      "description": "Ndërtuar për të ranguar lart në motorët e kërkimit"
+    },
+    "feature4": {
+      "title": "Performancë e Shpejtë",
+      "description": "Kohë ngarkimi të shpejta për përvojë më të mirë të përdoruesit"
+    }
+  },
+  "pricing": {
+    "title": "Planet e Çmimeve",
+    "subtitle": "Zgjidhni planin perfekt për nevojat tuaja",
+    "monthly": "Mujor",
+    "yearly": "Vjetor",
+    "mostPopular": "Më i Popullarizuar",
+    "getStarted": "Fillo",
+    "currency": "€"
+  },
+  "footer": {
+    "copyright": "© 2024 WebBuilder. Të gjitha të drejtat e rezervuara.",
+    "newsletter": {
+      "title": "Abonohu në buletinin tonë",
+      "placeholder": "Vendos email-in tënd",
+      "button": "Abonohu"
+    },
+    "links": {
+      "company": "Kompania",
+      "support": "Mbështetje",
+      "legal": "Ligjore",
+      "privacyPolicy": "Politika e Privatësisë",
+      "termsOfService": "Kushtet e Shërbimit"
+    }
+  }
+}

@@ -3,17 +3,24 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import LanguageSwitcher from '@/components/ui/language-switcher'
+import type { Dictionary } from '@/lib/i18n/types'
+import type { Locale } from '@/lib/i18n/config'
 
 interface MobileNavProps {
   logo?: string
   logoClassName?: string
   theme?: 'light' | 'dark'
+  locale?: Locale | string
+  dictionary?: Dictionary
 }
 
 export default function MobileNav({ 
   logo = 'WebBuilder', 
   logoClassName = '',
-  theme = 'dark' 
+  theme = 'dark',
+  locale = 'en',
+  dictionary
 }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
@@ -59,10 +66,10 @@ export default function MobileNav({
   }, [isOpen])
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/services', label: 'Services' },
-    { href: '/portfolio', label: 'Portfolio' },
+    { href: `/${locale}`, label: dictionary?.common?.home || 'Home' },
+    { href: `/${locale}/about`, label: dictionary?.common?.about || 'About' },
+    { href: `/${locale}/services`, label: dictionary?.common?.services || 'Services' },
+    { href: `/${locale}/portfolio`, label: dictionary?.common?.portfolio || 'Portfolio' },
   ]
 
   const themeClasses = {
@@ -93,8 +100,6 @@ export default function MobileNav({
       {/* Hamburger Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-
-
         className={`p-2 rounded-lg transition-colors hover:bg-white/10 ${classes.hamburger}`}
         aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
         aria-expanded={isOpen}
@@ -143,7 +148,7 @@ export default function MobileNav({
             id="mobile-nav-title" 
             className={`text-xl font-bold ${classes.logo} ${logoClassName}`}
           >
-            {logo}
+            {dictionary?.navigation?.logoText || logo}
           </h2>
           <button
             onClick={() => setIsOpen(false)}
@@ -174,14 +179,19 @@ export default function MobileNav({
             ))}
           </ul>
 
+          {/* Language Switcher */}
+          <div className="mt-6 px-4">
+            <LanguageSwitcher locale={locale as Locale} />
+          </div>
+
           {/* CTA Button */}
           <div className="mt-8">
             <Link
-              href="/get-started"
+              href={`/${locale}/get-started`}
               className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-colors shadow-xs ${classes.cta}`}
               onClick={() => setIsOpen(false)}
             >
-              Start Your Project
+              {dictionary?.common?.getStarted || 'Start Your Project'}
             </Link>
           </div>
         </nav>

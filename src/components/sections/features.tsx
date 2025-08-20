@@ -1,4 +1,6 @@
-export default function Features() {
+import type { Dictionary } from '@/lib/i18n/types'
+
+export default function Features({ locale, dictionary }: { locale: string, dictionary: Dictionary }) {
   const features = [
     {
       icon: (
@@ -6,8 +8,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.995 15.995 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
         </svg>
       ),
-      title: "Custom Design",
-      description: "A unique website tailored to your brand and business needs. No cookie-cutter templates."
+      title: dictionary.features.feature1.title,
+      description: dictionary.features.feature1.description
     },
     {
       icon: (
@@ -15,8 +17,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
         </svg>
       ),
-      title: "Mobile Responsive",
-      description: "Your website looks perfect on all devices - phones, tablets, and desktops."
+      title: dictionary.features.feature2.title,
+      description: dictionary.features.feature2.description
     },
     {
       icon: (
@@ -24,8 +26,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
         </svg>
       ),
-      title: "Lightning Fast",
-      description: "Optimized for speed with 99.9% uptime. Your customers won't wait for slow pages."
+      title: dictionary.features.feature4.title,
+      description: dictionary.features.feature4.description
     },
     {
       icon: (
@@ -33,8 +35,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
         </svg>
       ),
-      title: "Secure Hosting",
-      description: "SSL certificate included. Your website and customer data are always protected."
+      title: locale === 'sq' ? 'Hosting i Sigurt' : 'Secure Hosting',
+      description: locale === 'sq' ? 'Certifikatë SSL e përfshirë. Faqja dhe të dhënat tuaja janë gjithmonë të mbrojtura.' : 'SSL certificate included. Your website and customer data are always protected.'
     },
     {
       icon: (
@@ -42,8 +44,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
         </svg>
       ),
-      title: "Monthly Updates",
-      description: "Keep your content fresh. We&apos;ll update your website monthly as part of the service."
+      title: locale === 'sq' ? 'Përditësime Mujore' : 'Monthly Updates',
+      description: locale === 'sq' ? 'Mbani përmbajtjen tuaj të freskët. Ne do të përditësojmë faqen tuaj çdo muaj si pjesë e shërbimit.' : 'Keep your content fresh. We\'ll update your website monthly as part of the service.'
     },
     {
       icon: (
@@ -51,8 +53,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
         </svg>
       ),
-      title: "Full Support",
-      description: "Direct access to your developer. Get help when you need it, no call centers."
+      title: locale === 'sq' ? 'Mbështetje e Plotë' : 'Full Support',
+      description: locale === 'sq' ? 'Qasje direkte tek zhvilluesi juaj. Merrni ndihmë kur ju nevojitet, pa qendra thirrjesh.' : 'Direct access to your developer. Get help when you need it, no call centers.'
     }
   ]
 
@@ -62,13 +64,10 @@ export default function Features() {
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            Everything You Need,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Nothing You Don&apos;t
-            </span>
+            {dictionary.features.title}
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
-            Our all-inclusive package gives you a professional web presence without the hassle
+            {dictionary.features.subtitle}
           </p>
         </div>
 
@@ -112,7 +111,9 @@ export default function Features() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
-            All features included in your $60/month subscription
+            {locale === 'sq' 
+              ? 'Të gjitha veçoritë të përfshira në abonimin tuaj 50€/muaj' 
+              : 'All features included in your $60/month subscription'}
           </div>
         </div>
       </div>
