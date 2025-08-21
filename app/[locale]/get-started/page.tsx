@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import Header from '@/components/ui/header'
 import Notification from '@/components/ui/notification'
 import { useParams } from 'next/navigation'

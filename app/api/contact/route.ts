@@ -1,14 +1,73 @@
 import { NextResponse } from 'next/server'
 import Mailjet from 'node-mailjet'
+import { google } from 'googleapis'
+import { saveLeadToFile } from './simple-storage'
 
 const mailjet = new Mailjet({
   apiKey: process.env.MAILJET_API_KEY || '',
   apiSecret: process.env.MAILJET_SECRET_KEY || ''
 })
 
-export async function POST(request: Request) {
+// Google Sheets setup
+async function saveToGoogleSheets(formData: any) {
   try {
-    const formData = await request.json()
+    // Only proceed if Google Sheets is configured
+    if (!process.env.GOOGLE_SHEETS_ID || !process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || !process.env.GOOGLE_PRIVATE_KEY) {
+      console.log('Google Sheets not configured, skipping...')
+      return
+    }
+
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      },
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    })
+
+    const sheets = google.sheets({ version: 'v4', auth })
+
+    // Prepare row data
+    const rowData = [
+      new Date().toLocaleString(), // Timestamp
+      formData.businessName,
+      formData.fullName,
+      formData.email,
+      formData.phone || '',
+      formData.industry,
+      formData.businessDescription,
+      formData.hasWebsite || '',
+      formData.currentWebsiteUrl || '',
+      formData.neededPages?.join(', ') || '',
+      formData.preferredDomain || '',
+      formData.hasBranding || '',
+      formData.colorScheme || '',
+      formData.launchTimeline || '',
+      formData.contentReady || '',
+      formData.specialRequirements || '',
+      formData.hearAboutUs || ''
+    ]
+
+    // Append to sheet
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.GOOGLE_SHEETS_ID,
+      range: 'Sheet1!A:Q', // Columns A to Q
+      valueInputOption: 'USER_ENTERED',
+      requestBody: {
+        values: [rowData],
+      },
+    })
+
+    console.log('Lead saved to Google Sheets')
+  } catch (error) {
+    console.error('Error saving to Google Sheets:', error)
+    // Don't throw - we still want to send the email even if Sheets fails
+  }
+}
+
+export async function POST(req: Request) {
+  try {
+    const formData = await req.json()
 
     // Create a formatted email with all the form data
     const emailHtml = `
@@ -51,7 +110,7 @@ export async function POST(request: Request) {
     `
 
     // Send email to you using Mailjet
-    const request = mailjet
+    const mailRequest = mailjet
       .post('send', { version: 'v3.1' })
       .request({
         Messages: [
@@ -77,9 +136,12 @@ export async function POST(request: Request) {
         ]
       })
 
-    const result = await request
+    const result = await mailRequest
     
-    if (!result.body.Messages[0].Status || result.body.Messages[0].Status !== 'success') {
+    console.log('Mailjet response:', result.body)
+    
+    if (!result.body.Messages || !result.body.Messages[0] || result.body.Messages[0].Status !== 'success') {
+      console.error('Mailjet send failed:', result.body)
       throw new Error('Failed to send notification email')
     }
 
@@ -128,6 +190,12 @@ export async function POST(request: Request) {
       })
 
     await confirmationRequest
+
+    // Save to Google Sheets (if configured)
+    await saveToGoogleSheets(formData)
+    
+    // Also save to local JSON file for easy access
+    await saveLeadToFile(formData)
 
     return NextResponse.json(
       { message: 'Email sent successfully' },

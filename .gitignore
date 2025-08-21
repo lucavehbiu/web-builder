@@ -50,3 +50,11 @@ next-env.d.ts
 
 # OS
 Thumbs.db
+
+# Lead data
+leads.json
+
+# Google Service Account credentials
+Gemini API Client.json
+*service-account*.json
+*.serviceaccount.json
