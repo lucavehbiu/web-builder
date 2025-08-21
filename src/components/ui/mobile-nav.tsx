@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Logo from '@/components/ui/logo'
 import LanguageSwitcher from '@/components/ui/language-switcher'
 import type { Dictionary } from '@/lib/i18n/types'
 import type { Locale } from '@/lib/i18n/config'
@@ -144,12 +145,9 @@ export default function MobileNav({
       >
         {/* Panel Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-          <h2 
-            id="mobile-nav-title" 
-            className={`text-xl font-bold ${classes.logo} ${logoClassName}`}
-          >
-            {dictionary?.navigation?.logoText || logo}
-          </h2>
+          <div id="mobile-nav-title">
+            <Logo size="sm" />
+          </div>
           <button
             onClick={() => setIsOpen(false)}
             className={`p-2 rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${classes.hamburger}`}

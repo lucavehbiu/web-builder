@@ -5,7 +5,11 @@ import FooterEnhanced from "@/components/ui/footer-enhanced";
 import { i18n, type Locale } from '@/lib/i18n/config'
 // import { getDictionary } from '@/lib/i18n/get-dictionary'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-inter"
+});
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }))
@@ -21,17 +25,31 @@ export async function generateMetadata({
   
   return {
     title: isAlbanian 
-      ? "WebBuilder - Faqe Profesionale për Bizneset e Vogla"
-      : "WebBuilder - Professional Websites for Small Businesses",
+      ? "Luca - Faqe Profesionale për Bizneset e Vogla"
+      : "Luca - Bringing Your Business Into the Light",
     description: isAlbanian
-      ? "Faqe profesionale për biznese të vogla. 50€/muaj, gjithëpërfshirëse. Krijimi i faqes, hosting, mirëmbajtje dhe përditësime mujore."
-      : "Professional websites for small businesses. $60/month, all-inclusive. Website creation, hosting, maintenance, and monthly updates.",
+      ? "Duke sjellë biznesin tuaj në dritë. Faqe profesionale që të bëjnë të dukshëm online. 15€/muaj, gjithëpërfshirëse."
+      : "Professional websites that make your business visible online. Bringing you into the light with $60/month all-inclusive service.",
+    icons: {
+      icon: [
+        { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      ],
+      apple: [
+        { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      ],
+      other: [
+        { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+        { url: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+      ],
+    },
+    manifest: '/site.webmanifest',
     keywords: isAlbanian
       ? ["dizajn ueb", "biznes i vogël", "ndërtues faqesh", "faqe profesionale", "faqe shqip"]
       : ["web design", "small business", "website builder", "professional websites"],
-    authors: [{ name: "WebBuilder" }],
-    creator: "WebBuilder",
-    publisher: "WebBuilder",
+    authors: [{ name: "Luca" }],
+    creator: "Luca",
+    publisher: "Luca",
     robots: {
       index: true,
       follow: true,
@@ -46,24 +64,24 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: locale === 'sq' ? "sq_AL" : "en_US",
-      url: "https://webbuilder.com",
-      siteName: "WebBuilder",
+      url: "https://lucavehbiu.com",
+      siteName: "Luca",
       title: isAlbanian
-        ? "WebBuilder - Faqe Profesionale për Bizneset e Vogla"
-        : "WebBuilder - Professional Websites for Small Businesses",
+        ? "Luca - Faqe Profesionale për Bizneset e Vogla"
+        : "Luca - Bringing Your Business Into the Light",
       description: isAlbanian
-        ? "Faqe profesionale për biznese të vogla. 50€/muaj, gjithëpërfshirëse."
-        : "Professional websites for small businesses. $60/month, all-inclusive.",
+        ? "Duke sjellë biznesin tuaj në dritë. Faqe profesionale që të bëjnë të dukshëm online."
+        : "Professional websites that make your business visible online. Bringing you into the light.",
     },
     twitter: {
       card: "summary_large_image",
       title: isAlbanian
-        ? "WebBuilder - Faqe Profesionale për Bizneset e Vogla"
-        : "WebBuilder - Professional Websites for Small Businesses",
+        ? "Luca - Faqe Profesionale për Bizneset e Vogla"
+        : "Luca - Bringing Your Business Into the Light",
       description: isAlbanian
-        ? "Faqe profesionale për biznese të vogla. 50€/muaj, gjithëpërfshirëse."
-        : "Professional websites for small businesses. $60/month, all-inclusive.",
-      creator: "@webbuilder",
+        ? "Duke sjellë biznesin tuaj në dritë. Faqe profesionale që të bëjnë të dukshëm online."
+        : "Professional websites that make your business visible online. Bringing you into the light.",
+      creator: "@lucavehbiu",
     },
     verification: {
       google: "google-site-verification-code",
@@ -84,7 +102,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="h-full" style={{overscrollBehavior: 'none'}}>
-      <body className={`${inter.className} h-full flex flex-col`} style={{overscrollBehavior: 'none'}}>
+      <body className={`${inter.className} ${inter.variable} h-full flex flex-col`} style={{overscrollBehavior: 'none'}}>
         <div className="flex-grow">
           {children}
         </div>

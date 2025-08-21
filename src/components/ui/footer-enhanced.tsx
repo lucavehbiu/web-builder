@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Logo from './logo'
 import Notification from './notification'
 
 // Social media icons (you can replace with your preferred icon library)
@@ -100,9 +101,11 @@ export default function FooterEnhanced() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand section */}
           <div className="md:col-span-2">
-            <h2 className="text-2xl font-bold text-white mb-3">WebBuilder</h2>
+            <div className="mb-4">
+              <Logo size="md" />
+            </div>
             <p className="text-sm text-gray-300 mb-6 max-w-md">
-              Professional websites for small businesses. $60/month, all-inclusive.
+              Bringing your business into the light. Professional websites that make you visible online.
             </p>
             
             {/* Social links */}

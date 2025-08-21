@@ -1,36 +1,36 @@
 {
   "common": {
-    "home": "Ballina",
+    "home": "Kreu",
     "about": "Rreth Nesh",
     "services": "Shërbimet",
     "portfolio": "Portofoli",
     "contact": "Kontakt",
-    "getStarted": "Merre Faqen në 48 Orë",
-    "learnMore": "Shiko si Funksionon",
+    "getStarted": "Hyr në Dritë",
+    "learnMore": "Ndriço Biznesin Tim",
     "viewAll": "Shiko të Gjitha Punët",
     "close": "Mbyll",
     "menu": "Menu",
     "language": "Gjuha"
   },
   "hero": {
-    "title": "Ndërtoj Faqe që të Bëjnë Para të Vërteta",
-    "subtitle": "Ndalo humbjen e klientëve tek konkurrentët me faqe më të mira. Në 48 orë, do kesh një faqe që konverton vizitorët në klientë që paguajnë.",
-    "description": "I kam ndihmuar 200+ biznese të vogla të rrisin të ardhurat me mesatare 40% me faqe që vërtet funksionojnë. Pa zbukurime, pa përfolsje - vetëm rezultate.",
-    "cta": "Merre Faqen në 48 Orë",
-    "secondaryCta": "Shiko Rezultatet",
-    "badge": "Dorëzim në 48 Orë • Pa Tarifa • Garanci 90 Ditë",
-    "proof": "Bashkohu me 200+ biznese që bëjnë më shumë para online"
+    "title": "Duke Sjellë Biznesin Tuaj në Dritë",
+    "subtitle": "Mos lejo që biznesi yt të qëndrojë i fshehur në errësirë. Faqe profesionale që të bëjnë të dukshëm për klientët që kërkojnë online.",
+    "description": "Ndriçoj bizneset online me faqe profesionale që gjenden, besohen dhe zgjidhen nga klientët.",
+    "cta": "Hyr në Dritë",
+    "secondaryCta": "Shiko si Funksionon",
+    "badge": "Prezencë Profesionale në Web • Dorëzim i Shpejtë • Partneri i Suksesit Tuaj",
+    "proof": "Bashkohu me 200+ biznese që shkëlqejnë online"
   },
   "navigation": {
-    "logoText": "WebBuilder",
+    "logoText": "Luca",
     "homeLabel": "Shko te faqja kryesore",
     "aboutLabel": "Mëso rreth themeluesit dhe kompanisë",
     "servicesLabel": "Shiko shërbimet tona të faqeve të internetit",
     "portfolioLabel": "Shiko portofolin tonë të faqeve të përfunduara"
   },
   "features": {
-    "title": "Pse Klientët e Mi Bëjnë Më Shumë Para",
-    "subtitle": "Rezultate të vërteta, jo vetëm faqe të bukura",
+    "title": "Pse Bizneset Zgjedhin Luca",
+    "subtitle": "Faqe profesionale që e sjellin biznesin tuaj në spot",
     "feature1": {
       "title": "Dizajn i Fokusuar në Konvertim",
       "description": "Çdo element është dizajnuar për të kthyer vizitorët në klientë, jo vetëm për të dukur bukur"
@@ -111,7 +111,7 @@
       "title": "Historia Ime",
       "paragraph1": "Pas vitesh pune me klientë të mëdhenj, vura re diçka shqetësuese: bizneset e vogla po përjashtohen nga pasja e një prezence profesionale web.",
       "paragraph2": "Oferta mbi 125,000 lekë për një faqe të thjeshtë, plus dhjetëra mijëra lekë në muaj për hosting? Kjo nuk më dukej mirë. E dija se duhej të kishte një mënyrë më të mirë.",
-      "paragraph3": "Kështu krijova WebBuilder - një shërbim i thjeshtë dhe transparent që u jep bizneseve të vogla gjithçka që u duhet për një çmim të përballueshëm mujor.",
+      "paragraph3": "Kështu krijova Luca - një shërbim i thjeshtë dhe transparent që u jep bizneseve të vogla gjithçka që u duhet për një çmim të përballueshëm mujor.",
       "conclusion": "Pa tarifa fillestare. Pa surpriza. Vetëm faqe profesionale që funksionojnë."
     },
     "beliefs": {
@@ -238,11 +238,11 @@
       }
     },
     "comparison": {
-      "title": "Pse të Zgjedhësh WebBuilder?",
+      "title": "Pse të Zgjedhësh Luca?",
       "subtitle": "Krahasoni kostot reale dhe shikoni ndryshimin",
       "bestValue": "Vlera Më e Mirë",
       "agencies": "Agjenci Tradicionale",
-      "webbuilder": "WebBuilder",
+      "webbuilder": "Luca",
       "diy": "Platforma DIY",
       "setup": "Konfigurimi:",
       "hosting": "Hosting:",
@@ -464,7 +464,7 @@
     }
   },
   "footer": {
-    "copyright": "© 2024 WebBuilder. Të gjitha të drejtat e rezervuara.",
+    "copyright": "© 2024 Luca. Të gjitha të drejtat e rezervuara.",
     "newsletter": {
       "title": "Merr këshilla javore për të rritur biznesin online",
       "placeholder": "Vendos email-in tënd",

@@ -57,27 +57,44 @@ function StarRating({
 export default function Hero({ locale, dictionary }: { locale: string, dictionary: Dictionary }) {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* Professional Light Elements */}
       <div className="absolute inset-0">
-        {/* Floating geometric shapes */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-emerald-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-violet-400/20 to-purple-400/20 rounded-full blur-xl animate-bounce"></div>
-        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-full blur-xl animate-pulse"></div>
+        {/* Central Light Source */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-emerald-400/30 via-cyan-400/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
         
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        {/* Light Beams */}
+        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-emerald-400/40 via-emerald-400/10 to-transparent transform rotate-12 blur-sm"></div>
+        <div className="absolute top-0 right-1/3 w-1 h-full bg-gradient-to-b from-cyan-400/40 via-cyan-400/10 to-transparent transform -rotate-12 blur-sm"></div>
+        <div className="absolute top-0 left-1/2 w-0.5 h-full bg-gradient-to-b from-white/30 via-white/5 to-transparent blur-sm"></div>
         
-        {/* Noise texture overlay */}
-        <div className="absolute inset-0 opacity-30 mix-blend-overlay" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-        }}></div>
+        {/* Spotlight Effects */}
+        <div className="absolute top-10 left-10 w-40 h-40 bg-gradient-conic from-emerald-400/20 via-transparent to-cyan-400/20 rounded-full blur-2xl animate-spin-slow"></div>
+        <div className="absolute bottom-20 right-20 w-60 h-60 bg-gradient-conic from-cyan-400/15 via-transparent to-emerald-400/15 rounded-full blur-3xl animate-spin-reverse"></div>
+        
+        {/* Floating Light Orbs */}
+        <div className="absolute top-1/4 left-20 w-4 h-4 bg-emerald-400/60 rounded-full blur-sm animate-float shadow-lg shadow-emerald-400/50"></div>
+        <div className="absolute top-3/4 right-32 w-3 h-3 bg-cyan-400/60 rounded-full blur-sm animate-float-delayed shadow-lg shadow-cyan-400/50"></div>
+        <div className="absolute top-1/3 right-16 w-5 h-5 bg-white/40 rounded-full blur-sm animate-float-slow shadow-lg shadow-white/30"></div>
+        
+        {/* Subtle Grid with Light */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+        
+        {/* Light Particles */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute top-1/6 left-1/5 w-1 h-1 bg-emerald-400 rounded-full animate-twinkle"></div>
+          <div className="absolute top-2/3 left-3/4 w-1 h-1 bg-cyan-400 rounded-full animate-twinkle-delayed"></div>
+          <div className="absolute top-1/2 left-4/5 w-0.5 h-0.5 bg-white rounded-full animate-twinkle-slow"></div>
+          <div className="absolute top-1/4 right-1/3 w-1 h-1 bg-emerald-300 rounded-full animate-twinkle"></div>
+        </div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
         <div className="mx-auto max-w-5xl">
-          {/* Badge */}
-          <div className="mb-8 inline-flex items-center rounded-full bg-emerald-500/10 px-6 py-2 text-sm font-medium text-emerald-300 ring-1 ring-inset ring-emerald-500/20 backdrop-blur-sm">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-ping"></div>
+          {/* Badge - Enhanced with Light Icon */}
+          <div className="mb-8 inline-flex items-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 px-6 py-2 text-sm font-medium text-white shadow-2xl hover:bg-white/15 transition-all duration-300">
+            <svg className="w-4 h-4 mr-2 text-emerald-400 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 2L13 7h5l-4 3.5L16 16l-6-4-6 4 2-5.5L2 7h5l3-5z" clipRule="evenodd" />
+            </svg>
             {dictionary.hero.badge}
           </div>
 

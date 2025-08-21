@@ -5,32 +5,32 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "contact": "Contact",
-    "getStarted": "Get My Website in 48 Hours",
-    "learnMore": "See How It Works",
+    "getStarted": "Step Into the Light",
+    "learnMore": "Illuminate My Business",
     "viewAll": "View All Work",
     "close": "Close",
     "menu": "Menu",
     "language": "Language"
   },
   "hero": {
-    "title": "I Build Websites That Actually Make You Money",
-    "subtitle": "Stop losing customers to competitors with better websites. In 48 hours, you'll have a site that converts visitors into paying customers.",
-    "description": "I've helped 200+ small businesses increase their revenue by an average of 40% with websites that actually work. No fluff, no nonsense – just results.",
-    "cta": "Get My Website in 48 Hours",
-    "secondaryCta": "See Real Results",
-    "badge": "48-Hour Delivery • No Setup Fees • 90-Day Money Back",
-    "proof": "Join 200+ businesses making more money online"
+    "title": "Bringing Your Business Into the Light",
+    "subtitle": "Don't let your business stay hidden in the dark. Professional websites that make you visible to customers searching online.",
+    "description": "I illuminate businesses online with professional websites that get found, trusted, and chosen by customers.",
+    "cta": "Step Into the Light",
+    "secondaryCta": "See How It Works",
+    "badge": "Professional Web Presence • Fast Delivery • Your Success Partner",
+    "proof": "Join 200+ businesses shining online"
   },
   "navigation": {
-    "logoText": "WebBuilder",
+    "logoText": "Luca",
     "homeLabel": "Go to homepage",
     "aboutLabel": "Learn about the founder and company", 
     "servicesLabel": "View our website services",
     "portfolioLabel": "View our portfolio of completed websites"
   },
   "features": {
-    "title": "Why My Clients Make More Money",
-    "subtitle": "Real results, not just pretty websites",
+    "title": "Why Businesses Choose Luca",
+    "subtitle": "Professional websites that bring your business into the spotlight",
     "feature1": {
       "title": "Conversion-Focused Design",
       "description": "Every element is designed to turn visitors into customers, not just look pretty"
@@ -344,9 +344,9 @@
   },
   "getStarted": {
     "header": {
-      "title": "Start Your",
-      "price": "$60/month Website",
-      "subtitle": "Just a few questions and you'll be on your way to a professional website."
+      "title": "Step Into the Light with",
+      "price": "$60/month",
+      "subtitle": "Just a few questions and you'll have a professional website that makes your business visible online."
     },
     "progress": {
       "step": "Step",
@@ -464,7 +464,7 @@
     }
   },
   "footer": {
-    "copyright": "© 2024 WebBuilder. All rights reserved.",
+    "copyright": "© 2024 Luca. All rights reserved.",
     "newsletter": {
       "title": "Get weekly tips to grow your business online",
       "placeholder": "Enter your email",
