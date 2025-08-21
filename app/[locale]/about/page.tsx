@@ -4,6 +4,8 @@ import OptimizedImage from '@/components/ui/optimized-image'
 import { getDictionary } from '@/lib/i18n/get-dictionary'
 import { Locale } from '@/lib/i18n/config'
 
+export const runtime = 'edge'
+
 export default async function About({
   params,
 }: {
