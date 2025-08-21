@@ -12,6 +12,7 @@
     "deploy": "npm run pages:build && wrangler pages deploy"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.56.0",
     "googleapis": "^156.0.0",
     "next": "15.3.4",
     "node-mailjet": "^6.0.9",

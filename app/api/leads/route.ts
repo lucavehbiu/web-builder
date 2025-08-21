@@ -1,13 +1,40 @@
 import { NextResponse } from 'next/server'
+import { createClient } from '@supabase/supabase-js'
 
 export const runtime = 'edge'
 
+// Initialize Supabase client
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+  process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+)
+
 export async function GET() {
-  // In Edge Runtime, we can't read from file system
-  // You would need to use a database or external service
-  // For now, returning a placeholder response
-  return NextResponse.json({
-    message: 'Leads are stored via email. Check your inbox at info@lucavehbiu.com',
-    note: 'For production, consider using a database like Supabase or PlanetScale'
-  })
+  try {
+    const { data: leads, error } = await supabase
+      .from('leads')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(50) // Limit to last 50 leads
+
+    if (error) {
+      console.error('Supabase error:', error)
+      return NextResponse.json(
+        { error: 'Failed to fetch leads' },
+        { status: 500 }
+      )
+    }
+
+    return NextResponse.json({
+      leads,
+      total: leads?.length || 0,
+      message: 'Leads fetched successfully'
+    })
+  } catch (error) {
+    console.error('API error:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
 }

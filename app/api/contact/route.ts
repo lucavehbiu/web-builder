@@ -1,6 +1,13 @@
 import { NextResponse } from 'next/server'
+import { createClient } from '@supabase/supabase-js'
 
 export const runtime = 'edge'
+
+// Initialize Supabase client
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+  process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+)
 
 export async function POST(req: Request) {
   try {
@@ -153,8 +160,44 @@ export async function POST(req: Request) {
       })
     })
 
+    // Save lead to Supabase
+    const { data: savedLead, error: supabaseError } = await supabase
+      .from('leads')
+      .insert([
+        {
+          business_name: emailContent.businessName,
+          full_name: emailContent.fullName,
+          email: emailContent.email,
+          phone: emailContent.phone,
+          industry: emailContent.industry,
+          business_description: emailContent.businessDescription,
+          has_website: emailContent.hasWebsite,
+          current_website_url: emailContent.currentWebsiteUrl,
+          needed_pages: emailContent.neededPages,
+          preferred_domain: emailContent.preferredDomain,
+          has_branding: emailContent.hasBranding,
+          color_scheme: emailContent.colorScheme,
+          launch_timeline: emailContent.launchTimeline,
+          content_ready: emailContent.contentReady,
+          special_requirements: emailContent.specialRequirements,
+          hear_about_us: emailContent.hearAboutUs,
+          status: 'new'
+        }
+      ])
+      .select()
+
+    if (supabaseError) {
+      console.error('Supabase error:', supabaseError)
+      // Don't fail the request if Supabase fails - email was still sent
+    }
+
     return NextResponse.json(
-      { message: 'Email sent successfully', data: emailContent },
+      { 
+        message: 'Email sent successfully', 
+        data: emailContent,
+        saved: !supabaseError,
+        leadId: savedLead?.[0]?.id 
+      },
       { status: 200 }
     )
   } catch (error) {
