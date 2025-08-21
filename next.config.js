@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
-  // Disable experimental features that may cause issues with Cloudflare Pages
-  experimental: {
-    serverComponentsExternalPackages: ['node-mailjet'],
-  },
+  // External packages for server components (updated syntax for Next.js 15)
+  serverExternalPackages: ['node-mailjet'],
 }
 
 module.exports = nextConfig
