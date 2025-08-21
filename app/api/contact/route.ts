@@ -9,7 +9,7 @@ const mailjet = new Mailjet({
 })
 
 // Google Sheets setup
-async function saveToGoogleSheets(formData: any) {
+async function saveToGoogleSheets(formData: Record<string, string | string[] | undefined>) {
   try {
     // Only proceed if Google Sheets is configured
     if (!process.env.GOOGLE_SHEETS_ID || !process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || !process.env.GOOGLE_PRIVATE_KEY) {
@@ -38,7 +38,7 @@ async function saveToGoogleSheets(formData: any) {
       formData.businessDescription,
       formData.hasWebsite || '',
       formData.currentWebsiteUrl || '',
-      formData.neededPages?.join(', ') || '',
+      Array.isArray(formData.neededPages) ? formData.neededPages.join(', ') : formData.neededPages || '',
       formData.preferredDomain || '',
       formData.hasBranding || '',
       formData.colorScheme || '',
@@ -140,7 +140,9 @@ export async function POST(req: Request) {
     
     console.log('Mailjet response:', result.body)
     
-    if (!result.body.Messages || !result.body.Messages[0] || result.body.Messages[0].Status !== 'success') {
+    // Type assertion for Mailjet response
+    const body = result.body as { Messages?: Array<{ Status?: string }> }
+    if (!body?.Messages || !body.Messages[0] || body.Messages[0].Status !== 'success') {
       console.error('Mailjet send failed:', result.body)
       throw new Error('Failed to send notification email')
     }

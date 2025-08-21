@@ -3,7 +3,7 @@ import path from 'path'
 
 const LEADS_FILE = path.join(process.cwd(), 'leads.json')
 
-export async function saveLeadToFile(formData: any) {
+export async function saveLeadToFile(formData: Record<string, string | string[] | undefined>) {
   try {
     // Read existing leads or create empty array
     let leads = []

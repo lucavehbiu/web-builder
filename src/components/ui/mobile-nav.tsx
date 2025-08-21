@@ -9,16 +9,12 @@ import type { Dictionary } from '@/lib/i18n/types'
 import type { Locale } from '@/lib/i18n/config'
 
 interface MobileNavProps {
-  logo?: string
-  logoClassName?: string
   theme?: 'light' | 'dark'
   locale?: Locale | string
   dictionary?: Dictionary
 }
 
 export default function MobileNav({ 
-  logo = 'WebBuilder', 
-  logoClassName = '',
   theme = 'dark',
   locale = 'en',
   dictionary
