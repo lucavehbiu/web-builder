@@ -88,7 +88,7 @@ export default function Hero({ locale, dictionary }: { locale: string, dictionar
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-24 sm:pt-36 sm:pb-32 lg:px-8 lg:pt-40 lg:pb-40">
         <div className="mx-auto max-w-5xl">
           {/* Badge - Enhanced with Light Icon */}
           <div className="mb-8 inline-flex items-center rounded-full backdrop-blur-xl bg-white/10 border border-white/20 px-6 py-2 text-sm font-medium text-white shadow-2xl hover:bg-white/15 transition-all duration-300">
