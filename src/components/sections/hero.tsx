@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { Dictionary } from '@/lib/i18n/types'
 
 // Reusable StarRating Component
 interface StarRatingProps {
@@ -53,166 +54,137 @@ function StarRating({
   )
 }
 
-// Reusable AnimatedIndicator Component  
-interface AnimatedIndicatorProps {
-  variant?: 'ping' | 'pulse' | 'bounce';
-  color?: 'blue' | 'green' | 'red' | 'white';
-  size?: 'sm' | 'md' | 'lg';
-  className?: string;
-}
-
-function AnimatedIndicator({ 
-  variant = 'ping', 
-  color = 'blue', 
-  size = 'md',
-  className = '' 
-}: AnimatedIndicatorProps) {
-  const sizeClasses = {
-    sm: 'h-1 w-1',
-    md: 'h-2 w-2',
-    lg: 'h-3 w-3'
-  }
-
-  const colorClasses = {
-    blue: {
-      bg: 'bg-blue-500',
-      ping: 'bg-blue-400'
-    },
-    green: {
-      bg: 'bg-green-500', 
-      ping: 'bg-green-400'
-    },
-    red: {
-      bg: 'bg-red-500',
-      ping: 'bg-red-400'
-    },
-    white: {
-      bg: 'bg-white',
-      ping: 'bg-white'
-    }
-  }
-
-  const colorConfig = colorClasses[color]
-
-  return (
-    <span className={`relative flex ${sizeClasses[size]} ${className}`}>
-      <span 
-        className={`animate-${variant} absolute inline-flex h-full w-full rounded-full ${colorConfig.ping} opacity-75`}
-      ></span>
-      <span 
-        className={`relative inline-flex rounded-full ${sizeClasses[size]} ${colorConfig.bg}`}
-      ></span>
-    </span>
-  )
-}
-
-// Reusable GradientText Component
-interface GradientTextProps {
-  children: React.ReactNode;
-  gradient?: 'primary' | 'secondary' | 'custom';
-  from?: string;
-  to?: string;
-  className?: string;
-}
-
-function GradientText({ 
-  children, 
-  gradient = 'primary', 
-  from,
-  to,
-  className = '' 
-}: GradientTextProps) {
-  const gradientClasses = {
-    primary: 'from-blue-600 to-purple-600',
-    secondary: 'from-purple-600 to-pink-600',
-    custom: from && to ? `from-${from} to-${to}` : 'from-blue-600 to-purple-600'
-  }
-
-  return (
-    <span className={`text-transparent bg-clip-text bg-gradient-to-r ${gradientClasses[gradient]} ${className}`}>
-      {children}
-    </span>
-  )
-}
-
-import type { Dictionary } from '@/lib/i18n/types'
-
 export default function Hero({ locale, dictionary }: { locale: string, dictionary: Dictionary }) {
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,rgba(147,51,234,0.1),transparent_50%)]"></div>
+    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0">
+        {/* Floating geometric shapes */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-emerald-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-violet-400/20 to-purple-400/20 rounded-full blur-xl animate-bounce"></div>
+        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-full blur-xl animate-pulse"></div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        
+        {/* Noise texture overlay */}
+        <div className="absolute inset-0 opacity-30 mix-blend-overlay" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+        }}></div>
       </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-
-      <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
-        <div className="mx-auto max-w-4xl text-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+        <div className="mx-auto max-w-5xl">
           {/* Badge */}
-          <div className="mb-8 inline-flex items-center rounded-full bg-blue-600/10 px-6 py-2 text-sm font-medium text-blue-300 ring-1 ring-inset ring-blue-600/20">
-            <AnimatedIndicator color="blue" size="md" className="mr-2" />
-            {locale === 'sq' ? 'Pa Tarifa Fillimi • Pa Kosto të Fshehura' : 'No Setup Fees • No Hidden Costs'}
+          <div className="mb-8 inline-flex items-center rounded-full bg-emerald-500/10 px-6 py-2 text-sm font-medium text-emerald-300 ring-1 ring-inset ring-emerald-500/20 backdrop-blur-sm">
+            <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-ping"></div>
+            {dictionary.hero.badge}
           </div>
 
-          {/* Main Headline */}
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="block">{dictionary.hero.title.split(' ').slice(0, 2).join(' ')}</span>
-            <span className="block">
-              <GradientText gradient="custom" from="blue-400" to="purple-400">
-                {dictionary.hero.title.split(' ').slice(2).join(' ')}
-              </GradientText>
-            </span>
-          </h1>
+          {/* Main Headline - Staggered Layout */}
+          <div className="mb-8">
+            <div className="relative">
+              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight mb-4">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-300">
+                  {dictionary.hero.title.split(' ').slice(0, 2).join(' ')}
+                </span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 relative">
+                  {dictionary.hero.title.split(' ').slice(2).join(' ')}
+                  {/* Underline decoration */}
+                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full"></div>
+                </span>
+              </h1>
+            </div>
+          </div>
 
-          {/* Subheadline */}
-          <p className="mt-6 text-lg leading-8 text-gray-300 sm:text-xl lg:text-2xl max-w-3xl mx-auto">
-            {dictionary.hero.subtitle}
-          </p>
+          {/* Two-column layout for subtitle and description */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <div>
+              <p className="text-2xl sm:text-3xl font-bold text-gray-200 leading-tight">
+                {dictionary.hero.subtitle}
+              </p>
+            </div>
+            <div className="lg:pl-8">
+              <p className="text-lg text-gray-400 leading-relaxed">
+                {dictionary.hero.description}
+              </p>
+            </div>
+          </div>
 
-          {/* CTAs */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          {/* CTA Section */}
+          <div className="flex flex-col sm:flex-row items-start gap-6 mb-16">
             <Link
               href={`/${locale}/get-started`}
-              className="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-200 transform hover:scale-105"
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-lg font-bold text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
             >
-              {dictionary.hero.cta}
-              <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative flex items-center">
+                {dictionary.hero.cta}
+                <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             </Link>
 
             <Link
-              href={`/${locale}/services`}
-              className="inline-flex items-center justify-center rounded-lg border border-gray-600 bg-gray-800/50 px-8 py-4 text-lg font-semibold text-white hover:bg-gray-700/50 hover:border-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 transition-all duration-200 backdrop-blur-sm"
+              href={`/${locale}/portfolio`}
+              className="group flex items-center text-lg font-semibold text-gray-300 hover:text-white transition-colors"
             >
+              <div className="w-12 h-12 rounded-full border-2 border-gray-600 group-hover:border-white flex items-center justify-center mr-3 transition-colors">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
               {dictionary.hero.secondaryCta}
             </Link>
           </div>
 
-          {/* Social Proof */}
-          <div className="mt-16 flex flex-col items-center">
-            <p className="text-sm text-gray-400 mb-4">
-              {locale === 'sq' ? 'Besuar nga 500+ biznese të vogla' : 'Trusted by 500+ small businesses'}
-            </p>
-            <div className="flex items-center space-x-2">
-              {/* Star rating */}
-              <StarRating rating={5} size="md" />
-              <span className="text-sm text-gray-300 ml-2">
-                {locale === 'sq' ? '4.9/5 nga 200+ vlerësime' : '4.9/5 from 200+ reviews'}
-              </span>
+          {/* Social Proof - Modern Cards Layout */}
+          <div className="grid sm:grid-cols-3 gap-6">
+            {/* Rating Card */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="flex items-center mb-2">
+                <StarRating rating={5} size="sm" />
+                <span className="text-yellow-400 font-bold ml-2">4.9/5</span>
+              </div>
+              <p className="text-sm text-gray-400">
+                {locale === 'sq' ? 'Nga 200+ klientë' : 'From 200+ clients'}
+              </p>
+            </div>
+
+            {/* Live Status Card */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="flex items-center mb-2">
+                <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse mr-2"></div>
+                <span className="text-emerald-400 font-bold">
+                  {locale === 'sq' ? 'Aktiv tani' : 'Online now'}
+                </span>
+              </div>
+              <p className="text-sm text-gray-400">
+                {locale === 'sq' ? 'Duke punuar në 3 projekte' : 'Working on 3 projects'}
+              </p>
+            </div>
+
+            {/* Recent Success Card */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="flex items-center mb-2">
+                <div className="w-3 h-3 bg-blue-400 rounded-full mr-2"></div>
+                <span className="text-blue-400 font-bold">
+                  {locale === 'sq' ? '3 faqe këtë javë' : '3 sites this week'}
+                </span>
+              </div>
+              <p className="text-sm text-gray-400">
+                {locale === 'sq' ? 'Dorëzuar me sukses' : 'Successfully delivered'}
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom wave */}
+      {/* Bottom wave - more modern */}
       <div className="absolute bottom-0 left-0 right-0">
-        <svg className="w-full h-auto" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+        <svg className="w-full h-24 fill-white" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,120 C240,100 480,80 720,90 C960,100 1200,110 1440,90 L1440,120 Z"/>
         </svg>
       </div>
     </section>

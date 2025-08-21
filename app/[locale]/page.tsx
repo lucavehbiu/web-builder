@@ -1,7 +1,7 @@
 import Hero from '@/components/sections/hero'
 import Features from '@/components/sections/features'
 import Pricing from '@/components/sections/pricing'
-import Testimonials from '@/components/sections/testimonials'
+import Portfolio from '@/components/sections/portfolio'
 import MobileNav from '@/components/ui/mobile-nav'
 import Link from 'next/link'
 import { getDictionary } from '@/lib/i18n/get-dictionary'
@@ -67,8 +67,8 @@ export default async function Home({
       {/* Pricing Section */}
       <Pricing locale={locale} dictionary={dictionary} />
 
-      {/* Testimonials Section */}
-      <Testimonials locale={locale} />
+      {/* Portfolio Section */}
+      <Portfolio locale={locale} dictionary={dictionary} />
     </div>
   )
 }

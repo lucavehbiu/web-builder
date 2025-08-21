@@ -5,19 +5,21 @@
     "services": "Shërbimet",
     "portfolio": "Portofoli",
     "contact": "Kontakt",
-    "getStarted": "Fillo Projektin Tënd",
-    "learnMore": "Mëso Më Shumë",
-    "viewAll": "Shiko të Gjitha",
+    "getStarted": "Merre Faqen në 48 Orë",
+    "learnMore": "Shiko si Funksionon",
+    "viewAll": "Shiko të Gjitha Punët",
     "close": "Mbyll",
     "menu": "Menu",
     "language": "Gjuha"
   },
   "hero": {
-    "title": "Ndërto Faqen Tënde të Ëndrrave",
-    "subtitle": "Shërbime profesionale të zhvillimit të ueb-it të përshtatura për nevojat e biznesit tuaj",
-    "description": "Transformoni praninë tuaj online me faqe interneti të personalizuara që japin rezultate",
-    "cta": "Fillo Sot",
-    "secondaryCta": "Shiko Punën Tonë"
+    "title": "Ndërtoj Faqe që të Bëjnë Para të Vërteta",
+    "subtitle": "Ndalo humbjen e klientëve tek konkurrentët me faqe më të mira. Në 48 orë, do kesh një faqe që konverton vizitorët në klientë që paguajnë.",
+    "description": "I kam ndihmuar 200+ biznese të vogla të rrisin të ardhurat me mesatare 40% me faqe që vërtet funksionojnë. Pa zbukurime, pa përfolsje - vetëm rezultate.",
+    "cta": "Merre Faqen në 48 Orë",
+    "secondaryCta": "Shiko Rezultatet",
+    "badge": "Dorëzim në 48 Orë • Pa Tarifa • Garanci 90 Ditë",
+    "proof": "Bashkohu me 200+ biznese që bëjnë më shumë para online"
   },
   "navigation": {
     "logoText": "WebBuilder",
@@ -27,40 +29,325 @@
     "portfolioLabel": "Shiko portofolin tonë të faqeve të përfunduara"
   },
   "features": {
-    "title": "Pse të Na Zgjidhni",
-    "subtitle": "Ne ofrojmë zgjidhje të jashtëzakonshme për ueb",
+    "title": "Pse Klientët e Mi Bëjnë Më Shumë Para",
+    "subtitle": "Rezultate të vërteta, jo vetëm faqe të bukura",
     "feature1": {
-      "title": "Dizajn i Personalizuar",
-      "description": "Dizajne unike të përshtatura për markën tuaj"
+      "title": "Dizajn i Fokusuar në Konvertim",
+      "description": "Çdo element është dizajnuar për të kthyer vizitorët në klientë, jo vetëm për të dukur bukur"
     },
     "feature2": {
-      "title": "Zhvillim Responsiv",
-      "description": "Perfekt në të gjitha pajisjet dhe madhësitë e ekranit"
+      "title": "Të Ardhura Mobile-First",
+      "description": "70% e klientëve shfletojnë në telefon. Faqet e mia funksionojnë perfekt në çdo pajisje"
     },
     "feature3": {
-      "title": "Optimizuar për SEO",
-      "description": "Ndërtuar për të ranguar lart në motorët e kërkimit"
+      "title": "SEO Miqësor me Google",
+      "description": "Ndërtuar për të qenë i lartë në kërkim që klientët të të gjejnë (çfarë dobie ka një faqe e fshehur?)"
     },
     "feature4": {
-      "title": "Performancë e Shpejtë",
-      "description": "Kohë ngarkimi të shpejta për përvojë më të mirë të përdoruesit"
+      "title": "Ngarkimi si Rrufeja",
+      "description": "Faqet e ngadalshme vrasin shitjet. Faqet e mia ngarkohen në nën 2 sekonda çdo herë"
+    }
+  },
+  "portfolio": {
+    "title": "Biznese të Vërteta, Rezultate të Vërteta",
+    "subtitle": "Shiko si faqet e mia i ndihmuan këto biznese të rrisnin të ardhurat",
+    "viewCase": "Shiko Studimin e Plotë",
+    "result1": {
+      "business": "Pizzeria Drita",
+      "location": "Tiranë, AL",
+      "result": "+127% Porosi Online",
+      "timeframe": "90 Ditët e Para",
+      "description": "Kaluan nga 2-3 porosi online në ditë në 15-20 porosi. Të ardhurat online u rritën nga 20,000 lekë/javë në 52,000 lekë/javë.",
+      "before": "Faqe e vjetër Facebook me porositje të prishur",
+      "after": "Faqe e personalizuar me proces të thjeshtë porosijesh"
+    },
+    "result2": {
+      "business": "Autoservis Elite",
+      "location": "Durrës, AL",
+      "result": "+89% Klientë të Rinj",
+      "timeframe": "6 Muaj",
+      "description": "Rezervimi i termimeve kaloi nga 3-4 në javë në 12-15 në javë. Të ardhurat mujore u rritën me 450,000 lekë.",
+      "before": "Faqja e Facebook si 'faqe interneti'",
+      "after": "Faqe profesionale me rezervim online"
+    },
+    "result3": {
+      "business": "Boutique Elegance",
+      "location": "Vlorë, AL",
+      "result": "+156% Shitje",
+      "timeframe": "4 Muaj",
+      "description": "Shitjet online kaluan nga 50,000 lekë/muaj në 128,000 lekë/muaj. Tani 60% e të ardhurave vjen nga faqja.",
+      "before": "Shablon Shopify si të gjithë të tjerët",
+      "after": "Përvojë e personalizuar marke me checkout të optimizuar"
     }
   },
   "pricing": {
-    "title": "Planet e Çmimeve",
-    "subtitle": "Zgjidhni planin perfekt për nevojat tuaja",
+    "title": "Një Çmim i Thjeshtë, Gjithçka e Përfshirë",
+    "subtitle": "Pa tarifa të fshehura, pa surpriza, pa kontrata",
     "monthly": "Mujor",
     "yearly": "Vjetor",
     "mostPopular": "Më i Popullarizuar",
-    "getStarted": "Fillo",
-    "currency": "€"
+    "getStarted": "Fillo të Bësh Më Shumë Para",
+    "currency": "€",
+    "guarantee": "Garanci 90-Ditëshe Rikthimi Parash",
+    "includes": "Gjithçka që të Duhet e Përfshirë:",
+    "feature1": "Dizajn faqeje i personalizuar (pa shabllone)",
+    "feature2": "E optimizuar për mobile për të gjitha pajisjet",
+    "feature3": "Hosting profesional + domain",
+    "feature4": "Certifikatë sigurie SSL",
+    "feature5": "Përgatitje SEO miqësore me Google",
+    "feature6": "Përditësime mujore të përmbajtjes",
+    "feature7": "Qasje direkte tek unë (pa qendra thirrjesh)",
+    "feature8": "Garanci 99.9% funksionimi",
+    "feature9": "Backup ditor i faqes tënde",
+    "feature10": "Përgatitje email profesionale"
+  },
+  "about": {
+    "hero": {
+      "title": "Përshëndetje, Unë Jam",
+      "titleHighlight": "Zhvilluesja Jote Web",
+      "subtitle": "I ndihmoj bizneset e vogla të krijojnë një prezencë profesionale online pa shpenzuar shumë para."
+    },
+    "story": {
+      "title": "Historia Ime",
+      "paragraph1": "Pas vitesh pune me klientë të mëdhenj, vura re diçka shqetësuese: bizneset e vogla po përjashtohen nga pasja e një prezence profesionale web.",
+      "paragraph2": "Oferta mbi 125,000 lekë për një faqe të thjeshtë, plus dhjetëra mijëra lekë në muaj për hosting? Kjo nuk më dukej mirë. E dija se duhej të kishte një mënyrë më të mirë.",
+      "paragraph3": "Kështu krijova WebBuilder - një shërbim i thjeshtë dhe transparent që u jep bizneseve të vogla gjithçka që u duhet për një çmim të përballueshëm mujor.",
+      "conclusion": "Pa tarifa fillestare. Pa surpriza. Vetëm faqe profesionale që funksionojnë."
+    },
+    "beliefs": {
+      "title": "Në Çfarë Besoj",
+      "transparency": {
+        "title": "Transparencë",
+        "description": "Pa tarifa të fshehura, pa surpriza. Ti e di saktësisht se për çfarë po paguan çdo muaj."
+      },
+      "partnership": {
+        "title": "Partneritet",
+        "description": "Unë nuk jam thjesht një ofrues shërbimi - jam partneri yt në ndërtimin e prezencës tënde online."
+      },
+      "efficiency": {
+        "title": "Efikasitet",
+        "description": "Përfundime të shpejta pa sakrifikuar cilësinë. Faqja jote do jetë aktive brenda 1-2 javëve."
+      },
+      "focus": {
+        "title": "Fokus",
+        "description": "Specializohem në biznese të vogla sepse atje mund të bëj ndikimin më të madh."
+      }
+    },
+    "skills": {
+      "title": "Përvojë & Aftësi",
+      "technicalTitle": "Aftësi Teknike",
+      "whatIBringTitle": "Çfarë Sjell",
+      "webDevelopment": "Zhvillim Web",
+      "uiuxDesign": "Dizajn UI/UX",
+      "seoOptimization": "Optimizim SEO",
+      "performanceOptimization": "Optimizim Performance",
+      "clientCommunication": "Komunikim me Klientin",
+      "highlight1": "Mbi 10 vjet përvojë në zhvillim web",
+      "highlight2": "Komunikim direkt - pa ndërmjetës apo menaxherë llogarish",
+      "highlight3": "Kohë të shpejta përgjigjeje dhe vëmendje personale",
+      "highlight4": "Zgjidhje moderne, të sigurta dhe të përshkallëzueshme",
+      "highlight5": "Mbështetje dhe mirëmbajtje e vazhdueshme e përfshirë",
+      "highlight6": "Fleksibël dhe me kuptim për nevojat e bizneseve të vogla"
+    },
+    "cta": {
+      "title": "Le të Ndërtojmë Diçka të Madhe Së Bashku",
+      "subtitle": "Gati për t'i dhënë biznesit tënd prezencën profesionale web që meriton?",
+      "button": "Fillo për 15€/muaj"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Zgjidhje Komplet Web për",
+      "price": "15€/muaj",
+      "subtitle": "Gjithçka që i duhet biznesit tënd të vogël për të krijuar një prezencë profesionale online."
+    },
+    "included": {
+      "title": "Çfarë Përfshihet",
+      "customDesign": {
+        "title": "Dizajn i Personalizuar Faqeje",
+        "description": "Një faqe unike prej 4-5 faqesh e dizajnuar specifikisht për biznesin tënd.",
+        "detail1": "Faqja kryesore me mesazhe bindëse",
+        "detail2": "Faqe rreth nesh që tregon historinë tënde",
+        "detail3": "Shfaqje e shërbimeve/produkteve",
+        "detail4": "Faqe kontakti me forma",
+        "detail5": "Faqe shtesë sipas nevojës"
+      },
+      "hosting": {
+        "title": "Hosting Premium & Performance",
+        "description": "Hosting i shpejtë dhe i sigurt me garanci 99.9% funksionimi.",
+        "detail1": "Shpejtësi ngarkimi si rrufeja",
+        "detail2": "Certifikatë SSL e përfshirë",
+        "detail3": "Backup ditor",
+        "detail4": "Monitorim sigurie",
+        "detail5": "CDN për performance globale"
+      },
+      "mobile": {
+        "title": "Dizajn Mobile-First",
+        "description": "Faqja jote duket perfekt në të gjitha pajisjet dhe madhësitë e ekranit.",
+        "detail1": "Dizajn responsive",
+        "detail2": "Navigim miqësor për prekje",
+        "detail3": "E optimizuar për kërkim mobile",
+        "detail4": "Ngarkim i shpejtë mobile",
+        "detail5": "Kompatibilitet cross-browser"
+      },
+      "updates": {
+        "title": "Përditësime Mujore",
+        "description": "Mbaje përmbajtjen freskët me përditësime mujore të përfshira.",
+        "detail1": "Përditësime teksti dhe imazhi",
+        "detail2": "Krijim faqesh të reja",
+        "detail3": "Përditësime plugin-esh",
+        "detail4": "Patch-e sigurie",
+        "detail5": "Optimizim performance"
+      },
+      "seo": {
+        "title": "Optimizim SEO",
+        "description": "Gjenduni në Google me praktikat më të mira SEO të integruara.",
+        "detail1": "Optimizim fjalësh kyçe",
+        "detail2": "Konfigurimi meta tags",
+        "detail3": "Google Analytics",
+        "detail4": "Konfigurimi Search Console",
+        "detail5": "Optimizim SEO lokal"
+      },
+      "support": {
+        "title": "Mbështetje e Vazhdueshme",
+        "description": "Qasje direkte tek zhvilluesi yt kur ke nevojë për ndihmë.",
+        "detail1": "Mbështetje email",
+        "detail2": "Kohë të shpejta përgjigjeje",
+        "detail3": "Ndihmë teknike",
+        "detail4": "Trajnim dhe udhëzim",
+        "detail5": "Pa qendra thirrjesh"
+      }
+    },
+    "process": {
+      "title": "Si Funksionon",
+      "step1": {
+        "title": "Zbulimi",
+        "description": "Mbushe formën tonë të thjeshtë me detajet e biznesit dhe kërkesat."
+      },
+      "step2": {
+        "title": "Dizajni",
+        "description": "Krijoj një mockup dizajni të personalizuar bazuar në markën dhe nevojat tuaja."
+      },
+      "step3": {
+        "title": "Ndërtimi",
+        "description": "Faqja jote ndërtohet duke përdorur teknologji moderne, të shpejta dhe të sigurta."
+      },
+      "step4": {
+        "title": "Lançimi",
+        "description": "Shkoni live në 1-2 javë dhe filloni të merrni mirëmbajtje mujore."
+      }
+    },
+    "comparison": {
+      "title": "Pse të Zgjedhësh WebBuilder?",
+      "subtitle": "Krahasoni kostot reale dhe shikoni ndryshimin",
+      "bestValue": "Vlera Më e Mirë",
+      "agencies": "Agjenci Tradicionale",
+      "webbuilder": "WebBuilder",
+      "diy": "Platforma DIY",
+      "setup": "Konfigurimi:",
+      "hosting": "Hosting:",
+      "updates": "Përditësime:",
+      "contract": "Kontratë:",
+      "timeline": "Koha:",
+      "firstYear": "Viti i Parë:",
+      "agenciesSetup": "75,000-250,000 lekë konfigurimi",
+      "agenciesHosting": "2,500-7,500 lekë/muaj hosting",
+      "agenciesUpdates": "3,750 lekë/orë për përditësime",
+      "agenciesContract": "Kontrata komplekse",
+      "agenciesTimeline": "Kohë të gjata",
+      "agenciesFirstYear": "125,000+ lekë viti i parë",
+      "webbuilderSetup": "0 lekë tarifa konfigurimi",
+      "webbuilderHosting": "Hosting i përfshirë",
+      "webbuilderUpdates": "Përditësime mujore të përfshira",
+      "webbuilderContract": "Pagesë e thjeshtë mujore",
+      "webbuilderTimeline": "Dorëzim 1-2 javë",
+      "webbuilderFirstYear": "18,000 lekë viti i parë",
+      "diySetup": "500-1,250 lekë/muaj platforma",
+      "diyHosting": "Koha jote = €€€",
+      "diyUpdates": "Personalizim i kufizuar",
+      "diyContract": "Shabllone generike",
+      "diyTimeline": "Pa mbështetje",
+      "diyFirstYear": "15,000+ lekë viti i parë (plus koha jote)"
+    },
+    "faq": {
+      "title": "Pyetje të Shpeshta",
+      "q1": {
+        "question": "Çfarë nëse kam nevojë për më shumë se 5 faqe?",
+        "answer": "Faqe shtesë mund të shtohen për 250 lekë/muaj për faqe. Shumica e bizneseve të vogla gjejnë se 4-5 faqe janë të mjaftueshme."
+      },
+      "q2": {
+        "question": "A mund ta anuloj kur të dua?",
+        "answer": "Po, nuk ka kontrata afatgjata. Mund ta anulosh me 30 ditë njoftim. Ti gjithmonë do të zotërosh domenin dhe përmbajtjen."
+      },
+      "q3": {
+        "question": "Çfarë nëse domeni im kushton më shumë se 375 lekë/vit?",
+        "answer": "Do paguash ndryshimin. Shumica e domeneve .com janë rreth 300-375 lekë/vit, por domenet premium mund të kushtojnë më shumë."
+      },
+      "q4": {
+        "question": "A punoni me faqe e-commerce?",
+        "answer": "Për katalogë të thjeshtë produktesh, po. Për e-commerce të plotë me shporta blerjesh, do ishte projekt i personalizuar me çmime të ndryshme."
+      },
+      "q5": {
+        "question": "Çfarë ndodh me faqen time nëse anuloj?",
+        "answer": "Mban domenin dhe mund të shkarkosh të gjithë përmbajtjen. Do të të jap të gjitha skedarët dhe do të ndihmoj me tranzicionin."
+      },
+      "q6": {
+        "question": "Sa përditësime mujore marr?",
+        "answer": "Përditësime të arsyeshme mujore janë të përfshira - zakonisht 1-2 orë pune në muaj. Ndryshime më të mëdha mund të kenë tarifa shtesë."
+      }
+    },
+    "cta": {
+      "title": "Gati për të Filluar?",
+      "subtitle": "Bashkohu me qindra biznese të vogla me faqe profesionale për vetëm 15€/muaj.",
+      "button": "Fillo Faqen Sot"
+    }
+  },
+  "portfolioPage": {
+    "hero": {
+      "title": "Shiko",
+      "titleHighlight": "Çfarë Është E Mundur",
+      "subtitle": "Faqe të vërteta për biznese të vërteta, të gjitha ndërtuara për 15€/muaj."
+    },
+    "projects": {
+      "resultsLabel": "Rezultatet:",
+      "viewProject": "Shiko Projektin"
+    },
+    "testimonials": {
+      "title": "Çfarë Thonë Klientët"
+    },
+    "process": {
+      "title": "Çdo Projekt Ndjek të Njëjtin Proces të Provuar",
+      "subtitle": "Ky qasje sistematike siguron rezultate konsistente dhe klientë të kënaqur, çdo herë.",
+      "discovery": {
+        "title": "Zbulimi",
+        "description": "Diskutojmë biznesin tënd, qëllimet dhe preferencat e dizajnit."
+      },
+      "design": {
+        "title": "Dizajni",
+        "description": "Krijoj një mockup të personalizuar që reflekton markën tënde."
+      },
+      "development": {
+        "title": "Zhvillimi",
+        "description": "Faqja jote ndërtohet me teknologji moderne dhe të shpejta."
+      },
+      "launch": {
+        "title": "Lançimi",
+        "description": "Shko live dhe fillo të tërheqësh klientë online."
+      }
+    },
+    "cta": {
+      "title": "Fillo Projektin Sot",
+      "subtitle": "Gati për t'u Bashkuar me Këto Histori Suksesi?",
+      "description": "Biznesi yt meriton një faqe që punon aq fort sa ti.",
+      "button": "Fillo për 15€/muaj"
+    }
   },
   "footer": {
     "copyright": "© 2024 WebBuilder. Të gjitha të drejtat e rezervuara.",
     "newsletter": {
-      "title": "Abonohu në buletinin tonë",
+      "title": "Merr këshilla javore për të rritur biznesin online",
       "placeholder": "Vendos email-in tënd",
-      "button": "Abonohu"
+      "button": "Merr Këshilla Falas"
     },
     "links": {
       "company": "Kompania",

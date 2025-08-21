@@ -5,66 +5,474 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "contact": "Contact",
-    "getStarted": "Start Your Project",
-    "learnMore": "Learn More",
-    "viewAll": "View All",
+    "getStarted": "Get My Website in 48 Hours",
+    "learnMore": "See How It Works",
+    "viewAll": "View All Work",
     "close": "Close",
     "menu": "Menu",
     "language": "Language"
   },
   "hero": {
-    "title": "Build Your Dream Website",
-    "subtitle": "Professional web development services tailored to your business needs",
-    "description": "Transform your online presence with custom websites that drive results",
-    "cta": "Get Started Today",
-    "secondaryCta": "View Our Work"
+    "title": "I Build Websites That Actually Make You Money",
+    "subtitle": "Stop losing customers to competitors with better websites. In 48 hours, you'll have a site that converts visitors into paying customers.",
+    "description": "I've helped 200+ small businesses increase their revenue by an average of 40% with websites that actually work. No fluff, no nonsense – just results.",
+    "cta": "Get My Website in 48 Hours",
+    "secondaryCta": "See Real Results",
+    "badge": "48-Hour Delivery • No Setup Fees • 90-Day Money Back",
+    "proof": "Join 200+ businesses making more money online"
   },
   "navigation": {
     "logoText": "WebBuilder",
     "homeLabel": "Go to homepage",
-    "aboutLabel": "Learn about the founder and company",
+    "aboutLabel": "Learn about the founder and company", 
     "servicesLabel": "View our website services",
     "portfolioLabel": "View our portfolio of completed websites"
   },
   "features": {
-    "title": "Why Choose Us",
-    "subtitle": "We deliver exceptional web solutions",
+    "title": "Why My Clients Make More Money",
+    "subtitle": "Real results, not just pretty websites",
     "feature1": {
-      "title": "Custom Design",
-      "description": "Unique designs tailored to your brand"
+      "title": "Conversion-Focused Design",
+      "description": "Every element is designed to turn visitors into customers, not just look pretty"
     },
     "feature2": {
-      "title": "Responsive Development",
-      "description": "Perfect on all devices and screen sizes"
+      "title": "Mobile-First Revenue",
+      "description": "70% of customers browse on mobile. My sites work perfectly on every device"
     },
     "feature3": {
-      "title": "SEO Optimized",
-      "description": "Built to rank high in search engines"
+      "title": "Google-Friendly SEO",
+      "description": "Built to rank high so customers actually find you (what good is a hidden website?)"
     },
     "feature4": {
-      "title": "Fast Performance",
-      "description": "Lightning-fast load times for better user experience"
+      "title": "Lightning-Fast Loading",
+      "description": "Slow sites kill sales. My sites load in under 2 seconds every time"
+    }
+  },
+  "portfolio": {
+    "title": "Real Businesses, Real Results",
+    "subtitle": "See how my websites helped these businesses grow their revenue",
+    "viewCase": "View Full Case Study",
+    "result1": {
+      "business": "Mario's Pizza",
+      "location": "Brooklyn, NY",
+      "result": "+127% Online Orders",
+      "timeframe": "First 90 Days",
+      "description": "Went from 2-3 online orders per day to 15-20 orders. Revenue increased from $800/week to $2,100/week online.",
+      "before": "Old Wix site with broken mobile ordering",
+      "after": "Custom site with streamlined ordering flow"
+    },
+    "result2": {
+      "business": "Elite Auto Repair",
+      "location": "Phoenix, AZ", 
+      "result": "+89% New Customers",
+      "timeframe": "6 Months",
+      "description": "Booking appointments went from 3-4 per week to 12-15 per week. Monthly revenue up $18,000.",
+      "before": "Facebook page as their 'website'",
+      "after": "Professional site with online booking"
+    },
+    "result3": {
+      "business": "Bella's Boutique",
+      "location": "Austin, TX",
+      "result": "+156% Sales",
+      "timeframe": "4 Months", 
+      "description": "Online sales went from $2,000/month to $5,100/month. Now 60% of total revenue comes from website.",
+      "before": "Shopify template that looked like everyone else's",
+      "after": "Custom brand experience with optimized checkout"
     }
   },
   "pricing": {
-    "title": "Pricing Plans",
-    "subtitle": "Choose the perfect plan for your needs",
+    "title": "One Simple Price, Everything Included",
+    "subtitle": "No hidden fees, no surprises, no contracts",
     "monthly": "Monthly",
-    "yearly": "Yearly",
+    "yearly": "Yearly", 
     "mostPopular": "Most Popular",
-    "getStarted": "Get Started",
-    "currency": "$"
+    "getStarted": "Start Making More Money",
+    "currency": "$",
+    "guarantee": "90-Day Money-Back Guarantee",
+    "includes": "Everything You Need Included:",
+    "feature1": "Custom website design (no templates)",
+    "feature2": "Mobile-optimized for all devices",
+    "feature3": "Professional hosting + domain",
+    "feature4": "SSL security certificate",
+    "feature5": "Google-friendly SEO setup",
+    "feature6": "Monthly content updates",
+    "feature7": "Direct access to me (no call centers)",
+    "feature8": "99.9% uptime guarantee",
+    "feature9": "Daily backups of your site",
+    "feature10": "Professional email setup"
+  },
+  "about": {
+    "hero": {
+      "title": "Hi, I'm Your",
+      "titleHighlight": "Web Developer",
+      "subtitle": "I help small businesses establish a professional online presence without breaking the bank."
+    },
+    "story": {
+      "title": "My Story",
+      "paragraph1": "After years of working with enterprise clients, I noticed something troubling: small businesses were being priced out of having a professional web presence.",
+      "paragraph2": "Quotes of $5,000+ for a simple website, plus hundreds per month for hosting? That didn't sit right with me. I knew there had to be a better way.",
+      "paragraph3": "So I created WebBuilder - a simple, transparent service that gives small businesses everything they need for one affordable monthly price.",
+      "conclusion": "No setup fees. No surprises. Just professional websites that work."
+    },
+    "beliefs": {
+      "title": "What I Believe In",
+      "transparency": {
+        "title": "Transparency",
+        "description": "No hidden fees, no surprises. You know exactly what you're paying for every month."
+      },
+      "partnership": {
+        "title": "Partnership", 
+        "description": "I'm not just a service provider - I'm your partner in building your online presence."
+      },
+      "efficiency": {
+        "title": "Efficiency",
+        "description": "Quick turnarounds without sacrificing quality. Your website will be live in 1-2 weeks."
+      },
+      "focus": {
+        "title": "Focus",
+        "description": "I specialize in small businesses because that's where I can make the biggest impact."
+      }
+    },
+    "skills": {
+      "title": "Experience & Skills",
+      "technicalTitle": "Technical Skills",
+      "whatIBringTitle": "What I Bring",
+      "webDevelopment": "Web Development",
+      "uiuxDesign": "UI/UX Design",
+      "seoOptimization": "SEO Optimization", 
+      "performanceOptimization": "Performance Optimization",
+      "clientCommunication": "Client Communication",
+      "highlight1": "10+ years of web development experience",
+      "highlight2": "Direct communication - no middlemen or account managers",
+      "highlight3": "Fast response times and personal attention",
+      "highlight4": "Modern, secure, and scalable solutions",
+      "highlight5": "Ongoing support and maintenance included",
+      "highlight6": "Flexible and understanding of small business needs"
+    },
+    "cta": {
+      "title": "Let's Build Something Great Together",
+      "subtitle": "Ready to give your business the professional web presence it deserves?",
+      "button": "Get Started for $60/month"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Complete Web Solution for",
+      "price": "$60/month",
+      "subtitle": "Everything your small business needs to establish a professional online presence."
+    },
+    "included": {
+      "title": "What's Included",
+      "customDesign": {
+        "title": "Custom Website Design",
+        "description": "A unique 4-5 page website designed specifically for your business.",
+        "detail1": "Homepage with compelling messaging",
+        "detail2": "About page telling your story",
+        "detail3": "Services/products showcase",
+        "detail4": "Contact page with forms",
+        "detail5": "Additional pages as needed"
+      },
+      "hosting": {
+        "title": "Premium Hosting & Performance",
+        "description": "Fast, secure hosting with 99.9% uptime guarantee.",
+        "detail1": "Lightning-fast loading speeds",
+        "detail2": "SSL certificate included",
+        "detail3": "Daily backups",
+        "detail4": "Security monitoring",
+        "detail5": "CDN for global performance"
+      },
+      "mobile": {
+        "title": "Mobile-First Design",
+        "description": "Your website looks perfect on all devices and screen sizes.",
+        "detail1": "Responsive design",
+        "detail2": "Touch-friendly navigation",
+        "detail3": "Optimized for mobile search",
+        "detail4": "Fast mobile loading",
+        "detail5": "Cross-browser compatibility"
+      },
+      "updates": {
+        "title": "Monthly Updates",
+        "description": "Keep your content fresh with included monthly updates.",
+        "detail1": "Text and image updates",
+        "detail2": "New page creation",
+        "detail3": "Plugin updates",
+        "detail4": "Security patches",
+        "detail5": "Performance optimization"
+      },
+      "seo": {
+        "title": "SEO Optimization",
+        "description": "Get found on Google with built-in SEO best practices.",
+        "detail1": "Keyword optimization",
+        "detail2": "Meta tags setup",
+        "detail3": "Google Analytics",
+        "detail4": "Search Console setup",
+        "detail5": "Local SEO optimization"
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "description": "Direct access to your developer whenever you need help.",
+        "detail1": "Email support",
+        "detail2": "Quick response times",
+        "detail3": "Technical assistance",
+        "detail4": "Training and guidance",
+        "detail5": "No call centers"
+      }
+    },
+    "process": {
+      "title": "How It Works",
+      "step1": {
+        "title": "Discovery",
+        "description": "Fill out our simple form with your business details and requirements."
+      },
+      "step2": {
+        "title": "Design",
+        "description": "I create a custom design mockup based on your brand and needs."
+      },
+      "step3": {
+        "title": "Build",
+        "description": "Your website is built using modern, fast, and secure technologies."
+      },
+      "step4": {
+        "title": "Launch",
+        "description": "Go live in 1-2 weeks and start receiving monthly maintenance."
+      }
+    },
+    "comparison": {
+      "title": "Why Choose WebBuilder?",
+      "subtitle": "Compare the real costs and see the difference",
+      "bestValue": "Best Value",
+      "agencies": "Traditional Agencies",
+      "webbuilder": "WebBuilder",
+      "diy": "DIY Platforms",
+      "setup": "Setup:",
+      "hosting": "Hosting:",
+      "updates": "Updates:",
+      "contract": "Contract:",
+      "timeline": "Timeline:",
+      "firstYear": "First Year:",
+      "agenciesSetup": "$3,000-$10,000 setup",
+      "agenciesHosting": "$100-$300/month hosting",
+      "agenciesUpdates": "$150/hour for updates",
+      "agenciesContract": "Complex contracts",
+      "agenciesTimeline": "Long timelines",
+      "agenciesFirstYear": "$5,000+ first year",
+      "webbuilderSetup": "$0 setup fee",
+      "webbuilderHosting": "Hosting included",
+      "webbuilderUpdates": "Monthly updates included",
+      "webbuilderContract": "Simple monthly payment",
+      "webbuilderTimeline": "1-2 week delivery",
+      "webbuilderFirstYear": "$720 first year",
+      "diySetup": "$20-$50/month platform",
+      "diyHosting": "Your time = $$$",
+      "diyUpdates": "Limited customization",
+      "diyContract": "Generic templates",
+      "diyTimeline": "No support",
+      "diyFirstYear": "$600+ first year (plus your time)"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "What if I need more than 5 pages?",
+        "answer": "Additional pages can be added for $10/month per page. Most small businesses find 4-5 pages sufficient for their needs."
+      },
+      "q2": {
+        "question": "Can I cancel anytime?",
+        "answer": "Yes, there are no long-term contracts. You can cancel with 30 days notice. You'll always own your domain and content."
+      },
+      "q3": {
+        "question": "What if my domain costs more than $15/year?",
+        "answer": "You'll pay the difference. Most .com domains are around $12-15/year, but premium domains may cost more."
+      },
+      "q4": {
+        "question": "Do you work with e-commerce sites?",
+        "answer": "For simple product catalogs, yes. For full e-commerce with shopping carts, that would be a custom project with different pricing."
+      },
+      "q5": {
+        "question": "What happens to my website if I cancel?",
+        "answer": "You keep your domain and can download all your content. I'll provide you with all files and help with the transition."
+      },
+      "q6": {
+        "question": "How many monthly updates do I get?",
+        "answer": "Reasonable monthly updates are included - typically 1-2 hours of work per month. Larger changes may incur additional fees."
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Join hundreds of small businesses with professional websites for just $60/month.",
+      "button": "Start Your Website Today"
+    }
+  },
+  "portfolioPage": {
+    "hero": {
+      "title": "See",
+      "titleHighlight": "What's Possible",
+      "subtitle": "Real websites for real businesses, all built for $60/month."
+    },
+    "projects": {
+      "resultsLabel": "Results:",
+      "viewProject": "View Project"
+    },
+    "testimonials": {
+      "title": "What Clients Say"
+    },
+    "process": {
+      "title": "Every Project Follows the Same Proven Process",
+      "subtitle": "This systematic approach ensures consistent results and happy clients, every time.",
+      "discovery": {
+        "title": "Discovery",
+        "description": "We discuss your business, goals, and design preferences."
+      },
+      "design": {
+        "title": "Design",
+        "description": "I create a custom mockup that reflects your brand."
+      },
+      "development": {
+        "title": "Development",
+        "description": "Your website is built with modern, fast technologies."
+      },
+      "launch": {
+        "title": "Launch",
+        "description": "Go live and start attracting customers online."
+      }
+    },
+    "cta": {
+      "title": "Start Your Project Today",
+      "subtitle": "Ready to Join These Success Stories?",
+      "description": "Your business deserves a website that works as hard as you do.",
+      "button": "Get Started for $60/month"
+    }
+  },
+  "getStarted": {
+    "header": {
+      "title": "Start Your",
+      "price": "$60/month Website",
+      "subtitle": "Just a few questions and you'll be on your way to a professional website."
+    },
+    "progress": {
+      "step": "Step",
+      "of": "of",
+      "complete": "Complete"
+    },
+    "step1": {
+      "title": "Tell Us About Your Business",
+      "subtitle": "Let's start with the basics",
+      "businessName": "Business Name",
+      "industry": "Industry/Type of Business",
+      "selectIndustry": "Select your industry",
+      "businessDescription": "Brief Business Description",
+      "businessDescriptionPlaceholder": "What does your business do? Who do you serve?",
+      "fullName": "Your Name",
+      "fullNamePlaceholder": "Your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "your.email@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "(555) 123-4567"
+    },
+    "step2": {
+      "title": "Website Requirements",
+      "subtitle": "Help us understand what you need",
+      "hasWebsite": "Do you currently have a website?",
+      "hasWebsiteYes": "Yes, I have a website",
+      "hasWebsiteNo": "No, this is my first website",
+      "currentUrl": "Current Website URL (if applicable)",
+      "urlPlaceholder": "https://yoursite.com",
+      "pagesNeeded": "What pages do you need? (Check all that apply)",
+      "preferredDomain": "Do you have a preferred domain name?",
+      "domainPlaceholder": "yourbusiness.com",
+      "domainNote": "Domain included if under $15/year. Most .com domains qualify.",
+      "hasBranding": "Do you have existing branding (logo, colors, etc.)?",
+      "brandingYes": "Yes, I have a logo and brand colors",
+      "brandingSome": "I have some elements but need help",
+      "brandingNo": "No, I need help with branding",
+      "colorScheme": "Preferred Color Scheme",
+      "colorSchemePlaceholder": "e.g., Blue and white, Earth tones, Modern black/gray"
+    },
+    "step3": {
+      "title": "Final Details",
+      "subtitle": "Almost done!",
+      "launchTimeline": "When would you like to launch?",
+      "selectTimeline": "Select timeline",
+      "contentReady": "Do you have content ready?",
+      "contentYes": "Yes, I have text and images ready",
+      "contentSome": "I have some content but need help",
+      "contentNo": "I need help creating content",
+      "specialRequirements": "Special Requirements or Features",
+      "specialRequirementsPlaceholder": "Any specific features, integrations, or requirements?",
+      "hearAboutUs": "How did you hear about us?",
+      "selectOption": "Please select",
+      "whatNext": "What happens next?",
+      "next1": "I'll review your information within 24 hours",
+      "next2": "We'll schedule a brief call to discuss your project",
+      "next3": "I'll create a design mockup for your approval",
+      "next4": "Your website will be built and launched in 1-2 weeks",
+      "next5": "Monthly maintenance begins immediately",
+      "terms": "By submitting, you agree to our",
+      "termsOfService": "Terms of Service",
+      "and": "and",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "buttons": {
+      "nextStep": "Next Step",
+      "back": "Back",
+      "submit": "Submit Application",
+      "submitting": "Submitting..."
+    },
+    "industries": [
+      "Restaurant/Food Service",
+      "Healthcare/Medical",
+      "Legal Services",
+      "Real Estate",
+      "Retail/E-commerce",
+      "Professional Services",
+      "Construction/Contractors",
+      "Beauty/Wellness",
+      "Fitness/Gym",
+      "Education/Training",
+      "Technology",
+      "Non-profit",
+      "Other"
+    ],
+    "pages": [
+      "Homepage",
+      "About",
+      "Services/Products",
+      "Contact",
+      "Portfolio/Gallery",
+      "Blog",
+      "Testimonials",
+      "FAQ"
+    ],
+    "timelines": [
+      "ASAP (Rush - additional $50)",
+      "Within 1 week",
+      "Within 2 weeks",
+      "Within 1 month",
+      "No rush, whenever convenient"
+    ],
+    "hearAboutOptions": [
+      "Google Search",
+      "Social Media",
+      "Friend/Family Referral",
+      "Business Referral",
+      "Online Advertisement",
+      "Other"
+    ],
+    "notifications": {
+      "fillRequired": "Please fill in all required fields.",
+      "submitSuccess": "Thank you! Your application has been submitted. We'll be in touch within 24 hours.",
+      "submitError": "Sorry, there was an error submitting your application. Please try again."
+    }
   },
   "footer": {
     "copyright": "© 2024 WebBuilder. All rights reserved.",
     "newsletter": {
-      "title": "Subscribe to our newsletter",
+      "title": "Get weekly tips to grow your business online",
       "placeholder": "Enter your email",
-      "button": "Subscribe"
+      "button": "Get Free Tips"
     },
     "links": {
       "company": "Company",
-      "support": "Support",
+      "support": "Support", 
       "legal": "Legal",
       "privacyPolicy": "Privacy Policy",
       "termsOfService": "Terms of Service"

@@ -1,72 +1,81 @@
 import Link from 'next/link'
 import MobileNav from '@/components/ui/mobile-nav'
+import { getDictionary } from '@/lib/i18n/get-dictionary'
+import { Locale } from '@/lib/i18n/config'
+import LanguageSwitcher from '@/components/ui/language-switcher'
 
-export default function Services() {
+export default async function Services({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>
+}) {
+  const { locale } = await params
+  const dictionary = await getDictionary(locale)
   const features = [
     {
-      title: "Custom Website Design",
-      description: "A unique 4-5 page website designed specifically for your business.",
+      title: dictionary.services.included.customDesign.title,
+      description: dictionary.services.included.customDesign.description,
       details: [
-        "Homepage with compelling messaging",
-        "About page telling your story",
-        "Services/products showcase",
-        "Contact page with forms",
-        "Additional pages as needed"
+        dictionary.services.included.customDesign.detail1,
+        dictionary.services.included.customDesign.detail2,
+        dictionary.services.included.customDesign.detail3,
+        dictionary.services.included.customDesign.detail4,
+        dictionary.services.included.customDesign.detail5
       ]
     },
     {
-      title: "Premium Hosting & Performance",
-      description: "Fast, secure hosting with 99.9% uptime guarantee.",
+      title: dictionary.services.included.hosting.title,
+      description: dictionary.services.included.hosting.description,
       details: [
-        "Lightning-fast loading speeds",
-        "SSL certificate included",
-        "Daily backups",
-        "Security monitoring",
-        "CDN for global performance"
+        dictionary.services.included.hosting.detail1,
+        dictionary.services.included.hosting.detail2,
+        dictionary.services.included.hosting.detail3,
+        dictionary.services.included.hosting.detail4,
+        dictionary.services.included.hosting.detail5
       ]
     },
     {
-      title: "Mobile-First Design",
-      description: "Your website looks perfect on all devices and screen sizes.",
+      title: dictionary.services.included.mobile.title,
+      description: dictionary.services.included.mobile.description,
       details: [
-        "Responsive design",
-        "Touch-friendly navigation",
-        "Optimized for mobile search",
-        "Fast mobile loading",
-        "Cross-browser compatibility"
+        dictionary.services.included.mobile.detail1,
+        dictionary.services.included.mobile.detail2,
+        dictionary.services.included.mobile.detail3,
+        dictionary.services.included.mobile.detail4,
+        dictionary.services.included.mobile.detail5
       ]
     },
     {
-      title: "Monthly Updates",
-      description: "Keep your content fresh with included monthly updates.",
+      title: dictionary.services.included.updates.title,
+      description: dictionary.services.included.updates.description,
       details: [
-        "Text and image updates",
-        "New page creation",
-        "Plugin updates",
-        "Security patches",
-        "Performance optimization"
+        dictionary.services.included.updates.detail1,
+        dictionary.services.included.updates.detail2,
+        dictionary.services.included.updates.detail3,
+        dictionary.services.included.updates.detail4,
+        dictionary.services.included.updates.detail5
       ]
     },
     {
-      title: "SEO Optimization",
-      description: "Get found on Google with built-in SEO best practices.",
+      title: dictionary.services.included.seo.title,
+      description: dictionary.services.included.seo.description,
       details: [
-        "Keyword optimization",
-        "Meta tags setup",
-        "Google Analytics",
-        "Search Console setup",
-        "Local SEO optimization"
+        dictionary.services.included.seo.detail1,
+        dictionary.services.included.seo.detail2,
+        dictionary.services.included.seo.detail3,
+        dictionary.services.included.seo.detail4,
+        dictionary.services.included.seo.detail5
       ]
     },
     {
-      title: "Ongoing Support",
-      description: "Direct access to your developer whenever you need help.",
+      title: dictionary.services.included.support.title,
+      description: dictionary.services.included.support.description,
       details: [
-        "Email support",
-        "Quick response times",
-        "Technical assistance",
-        "Training and guidance",
-        "No call centers"
+        dictionary.services.included.support.detail1,
+        dictionary.services.included.support.detail2,
+        dictionary.services.included.support.detail3,
+        dictionary.services.included.support.detail4,
+        dictionary.services.included.support.detail5
       ]
     }
   ]
@@ -74,141 +83,185 @@ export default function Services() {
   const process = [
     {
       step: "1",
-      title: "Discovery",
-      description: "Fill out our simple form with your business details and requirements."
+      title: dictionary.services.process.step1.title,
+      description: dictionary.services.process.step1.description
     },
     {
       step: "2",
-      title: "Design",
-      description: "I create a custom design mockup based on your brand and needs."
+      title: dictionary.services.process.step2.title,
+      description: dictionary.services.process.step2.description
     },
     {
       step: "3",
-      title: "Build",
-      description: "Your website is built using modern, fast, and secure technologies."
+      title: dictionary.services.process.step3.title,
+      description: dictionary.services.process.step3.description
     },
     {
       step: "4",
-      title: "Launch",
-      description: "Go live in 1-2 weeks and start receiving monthly maintenance."
+      title: dictionary.services.process.step4.title,
+      description: dictionary.services.process.step4.description
     }
   ]
 
   const comparison = [
     {
-      category: "Traditional Agencies",
-      setup: "$3,000-$10,000 setup",
-      hosting: "$100-$300/month hosting",
-      updates: "$150/hour for updates",
-      contract: "Complex contracts",
-      timeline: "Long timelines",
-      firstYear: "$5,000+ first year",
+      category: dictionary.services.comparison.agencies,
+      setup: dictionary.services.comparison.agenciesSetup,
+      hosting: dictionary.services.comparison.agenciesHosting,
+      updates: dictionary.services.comparison.agenciesUpdates,
+      contract: dictionary.services.comparison.agenciesContract,
+      timeline: dictionary.services.comparison.agenciesTimeline,
+      firstYear: dictionary.services.comparison.agenciesFirstYear,
       highlight: false
     },
     {
-      category: "WebBuilder",
-      setup: "$0 setup fee",
-      hosting: "Hosting included",
-      updates: "Monthly updates included",
-      contract: "Simple monthly payment",
-      timeline: "1-2 week delivery",
-      firstYear: "$720 first year",
+      category: dictionary.services.comparison.webbuilder,
+      setup: dictionary.services.comparison.webbuilderSetup,
+      hosting: dictionary.services.comparison.webbuilderHosting,
+      updates: dictionary.services.comparison.webbuilderUpdates,
+      contract: dictionary.services.comparison.webbuilderContract,
+      timeline: dictionary.services.comparison.webbuilderTimeline,
+      firstYear: dictionary.services.comparison.webbuilderFirstYear,
       highlight: true
     },
     {
-      category: "DIY Platforms",
-      setup: "$20-$50/month platform",
-      hosting: "Your time = $$$",
-      updates: "Limited customization",
-      contract: "Generic templates",
-      timeline: "No support",
-      firstYear: "$600+ first year (plus your time)",
+      category: dictionary.services.comparison.diy,
+      setup: dictionary.services.comparison.diySetup,
+      hosting: dictionary.services.comparison.diyHosting,
+      updates: dictionary.services.comparison.diyUpdates,
+      contract: dictionary.services.comparison.diyContract,
+      timeline: dictionary.services.comparison.diyTimeline,
+      firstYear: dictionary.services.comparison.diyFirstYear,
       highlight: false
     }
   ]
 
   const faqs = [
     {
-      question: "What if I need more than 5 pages?",
-      answer: "Additional pages can be added for $10/month per page. Most small businesses find 4-5 pages sufficient for their needs."
+      question: dictionary.services.faq.q1.question,
+      answer: dictionary.services.faq.q1.answer
     },
     {
-      question: "Can I cancel anytime?",
-      answer: "Yes, there are no long-term contracts. You can cancel with 30 days notice. You'll always own your domain and content."
+      question: dictionary.services.faq.q2.question,
+      answer: dictionary.services.faq.q2.answer
     },
     {
-      question: "What if my domain costs more than $15/year?",
-      answer: "You'll pay the difference. Most .com domains are around $12-15/year, but premium domains may cost more."
+      question: dictionary.services.faq.q3.question,
+      answer: dictionary.services.faq.q3.answer
     },
     {
-      question: "Do you work with e-commerce sites?",
-      answer: "For simple product catalogs, yes. For full e-commerce with shopping carts, that would be a custom project with different pricing."
+      question: dictionary.services.faq.q4.question,
+      answer: dictionary.services.faq.q4.answer
     },
     {
-      question: "What happens to my website if I cancel?",
-      answer: "You keep your domain and can download all your content. I'll provide you with all files and help with the transition."
+      question: dictionary.services.faq.q5.question,
+      answer: dictionary.services.faq.q5.answer
     },
     {
-      question: "How many monthly updates do I get?",
-      answer: "Reasonable monthly updates are included - typically 1-2 hours of work per month. Larger changes may incur additional fees."
+      question: dictionary.services.faq.q6.question,
+      answer: dictionary.services.faq.q6.answer
     }
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black">
       {/* Header */}
-      <header className="bg-white shadow-xs">
+      <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="text-xl font-bold text-gray-900">
-              WebBuilder
-            </Link>
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                Home
+            <div className="text-xl font-bold text-white">
+              {dictionary.navigation.logoText}
+            </div>
+            <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+              <Link href={`/${locale}`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.homeLabel}>
+                {dictionary.common.home}
               </Link>
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                About
+              <Link href={`/${locale}/about`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.aboutLabel}>
+                {dictionary.common.about}
               </Link>
-              <Link href="/services" className="text-blue-600 font-medium">
-                Services
+              <Link href={`/${locale}/services`} className="text-white font-medium" aria-label={dictionary.navigation.servicesLabel}>
+                {dictionary.common.services}
               </Link>
-              <Link href="/portfolio" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                Portfolio
+              <Link href={`/${locale}/portfolio`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.portfolioLabel}>
+                {dictionary.common.portfolio}
               </Link>
+              <LanguageSwitcher locale={locale} />
             </nav>
             <Link
-              href="/get-started"
+              href={`/${locale}/get-started`}
               className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-xs"
             >
-              Get Started
+              {dictionary.common.getStarted}
             </Link>
             
             {/* Mobile Navigation */}
-            <MobileNav theme="light" />
+            <MobileNav theme="dark" locale={locale} dictionary={dictionary} />
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Complete Web Solution for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              $60/month
+      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-emerald-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-violet-400/20 to-purple-400/20 rounded-full blur-xl animate-bounce"></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-full blur-xl animate-pulse"></div>
+          
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+          
+          <div className="absolute inset-0 opacity-30 mix-blend-overlay" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+          }}></div>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40 text-center">
+          <div className="mb-8 inline-flex items-center rounded-full bg-emerald-500/10 px-6 py-2 text-sm font-medium text-emerald-300 ring-1 ring-inset ring-emerald-500/20 backdrop-blur-sm">
+            <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-ping"></div>
+            {locale === 'sq' ? 'Zgjidhje Komplet për Biznesin' : 'Complete Business Solution'}
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-300">
+              {dictionary.services.hero.title}
+            </span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 relative">
+              {dictionary.services.hero.price}
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full"></div>
             </span>
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed">
-            Everything your small business needs to establish a professional online presence.
+          
+          <p className="text-xl text-gray-300 leading-relaxed mb-12">
+            {dictionary.services.hero.subtitle}
           </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Link
+              href={`/${locale}/get-started`}
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-lg font-bold text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative flex items-center">
+                {dictionary.common.getStarted}
+                <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-24 fill-white" viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,120 C240,100 480,80 720,90 C960,100 1200,110 1440,90 L1440,120 Z"/>
+          </svg>
         </div>
       </section>
 
       {/* What's Included */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">What&apos;s Included</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">{dictionary.services.included.title}</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature) => (
@@ -236,7 +289,7 @@ export default function Services() {
       {/* How It Works */}
       <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">How It Works</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">{dictionary.services.process.title}</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((step) => (
@@ -255,8 +308,8 @@ export default function Services() {
       {/* Pricing Comparison */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Why Choose WebBuilder?</h2>
-          <p className="text-xl text-gray-600 mb-16 text-center">Compare the real costs and see the difference</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">{dictionary.services.comparison.title}</h2>
+          <p className="text-xl text-gray-600 mb-16 text-center">{dictionary.services.comparison.subtitle}</p>
 
           <div className="grid md:grid-cols-3 gap-8">
             {comparison.map((option) => (
@@ -264,7 +317,7 @@ export default function Services() {
                 {option.highlight && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-medium">
-                      Best Value
+                      {dictionary.services.comparison.bestValue}
                     </div>
                   </div>
                 )}
@@ -275,28 +328,28 @@ export default function Services() {
 
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Setup:</span>
+                    <span className="text-gray-600">{dictionary.services.comparison.setup}</span>
                     <span className="font-medium">{option.setup}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Hosting:</span>
+                    <span className="text-gray-600">{dictionary.services.comparison.hosting}</span>
                     <span className="font-medium">{option.hosting}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Updates:</span>
+                    <span className="text-gray-600">{dictionary.services.comparison.updates}</span>
                     <span className="font-medium">{option.updates}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Contract:</span>
+                    <span className="text-gray-600">{dictionary.services.comparison.contract}</span>
                     <span className="font-medium">{option.contract}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Timeline:</span>
+                    <span className="text-gray-600">{dictionary.services.comparison.timeline}</span>
                     <span className="font-medium">{option.timeline}</span>
                   </div>
                   <div className="border-t pt-4 mt-4">
                     <div className="flex justify-between">
-                      <span className="font-semibold text-gray-900">First Year:</span>
+                      <span className="font-semibold text-gray-900">{dictionary.services.comparison.firstYear}</span>
                       <span className={`font-bold ${option.highlight ? 'text-blue-600' : 'text-gray-900'}`}>
                         {option.firstYear}
                       </span>
@@ -312,7 +365,7 @@ export default function Services() {
       {/* FAQ */}
       <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">{dictionary.services.faq.title}</h2>
 
           <div className="space-y-8">
             {faqs.map((faq) => (
@@ -326,22 +379,29 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_25%_25%,rgba(34,197,94,0.1),transparent_50%)]"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_75%_75%,rgba(6,182,212,0.1),transparent_50%)]"></div>
+        </div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Get Started?
+            {dictionary.services.cta.title}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Join hundreds of small businesses with professional websites for just $60/month.
+            {dictionary.services.cta.subtitle}
           </p>
           <Link
-            href="/get-started"
-            className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl"
+            href={`/${locale}/get-started`}
+            className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-lg font-bold text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
           >
-            Start Your Website Today
-            <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative flex items-center">
+              {dictionary.services.cta.button}
+              <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </Link>
         </div>
       </section>

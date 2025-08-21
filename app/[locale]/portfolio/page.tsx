@@ -1,7 +1,16 @@
 import Link from 'next/link'
 import MobileNav from '@/components/ui/mobile-nav'
+import { getDictionary } from '@/lib/i18n/get-dictionary'
+import { Locale } from '@/lib/i18n/config'
+import LanguageSwitcher from '@/components/ui/language-switcher'
 
-export default function Portfolio() {
+export default async function Portfolio({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>
+}) {
+  const { locale } = await params
+  const dictionary = await getDictionary(locale)
   const projects = [
     {
       title: "OdaShop",
@@ -119,74 +128,117 @@ export default function Portfolio() {
   const process = [
     {
       step: "1",
-      title: "Discovery",
-      description: "We discuss your business, goals, and design preferences."
+      title: dictionary.portfolioPage.process.discovery.title,
+      description: dictionary.portfolioPage.process.discovery.description
     },
     {
       step: "2",
-      title: "Design",
-      description: "I create a custom mockup that reflects your brand."
+      title: dictionary.portfolioPage.process.design.title,
+      description: dictionary.portfolioPage.process.design.description
     },
     {
       step: "3",
-      title: "Development",
-      description: "Your website is built with modern, fast technologies."
+      title: dictionary.portfolioPage.process.development.title,
+      description: dictionary.portfolioPage.process.development.description
     },
     {
       step: "4",
-      title: "Launch",
-      description: "Go live and start attracting customers online."
+      title: dictionary.portfolioPage.process.launch.title,
+      description: dictionary.portfolioPage.process.launch.description
     }
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black">
       {/* Header */}
-      <header className="bg-white shadow-xs">
+      <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="text-xl font-bold text-gray-900">
-              WebBuilder
-            </Link>
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                Home
+            <div className="text-xl font-bold text-white">
+              {dictionary.navigation.logoText}
+            </div>
+            <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+              <Link href={`/${locale}`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.homeLabel}>
+                {dictionary.common.home}
               </Link>
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                About
+              <Link href={`/${locale}/about`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.aboutLabel}>
+                {dictionary.common.about}
               </Link>
-              <Link href="/services" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-                Services
+              <Link href={`/${locale}/services`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.servicesLabel}>
+                {dictionary.common.services}
               </Link>
-              <Link href="/portfolio" className="text-blue-600 font-medium">
-                Portfolio
+              <Link href={`/${locale}/portfolio`} className="text-white font-medium" aria-label={dictionary.navigation.portfolioLabel}>
+                {dictionary.common.portfolio}
               </Link>
+              <LanguageSwitcher locale={locale} />
             </nav>
             <Link
-              href="/get-started"
+              href={`/${locale}/get-started`}
               className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-xs"
             >
-              Get Started
+              {dictionary.common.getStarted}
             </Link>
             
             {/* Mobile Navigation */}
-            <MobileNav theme="light" />
+            <MobileNav theme="dark" locale={locale} dictionary={dictionary} />
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            See{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              What&apos;s Possible
+      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-emerald-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-violet-400/20 to-purple-400/20 rounded-full blur-xl animate-bounce"></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-full blur-xl animate-pulse"></div>
+          
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+          
+          <div className="absolute inset-0 opacity-30 mix-blend-overlay" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+          }}></div>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40 text-center">
+          <div className="mb-8 inline-flex items-center rounded-full bg-emerald-500/10 px-6 py-2 text-sm font-medium text-emerald-300 ring-1 ring-inset ring-emerald-500/20 backdrop-blur-sm">
+            <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-ping"></div>
+            {locale === 'sq' ? 'Projekte të Vërteta, Rezultate të Vërteta' : 'Real Projects, Real Results'}
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-300">
+              {dictionary.portfolioPage.hero.title}
+            </span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 relative">
+              {dictionary.portfolioPage.hero.titleHighlight}
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full"></div>
             </span>
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed">
-            Real websites for real businesses, all built for $60/month.
+          
+          <p className="text-xl text-gray-300 leading-relaxed mb-12">
+            {dictionary.portfolioPage.hero.subtitle}
           </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Link
+              href={`/${locale}/get-started`}
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-lg font-bold text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative flex items-center">
+                {dictionary.portfolioPage.cta.button}
+                <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-24 fill-white" viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,120 C240,100 480,80 720,90 C960,100 1200,110 1440,90 L1440,120 Z"/>
+          </svg>
         </div>
       </section>
 
@@ -225,7 +277,7 @@ export default function Portfolio() {
 
                   {/* Results */}
                   <div className="mb-8">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-4">Results:</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-4">{dictionary.portfolioPage.projects.resultsLabel}</h4>
                     <ul className="space-y-3">
                       {project.results.map((result) => (
                         <li key={result} className="flex items-start">
@@ -257,7 +309,7 @@ export default function Portfolio() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      View Project
+                      {dictionary.portfolioPage.projects.viewProject}
                     </Link>
                   </div>
                 </div>
@@ -270,7 +322,7 @@ export default function Portfolio() {
       {/* Client Testimonials */}
       <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">What Clients Say</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-16 text-center">{dictionary.portfolioPage.testimonials.title}</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial) => (
@@ -299,8 +351,8 @@ export default function Portfolio() {
       {/* Process Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Every Project Follows the Same Proven Process</h2>
-          <p className="text-xl text-gray-600 mb-16 text-center">This systematic approach ensures consistent results and happy clients, every time.</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">{dictionary.portfolioPage.process.title}</h2>
+          <p className="text-xl text-gray-600 mb-16 text-center">{dictionary.portfolioPage.process.subtitle}</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((step) => (
@@ -317,25 +369,32 @@ export default function Portfolio() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_25%_25%,rgba(34,197,94,0.1),transparent_50%)]"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_75%_75%,rgba(6,182,212,0.1),transparent_50%)]"></div>
+        </div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            Start Your Project Today
+            {dictionary.portfolioPage.cta.title}
           </h2>
           <h3 className="text-2xl font-semibold mb-6 opacity-90">
-            Ready to Join These Success Stories?
+            {dictionary.portfolioPage.cta.subtitle}
           </h3>
           <p className="text-xl mb-8 opacity-90">
-            Your business deserves a website that works as hard as you do.
+            {dictionary.portfolioPage.cta.description}
           </p>
           <Link
-            href="/get-started"
-            className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl"
+            href={`/${locale}/get-started`}
+            className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-lg font-bold text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
           >
-            Get Started for $60/month
-            <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative flex items-center">
+              {dictionary.portfolioPage.cta.button}
+              <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </Link>
         </div>
       </section>
