@@ -97,18 +97,11 @@ export default function Hero({ locale, dictionary }: { locale: string, dictionar
             </div>
           </div>
 
-          {/* Two-column layout for subtitle and description */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <div>
-              <p className="text-2xl sm:text-3xl font-bold text-gray-200 leading-tight">
-                {dictionary.hero.subtitle}
-              </p>
-            </div>
-            <div className="lg:pl-8">
-              <p className="text-lg text-gray-400 leading-relaxed">
-                {dictionary.hero.description}
-              </p>
-            </div>
+          {/* Simplified single subtitle */}
+          <div className="mb-12">
+            <p className="text-xl sm:text-2xl text-gray-300 leading-relaxed max-w-3xl">
+              {dictionary.hero.subtitle}
+            </p>
           </div>
 
           {/* CTA Section */}
@@ -139,43 +132,22 @@ export default function Hero({ locale, dictionary }: { locale: string, dictionar
             </Link>
           </div>
 
-          {/* Social Proof - Modern Cards Layout */}
-          <div className="grid sm:grid-cols-3 gap-6">
-            {/* Rating Card */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <div className="flex items-center mb-2">
-                <StarRating rating={5} size="sm" />
-                <span className="text-yellow-400 font-bold ml-2">4.9/5</span>
-              </div>
-              <p className="text-sm text-gray-400">
-                {locale === 'sq' ? 'Nga 200+ klientë' : 'From 200+ clients'}
-              </p>
+          {/* Simplified Social Proof */}
+          <div className="flex flex-wrap items-center gap-8 text-sm text-gray-400">
+            <div className="flex items-center">
+              <StarRating rating={5} size="sm" />
+              <span className="text-yellow-400 font-bold ml-2">4.9/5</span>
+              <span className="ml-2">{locale === 'sq' ? '(200+ klientë)' : '(200+ clients)'}</span>
             </div>
-
-            {/* Live Status Card */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <div className="flex items-center mb-2">
-                <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse mr-2"></div>
-                <span className="text-emerald-400 font-bold">
-                  {locale === 'sq' ? 'Aktiv tani' : 'Online now'}
-                </span>
-              </div>
-              <p className="text-sm text-gray-400">
-                {locale === 'sq' ? 'Duke punuar në 3 projekte' : 'Working on 3 projects'}
-              </p>
+            
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse mr-2"></div>
+              <span>{locale === 'sq' ? 'Aktiv tani' : 'Online now'}</span>
             </div>
-
-            {/* Recent Success Card */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <div className="flex items-center mb-2">
-                <div className="w-3 h-3 bg-blue-400 rounded-full mr-2"></div>
-                <span className="text-blue-400 font-bold">
-                  {locale === 'sq' ? '3 faqe këtë javë' : '3 sites this week'}
-                </span>
-              </div>
-              <p className="text-sm text-gray-400">
-                {locale === 'sq' ? 'Dorëzuar me sukses' : 'Successfully delivered'}
-              </p>
+            
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-cyan-400 rounded-full mr-2"></div>
+              <span>{locale === 'sq' ? '3 faqe këtë javë' : '3 sites this week'}</span>
             </div>
           </div>
         </div>

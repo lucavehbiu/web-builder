@@ -97,208 +97,106 @@ export default function FooterEnhanced() {
     <footer className="bg-gray-900 text-white" role="contentinfo">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         {/* Main footer content */}
-        <div className="xl:grid xl:grid-cols-4 xl:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand section */}
-          <div className="space-y-8 xl:col-span-1">
-            <div>
-              <h2 className="text-2xl font-bold text-white">WebBuilder</h2>
-              <p className="mt-2 text-sm leading-6 text-gray-300">
-                Professional websites for small businesses. $60/month, all-inclusive.
-              </p>
-            </div>
-
+          <div className="md:col-span-2">
+            <h2 className="text-2xl font-bold text-white mb-3">WebBuilder</h2>
+            <p className="text-sm text-gray-300 mb-6 max-w-md">
+              Professional websites for small businesses. $60/month, all-inclusive.
+            </p>
+            
             {/* Social links */}
-            <div className="flex space-x-6">
+            <div className="flex space-x-4">
               {socialLinks.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-400 hover:text-gray-300 transition-colors duration-200"
+                  className="text-gray-400 hover:text-gray-300 transition-colors"
                   aria-label={`Follow us on ${item.name}`}
                 >
-                  <span className="sr-only">{item.name}</span>
                   <item.icon />
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Links sections */}
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-3 xl:mt-0 lg:grid-cols-3">
-            {/* Services */}
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-white">Services</h3>
-              <ul className="mt-6 space-y-4" role="list">
-                <li>
-                  <Link
-                    href="/services/website-creation"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-                  >
-                    Website Creation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/hosting"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-                  >
-                    Hosting & Maintenance
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/updates"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-                  >
-                    Monthly Updates
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Company */}
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-white">Company</h3>
-              <ul className="mt-6 space-y-4" role="list">
-                <li>
-                  <Link
-                    href="/about"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-                  >
-                    About Me
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/portfolio"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-                  >
-                    Portfolio
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/get-started"
-                    className="inline-flex items-center text-sm leading-6 text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-                  >
-                    Get Started
-                    <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Support */}
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-white">Support</h3>
-              <ul className="mt-6 space-y-4" role="list">
-                <li>
-                  <Link
-                    href="/contact"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-                  >
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/faq"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-                  >
-                    FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/terms"
-                    className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-                  >
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Navigation links */}
+          <div>
+            <h3 className="text-sm font-semibold text-white mb-4">Navigation</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/about" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/portfolio" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
           </div>
-        </div>
 
-        {/* Newsletter signup section */}
-        <div className="mt-16 border-t border-gray-800 pt-8 sm:mt-20 lg:mt-24">
-          <div className="md:flex md:items-center md:justify-between">
-            <div className="md:flex md:items-center md:space-x-6">
-              <h3 className="text-sm font-semibold leading-6 text-white">Stay updated</h3>
-              <p className="mt-2 text-sm leading-6 text-gray-300 md:mt-0">
-                Get the latest news and updates about our services.
-              </p>
-            </div>
-            <form className="mt-6 sm:flex sm:max-w-md md:mt-0" onSubmit={handleNewsletterSubmit}>
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
+          {/* Newsletter */}
+          <div>
+            <h3 className="text-sm font-semibold text-white mb-4">Stay Updated</h3>
+            <p className="text-sm text-gray-300 mb-4">
+              Get tips to grow your business online.
+            </p>
+            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <input
                 type="email"
-                name="email-address"
-                id="email-address"
-                autoComplete="email"
-                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isSubmitting}
-                className={`
-                  w-full min-w-0 appearance-none rounded-md border-0 bg-white/5 px-3 py-1.5 text-base text-white placeholder:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:w-56 sm:text-sm sm:leading-6
-                  ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}
-                `}
+                className="w-full px-3 py-2 text-sm bg-white/5 border border-gray-700 rounded-md text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                 placeholder="Enter your email"
               />
-              <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`
-                    flex w-full items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-white shadow-xs transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600
-                    ${isSubmitting 
-                      ? 'bg-gray-500 cursor-not-allowed' 
-                      : 'bg-blue-600 hover:bg-blue-500'
-                    }
-                  `}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <svg className="mr-2 h-4 w-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                      </svg>
-                      Subscribing...
-                    </>
-                  ) : (
-                    'Subscribe'
-                  )}
-                </button>
-              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full px-4 py-2 text-sm font-semibold text-white rounded-md transition-colors ${isSubmitting ? 'bg-gray-600 cursor-not-allowed' : 'bg-emerald-600 hover:bg-emerald-500'}`}
+              >
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+              </button>
             </form>
+            
+            <Link
+              href="/get-started"
+              className="inline-flex items-center text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors mt-4"
+            >
+              Get Started
+              <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
 
         {/* Bottom section */}
-        <div className="mt-8 border-t border-gray-800 pt-8">
-          <div className="md:flex md:items-center md:justify-between">
-            <div className="flex space-x-6 md:order-2">
-              <Link
-                href="/privacy"
-                className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-              >
+        <div className="mt-8 pt-6 border-t border-gray-800">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs text-gray-400">
+              © {currentYear} WebBuilder. All rights reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 sm:mt-0">
+              <Link href="/privacy" className="text-xs text-gray-400 hover:text-gray-300 transition-colors">
                 Privacy Policy
               </Link>
-              <Link
-                href="/terms"
-                className="text-sm leading-6 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xs"
-              >
+              <Link href="/terms" className="text-xs text-gray-400 hover:text-gray-300 transition-colors">
                 Terms of Service
               </Link>
             </div>
-            <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
-              © {currentYear} WebBuilder. All rights reserved.
-            </p>
           </div>
         </div>
       </div>

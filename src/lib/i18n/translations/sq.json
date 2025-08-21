@@ -342,6 +342,127 @@
       "button": "Fillo për 15€/muaj"
     }
   },
+  "getStarted": {
+    "header": {
+      "title": "Fillo Faqen Tënde",
+      "price": "15€/muaj",
+      "subtitle": "Vetëm disa pyetje dhe do jesh në rrugën për një faqe profesionale."
+    },
+    "progress": {
+      "step": "Hapi",
+      "of": "nga",
+      "complete": "Kompletuar"
+    },
+    "step1": {
+      "title": "Na Trego për Biznesin Tënd",
+      "subtitle": "Le të fillojmë me bazat",
+      "businessName": "Emri i Biznesit",
+      "industry": "Industria/Tipi i Biznesit",
+      "selectIndustry": "Zgjidh industrinë tënde",
+      "businessDescription": "Përshkrimi i Shkurtër i Biznesit",
+      "businessDescriptionPlaceholder": "Çfarë bën biznesi yt? Kujt i shërben?",
+      "fullName": "Emri Yt",
+      "fullNamePlaceholder": "Emri yt i plotë",
+      "email": "Adresa Email",
+      "emailPlaceholder": "email.yt@shembull.com",
+      "phone": "Numri i Telefonit",
+      "phonePlaceholder": "+355 69 123 4567"
+    },
+    "step2": {
+      "title": "Kërkesat për Faqen",
+      "subtitle": "Na ndihmo të kuptojmë çfarë të duhet",
+      "hasWebsite": "A ke aktualisht një faqe interneti?",
+      "hasWebsiteYes": "Po, kam një faqe interneti",
+      "hasWebsiteNo": "Jo, kjo është faqja ime e parë",
+      "currentUrl": "URL-ja e Faqes Aktuale (nëse aplikohet)",
+      "urlPlaceholder": "https://faqjaime.com",
+      "pagesNeeded": "Cilat faqe të duhen? (Shëno të gjitha që aplikohen)",
+      "preferredDomain": "A ke një emër domaini të preferuar?",
+      "domainPlaceholder": "biznesim.com",
+      "domainNote": "Domaini përfshihet nëse është nën 375 lekë/vit. Shumica e domaineve .com kualifikohen.",
+      "hasBranding": "A ke branding ekzistues (logo, ngjyra, etj.)?",
+      "brandingYes": "Po, kam logo dhe ngjyra të markës",
+      "brandingSome": "Kam disa elemente por kam nevojë për ndihmë",
+      "brandingNo": "Jo, kam nevojë për ndihmë me branding",
+      "colorScheme": "Skema e Preferuar e Ngjyrave",
+      "colorSchemePlaceholder": "p.sh., Blu dhe e bardhë, Ngjyra toke, E zezë/gri moderne"
+    },
+    "step3": {
+      "title": "Detajet Finale",
+      "subtitle": "Pothuajse mbaruar!",
+      "launchTimeline": "Kur do të doje të lançoje?",
+      "selectTimeline": "Zgjidh kohën",
+      "contentReady": "A ke përmbajtje gati?",
+      "contentYes": "Po, kam tekst dhe imazhe gati",
+      "contentSome": "Kam disa përmbajtje por kam nevojë për ndihmë",
+      "contentNo": "Kam nevojë për ndihmë në krijimin e përmbajtjes",
+      "specialRequirements": "Kërkesa ose Veçori të Veçanta",
+      "specialRequirementsPlaceholder": "Ndonjë veçori specifike, integrime, ose kërkesa?",
+      "hearAboutUs": "Si dëgjove për ne?",
+      "selectOption": "Të lutem zgjidh",
+      "whatNext": "Çfarë ndodh më pas?",
+      "next1": "Do shqyrtoj informacionin tënd brenda 24 orëve",
+      "next2": "Do caktojmë një thirrje të shkurtër për të diskutuar projektin",
+      "next3": "Do krijoj një mockup dizajni për aprovimin tënd",
+      "next4": "Faqja jote do ndërtohet dhe lançohet në 1-2 javë",
+      "next5": "Mirëmbajtja mujore fillon menjëherë",
+      "terms": "Duke dorëzuar, pranon",
+      "termsOfService": "Kushtet e Shërbimit",
+      "and": "dhe",
+      "privacyPolicy": "Politikën e Privatësisë"
+    },
+    "buttons": {
+      "nextStep": "Hapi Tjetër",
+      "back": "Mbrapa",
+      "submit": "Dërgo Aplikimin",
+      "submitting": "Duke dërguar..."
+    },
+    "industries": [
+      "Restorant/Shërbim Ushqimi",
+      "Shëndetësi/Mjekësi",
+      "Shërbime Ligjore",
+      "Pasuri të Paluajtshme",
+      "Shitje me Pakicë/E-commerce",
+      "Shërbime Profesionale",
+      "Ndërtim/Kontraktorë",
+      "Bukuri/Mirëqenie",
+      "Fitness/Palestra",
+      "Edukim/Trajnim",
+      "Teknologji",
+      "Jo-fitimprurëse",
+      "Tjetër"
+    ],
+    "pages": [
+      "Faqja Kryesore",
+      "Rreth Nesh",
+      "Shërbime/Produkte",
+      "Kontakt",
+      "Portofol/Galeri",
+      "Blog",
+      "Dëshmi",
+      "Pyetje të Shpeshta"
+    ],
+    "timelines": [
+      "SA MË SHPEJT (Urgjent - 1,250 lekë shtesë)",
+      "Brenda 1 jave",
+      "Brenda 2 javëve",
+      "Brenda 1 muaji",
+      "Pa ngut, kur të jetë e përshtatshme"
+    ],
+    "hearAboutOptions": [
+      "Kërkim në Google",
+      "Media Sociale",
+      "Referim nga Miku/Familja",
+      "Referim Biznesi",
+      "Reklamë Online",
+      "Tjetër"
+    ],
+    "notifications": {
+      "fillRequired": "Të lutem plotëso të gjitha fushat e kërkuara.",
+      "submitSuccess": "Faleminderit! Aplikimi yt është dorëzuar. Do të jemi në kontakt brenda 24 orëve.",
+      "submitError": "Na vjen keq, pati një gabim në dorëzimin e aplikimit. Të lutem provo përsëri."
+    }
+  },
   "footer": {
     "copyright": "© 2024 WebBuilder. Të gjitha të drejtat e rezervuara.",
     "newsletter": {

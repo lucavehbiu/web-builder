@@ -321,6 +321,91 @@ export interface Dictionary {
       button: string
     }
   }
+  getStarted: {
+    header: {
+      title: string
+      price: string
+      subtitle: string
+    }
+    progress: {
+      step: string
+      of: string
+      complete: string
+    }
+    step1: {
+      title: string
+      subtitle: string
+      businessName: string
+      industry: string
+      selectIndustry: string
+      businessDescription: string
+      businessDescriptionPlaceholder: string
+      fullName: string
+      fullNamePlaceholder: string
+      email: string
+      emailPlaceholder: string
+      phone: string
+      phonePlaceholder: string
+    }
+    step2: {
+      title: string
+      subtitle: string
+      hasWebsite: string
+      hasWebsiteYes: string
+      hasWebsiteNo: string
+      currentUrl: string
+      urlPlaceholder: string
+      pagesNeeded: string
+      preferredDomain: string
+      domainPlaceholder: string
+      domainNote: string
+      hasBranding: string
+      brandingYes: string
+      brandingSome: string
+      brandingNo: string
+      colorScheme: string
+      colorSchemePlaceholder: string
+    }
+    step3: {
+      title: string
+      subtitle: string
+      launchTimeline: string
+      selectTimeline: string
+      contentReady: string
+      contentYes: string
+      contentSome: string
+      contentNo: string
+      specialRequirements: string
+      specialRequirementsPlaceholder: string
+      hearAboutUs: string
+      selectOption: string
+      whatNext: string
+      next1: string
+      next2: string
+      next3: string
+      next4: string
+      next5: string
+      terms: string
+      termsOfService: string
+      and: string
+      privacyPolicy: string
+    }
+    buttons: {
+      nextStep: string
+      back: string
+      submit: string
+      submitting: string
+    }
+    industries: string[]
+    pages: string[]
+    timelines: string[]
+    hearAboutOptions: string[]
+    notifications: {
+      fillRequired: string
+      submitSuccess: string
+      submitError: string
+    }
+  }
   pricing: {
     title: string
     subtitle: string

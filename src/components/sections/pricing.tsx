@@ -135,7 +135,7 @@ import type { Dictionary } from '@/lib/i18n/types'
 
 export default function Pricing({ locale, dictionary }: { locale: string, dictionary: Dictionary }) {
   const currency = locale === 'sq' ? '€' : '$'
-  const price = locale === 'sq' ? '50' : '60'
+  const price = locale === 'sq' ? '15' : '60'
   
   return (
     <section className="bg-gradient-to-br from-gray-50 to-white py-24 sm:py-32">
@@ -155,7 +155,7 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
           <div className="relative rounded-3xl bg-white p-8 shadow-2xl ring-1 ring-gray-200 sm:p-10">
             {/* Popular Badge */}
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-semibold text-white shadow-md">
+              <span className="inline-flex items-center rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 px-6 py-2 text-sm font-semibold text-white shadow-md">
                 {dictionary.pricing.mostPopular}
               </span>
             </div>
@@ -220,9 +220,12 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
             <div className="mt-10">
               <a
                 href={`/${locale}/get-started`}
-                className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-center text-lg font-semibold text-white shadow-md hover:from-blue-500 hover:to-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-200 transform hover:scale-105"
+                className="group relative overflow-hidden block w-full rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-center text-lg font-bold text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >
-                {dictionary.pricing.getStarted}
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative">
+                  {dictionary.pricing.getStarted}
+                </span>
               </a>
             </div>
 

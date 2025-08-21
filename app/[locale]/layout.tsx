@@ -83,8 +83,8 @@ export default async function LocaleLayout({
   // const dictionary = await getDictionary(locale)
 
   return (
-    <html lang={locale} className="h-full">
-      <body className={`${inter.className} h-full flex flex-col`}>
+    <html lang={locale} className="h-full" style={{overscrollBehavior: 'none'}}>
+      <body className={`${inter.className} h-full flex flex-col`} style={{overscrollBehavior: 'none'}}>
         <div className="flex-grow">
           {children}
         </div>
