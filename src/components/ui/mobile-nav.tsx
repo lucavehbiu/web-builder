@@ -67,7 +67,6 @@ export default function MobileNav({
   }, [isOpen])
 
   const navLinks = [
-    { href: `/${locale}`, label: dictionary?.common?.home || 'Home' },
     { href: `/${locale}/about`, label: dictionary?.common?.about || 'About' },
     { href: `/${locale}/services`, label: dictionary?.common?.services || 'Services' },
     { href: `/${locale}/portfolio`, label: dictionary?.common?.portfolio || 'Portfolio' },

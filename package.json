@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "15.3.4",
+    "node-mailjet": "^6.0.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "server-only": "^0.0.1"

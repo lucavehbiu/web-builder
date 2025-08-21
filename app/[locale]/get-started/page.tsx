@@ -1,16 +1,12 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { useParams } from 'next/navigation'
-import MobileNav from '@/components/ui/mobile-nav'
-import Logo from '@/components/ui/logo'
+import { useState, useEffect } from 'react'
+import Header from '@/components/ui/header'
 import Notification from '@/components/ui/notification'
+import { useParams } from 'next/navigation'
 import { Locale } from '@/lib/i18n/config'
 import { getDictionaryClient } from '@/lib/i18n/get-dictionary-client'
 import { Dictionary } from '@/lib/i18n/types'
-import LanguageSwitcher from '@/components/ui/language-switcher'
-import { useEffect } from 'react'
 
 export default function GetStarted() {
   const params = useParams()
@@ -96,19 +92,47 @@ export default function GetStarted() {
     setIsSubmitting(true)
     
     try {
-      // Here you would typically submit to your backend or Google Forms
-      // Form submitted with formData
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // Submit to API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form')
+      }
+
+      const result = await response.json()
+      console.log('Form submitted successfully:', result)
       
       showNotification(dictionary.getStarted.notifications.submitSuccess, 'success')
       
-      // Optionally reset form or redirect
-      // setFormData({ ... }) // Reset form if needed
+      // Reset form after successful submission
+      setFormData({
+        businessName: '',
+        industry: '',
+        businessDescription: '',
+        fullName: '',
+        email: '',
+        phone: '',
+        hasWebsite: '',
+        currentWebsiteUrl: '',
+        neededPages: [],
+        preferredDomain: '',
+        hasBranding: '',
+        colorScheme: '',
+        launchTimeline: '',
+        contentReady: '',
+        specialRequirements: '',
+        hearAboutUs: ''
+      })
+      setCurrentStep(1)
       
-    } catch {
-      // Form submission error occurred
+    } catch (error) {
+      console.error('Form submission error:', error)
       showNotification(dictionary.getStarted.notifications.submitError, 'error')
     } finally {
       setIsSubmitting(false)
@@ -124,40 +148,8 @@ export default function GetStarted() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black">
-      {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Logo size="md" />
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
-              <nav className="flex items-center space-x-8" role="navigation" aria-label="Main navigation">
-                <Link href={`/${locale}`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.homeLabel}>
-                  {dictionary.common.home}
-                </Link>
-                <Link href={`/${locale}/about`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.aboutLabel}>
-                  {dictionary.common.about}
-                </Link>
-                <Link href={`/${locale}/services`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.servicesLabel}>
-                  {dictionary.common.services}
-                </Link>
-                <Link href={`/${locale}/portfolio`} className="text-gray-300 hover:text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-xs" aria-label={dictionary.navigation.portfolioLabel}>
-                  {dictionary.common.portfolio}
-                </Link>
-                <LanguageSwitcher locale={locale} />
-              </nav>
-              <Link href={`/${locale}`} className="text-gray-400 hover:text-white">
-                ← {dictionary.buttons?.back || 'Back'}
-              </Link>
-            </div>
-            
-            {/* Mobile Navigation */}
-            <MobileNav theme="dark" locale={locale} dictionary={dictionary} />
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white">
+      <Header locale={locale} dictionary={dictionary} />
 
       <div className="relative pt-24 pb-12">
         <div className="max-w-2xl mx-auto px-4">
