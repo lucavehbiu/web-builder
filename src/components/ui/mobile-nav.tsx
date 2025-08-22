@@ -145,53 +145,59 @@ export default function MobileNav({
         aria-labelledby="mobile-nav-title"
       >
         {/* Panel Header */}
-        <div className={`flex items-center justify-between p-4 border-b ${classes.border}`}>
-          <div id="mobile-nav-title">
-            <Logo size="sm" />
+        <div className={`border-b ${classes.border}`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              <div id="mobile-nav-title">
+                <Logo size="sm" />
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className={`p-2 rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${classes.hamburger}`}
+                aria-label="Close navigation menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <button
-            onClick={() => setIsOpen(false)}
-            className={`p-2 rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${classes.hamburger}`}
-            aria-label="Close navigation menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex-1 p-4" style={{ backgroundColor: 'inherit' }}>
-          <ul className="space-y-2" role="list">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
-                    pathname === link.href ? classes.activeLink : classes.link
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav className="flex-1 py-4" style={{ backgroundColor: 'inherit' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul className="space-y-2" role="list">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
+                      pathname === link.href ? classes.activeLink : classes.link
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          {/* Language Switcher */}
-          <div className="mt-6 px-4">
-            <LanguageSwitcher locale={locale as Locale} />
-          </div>
+            {/* Language Switcher */}
+            <div className="mt-6">
+              <LanguageSwitcher locale={locale as Locale} />
+            </div>
 
-          {/* CTA Button */}
-          <div className="mt-8">
-            <Link
-              href={`/${locale}/get-started`}
-              className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-colors shadow-xs ${classes.cta}`}
-              onClick={() => setIsOpen(false)}
-            >
-              {dictionary?.common?.getStarted || 'Start Your Project'}
-            </Link>
+            {/* CTA Button */}
+            <div className="mt-8">
+              <Link
+                href={`/${locale}/get-started`}
+                className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-colors shadow-xs ${classes.cta}`}
+                onClick={() => setIsOpen(false)}
+              >
+                {dictionary?.common?.getStarted || 'Start Your Project'}
+              </Link>
+            </div>
           </div>
         </nav>
       </div>
