@@ -14,7 +14,7 @@ interface MobileNavProps {
   dictionary?: Dictionary
 }
 
-export default function MobileNav({ 
+export default function MobileNav({
   theme = 'dark',
   locale = 'en',
   dictionary
@@ -38,7 +38,6 @@ export default function MobileNav({
 
     if (isOpen) {
       document.addEventListener('click', handleClickOutside)
-      // Prevent body scroll when menu is open
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'unset'
@@ -72,20 +71,22 @@ export default function MobileNav({
     light: {
       hamburger: 'text-gray-900',
       overlay: 'bg-black/50',
-      panel: 'bg-white',
+      panel: 'bg-white backdrop-blur-none', // Solid white background for light theme
       logo: 'text-gray-900',
       link: 'text-gray-700 hover:text-blue-600',
       activeLink: 'text-blue-600',
+      border: 'border-gray-200',
       cta: 'bg-blue-600 text-white hover:bg-blue-700'
     },
     dark: {
       hamburger: 'text-white',
-      overlay: 'bg-black/50',
-      panel: 'bg-gray-900',
+      overlay: 'bg-black/70',
+      panel: 'bg-gray-900 backdrop-blur-none', // Solid dark background for dark theme
       logo: 'text-white',
       link: 'text-gray-300 hover:text-white',
       activeLink: 'text-white',
-      cta: 'bg-blue-600 text-white hover:bg-blue-700'
+      border: 'border-gray-700',
+      cta: 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white hover:from-emerald-400 hover:to-cyan-400'
     }
   }
 
@@ -102,17 +103,17 @@ export default function MobileNav({
         aria-controls="mobile-navigation"
       >
         <div className="w-6 h-6 flex flex-col justify-center items-center relative">
-          <span 
+          <span
             className={`block w-6 h-0.5 bg-current transform transition-transform duration-300 ${
               isOpen ? 'rotate-45 translate-y-0.5' : '-translate-y-1'
             }`}
           />
-          <span 
+          <span
             className={`block w-6 h-0.5 bg-current transition-opacity duration-300 ${
               isOpen ? 'opacity-0' : 'opacity-100'
             }`}
           />
-          <span 
+          <span
             className={`block w-6 h-0.5 bg-current transform transition-transform duration-300 ${
               isOpen ? '-rotate-45 -translate-y-0.5' : 'translate-y-1'
             }`}
@@ -122,24 +123,29 @@ export default function MobileNav({
 
       {/* Overlay */}
       {isOpen && (
-        <div 
+        <div
           className={`fixed inset-0 z-40 ${classes.overlay}`}
           aria-hidden="true"
         />
       )}
 
-      {/* Slide-out Navigation Panel */}
+      {/* Slide-out Navigation Panel - FIXED BACKGROUND */}
       <div
         id="mobile-navigation"
-        className={`fixed top-0 right-0 bottom-0 z-50 w-80 max-w-[80vw] ${classes.panel} shadow-xl transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 bottom-0 z-[60] w-80 max-w-[80vw] shadow-xl transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        } ${classes.panel}`}
+        style={{
+          backgroundColor: theme === 'dark' ? '#111827' : '#ffffff',
+          backdropFilter: 'none',
+          WebkitBackdropFilter: 'none'
+        }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="mobile-nav-title"
       >
         {/* Panel Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+        <div className={`flex items-center justify-between p-4 border-b ${classes.border}`}>
           <div id="mobile-nav-title">
             <Logo size="sm" />
           </div>
@@ -155,7 +161,7 @@ export default function MobileNav({
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex-1 p-4">
+        <nav className="flex-1 p-4" style={{ backgroundColor: 'inherit' }}>
           <ul className="space-y-2" role="list">
             {navLinks.map((link) => (
               <li key={link.href}>

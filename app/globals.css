@@ -34,18 +34,18 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 
-    ui-sans-serif, 
-    system-ui, 
-    -apple-system, 
-    BlinkMacSystemFont, 
-    "Segoe UI Variable Display", 
-    "Segoe UI", 
-    Helvetica, 
-    "Apple Color Emoji", 
-    Arial, 
-    sans-serif, 
-    "Segoe UI Emoji", 
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI Variable Display",
+    "Segoe UI",
+    Helvetica,
+    "Apple Color Emoji",
+    Arial,
+    sans-serif,
+    "Segoe UI Emoji",
     "Segoe UI Symbol";
   /* Performance optimizations */
   -webkit-font-smoothing: antialiased;
@@ -67,12 +67,12 @@ html {
 }
 
 /* Touch-friendly tap targets (44px minimum) */
-.btn, 
-button, 
-[role="button"], 
-a[href], 
-input[type="button"], 
-input[type="submit"], 
+.btn,
+button,
+[role="button"],
+a[href],
+input[type="button"],
+input[type="submit"],
 input[type="reset"] {
   min-height: 44px;
   min-width: 44px;
@@ -105,7 +105,7 @@ input[type="reset"] {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   /* Disable grid pattern animation if user prefers reduced motion */
   .bg-grid-pattern {
     transform: none;
@@ -125,7 +125,7 @@ input[type="reset"] {
     --background: #ffffff;
     --foreground: #000000;
   }
-  
+
   @media (prefers-color-scheme: dark) {
     :root {
       --background: #000000;
@@ -264,7 +264,7 @@ input[type="reset"] {
     font-size: 16px;
     line-height: 1.6;
   }
-  
+
   /* Ensure touch targets are large enough on mobile */
   .btn,
   button,
