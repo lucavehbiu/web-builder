@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import FooterEnhanced from "@/components/ui/footer-enhanced";
-import { i18n, type Locale } from '@/lib/i18n/config'
+import { type Locale } from '@/lib/i18n/config'
 // import { getDictionary } from '@/lib/i18n/get-dictionary'
+
+export const runtime = 'edge'
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -11,9 +13,6 @@ const inter = Inter({
   variable: "--font-inter"
 });
 
-export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ locale }))
-}
 
 export async function generateMetadata({
   params,
