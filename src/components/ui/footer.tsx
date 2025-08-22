@@ -13,7 +13,7 @@ export default function Footer() {
             <div>
               <h2 className="text-2xl font-bold">WebBuilder</h2>
               <p className="mt-2 text-sm leading-6 text-gray-300">
-                Professional websites for small businesses. $60/month, all-inclusive.
+                Professional websites for small businesses. €49.9/month, all-inclusive.
               </p>
             </div>
           </div>

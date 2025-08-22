@@ -26,7 +26,7 @@ export default function FeaturesCompact() {
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             What You Get for{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              $60/month
+              €49.9/month
             </span>
           </h2>
         </div>

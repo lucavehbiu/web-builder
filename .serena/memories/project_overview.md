@@ -1,7 +1,7 @@
 # Project Overview
 
 ## Purpose
-WebBuilder is a web development service targeting small businesses, providing professional websites for $60/month. The platform showcases the developer's portfolio and services.
+WebBuilder is a web development service targeting small businesses, providing professional websites for €49.9/month. The platform showcases the developer's portfolio and services.
 
 ## Tech Stack
 - **Frontend**: Next.js 15.3.4 with App Router
@@ -21,4 +21,4 @@ WebBuilder is a web development service targeting small businesses, providing pr
 Small businesses looking for affordable web development solutions.
 
 ## Business Model
-Monthly subscription service at $60/month with no setup fees.
+Monthly subscription service at €49.9/month with no setup fees.

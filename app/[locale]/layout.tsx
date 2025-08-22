@@ -7,7 +7,7 @@ import { type Locale } from '@/lib/i18n/config'
 
 export const runtime = 'edge'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-inter"
@@ -21,14 +21,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const isAlbanian = locale === 'sq'
-  
+
   return {
-    title: isAlbanian 
+    title: isAlbanian
       ? "Luca - Faqe Profesionale për Bizneset e Vogla"
       : "Luca - Bringing Your Business Into the Light",
     description: isAlbanian
-      ? "Duke sjellë biznesin tuaj në dritë. Faqe profesionale që të bëjnë të dukshëm online. 15€/muaj, gjithëpërfshirëse."
-      : "Professional websites that make your business visible online. Bringing you into the light with $60/month all-inclusive service.",
+      ? "Duke sjellë biznesin tuaj në dritë. Faqe profesionale që të bëjnë të dukshëm online. €49.9/muaj, gjithëpërfshirëse."
+      : "Professional websites that make your business visible online. Bringing you into the light with €49.9/month all-inclusive service.",
     icons: {
       icon: [
         { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },

@@ -24,7 +24,7 @@
   "navigation": {
     "logoText": "Luca",
     "homeLabel": "Go to homepage",
-    "aboutLabel": "Learn about the founder and company", 
+    "aboutLabel": "Learn about the founder and company",
     "servicesLabel": "View our website services",
     "portfolioLabel": "View our portfolio of completed websites"
   },
@@ -63,7 +63,7 @@
     },
     "result2": {
       "business": "Elite Auto Repair",
-      "location": "Phoenix, AZ", 
+      "location": "Phoenix, AZ",
       "result": "+89% New Customers",
       "timeframe": "6 Months",
       "description": "Booking appointments went from 3-4 per week to 12-15 per week. Monthly revenue up $18,000.",
@@ -74,7 +74,7 @@
       "business": "Bella's Boutique",
       "location": "Austin, TX",
       "result": "+156% Sales",
-      "timeframe": "4 Months", 
+      "timeframe": "4 Months",
       "description": "Online sales went from $2,000/month to $5,100/month. Now 60% of total revenue comes from website.",
       "before": "Shopify template that looked like everyone else's",
       "after": "Custom brand experience with optimized checkout"
@@ -84,7 +84,7 @@
     "title": "One Simple Price, Everything Included",
     "subtitle": "No hidden fees, no surprises, no contracts",
     "monthly": "Monthly",
-    "yearly": "Yearly", 
+    "yearly": "Yearly",
     "mostPopular": "Most Popular",
     "getStarted": "Start Making More Money",
     "currency": "$",
@@ -121,7 +121,7 @@
         "description": "No hidden fees, no surprises. You know exactly what you're paying for every month."
       },
       "partnership": {
-        "title": "Partnership", 
+        "title": "Partnership",
         "description": "I'm not just a service provider - I'm your partner in building your online presence."
       },
       "efficiency": {
@@ -139,7 +139,7 @@
       "whatIBringTitle": "What I Bring",
       "webDevelopment": "Web Development",
       "uiuxDesign": "UI/UX Design",
-      "seoOptimization": "SEO Optimization", 
+      "seoOptimization": "SEO Optimization",
       "performanceOptimization": "Performance Optimization",
       "clientCommunication": "Client Communication",
       "highlight1": "10+ years of web development experience",
@@ -152,13 +152,13 @@
     "cta": {
       "title": "Let's Build Something Great Together",
       "subtitle": "Ready to give your business the professional web presence it deserves?",
-      "button": "Get Started for $60/month"
+      "button": "Get Started for €49.9/month"
     }
   },
   "services": {
     "hero": {
       "title": "Complete Web Solution for",
-      "price": "$60/month",
+      "price": "€49.9/month",
       "subtitle": "Everything your small business needs to establish a professional online presence."
     },
     "included": {
@@ -267,7 +267,7 @@
       "diyUpdates": "Limited customization",
       "diyContract": "Generic templates",
       "diyTimeline": "No support",
-      "diyFirstYear": "$600+ first year (plus your time)"
+      "diyFirstYear": "€600+ first year (plus your time)"
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -298,7 +298,7 @@
     },
     "cta": {
       "title": "Ready to Get Started?",
-      "subtitle": "Join hundreds of small businesses with professional websites for just $60/month.",
+      "subtitle": "Join hundreds of small businesses with professional websites for just €49.9/month.",
       "button": "Start Your Website Today"
     }
   },
@@ -306,7 +306,7 @@
     "hero": {
       "title": "See",
       "titleHighlight": "What's Possible",
-      "subtitle": "Real websites for real businesses, all built for $60/month."
+      "subtitle": "Real websites for real businesses, all built for €49.9/month."
     },
     "projects": {
       "resultsLabel": "Results:",
@@ -339,13 +339,13 @@
       "title": "Start Your Project Today",
       "subtitle": "Ready to Join These Success Stories?",
       "description": "Your business deserves a website that works as hard as you do.",
-      "button": "Get Started for $60/month"
+      "button": "Get Started for €49.9/month"
     }
   },
   "getStarted": {
     "header": {
       "title": "Step Into the Light with",
-      "price": "$60/month",
+      "price": "€49.9/month",
       "subtitle": "Just a few questions and you'll have a professional website that makes your business visible online."
     },
     "progress": {
@@ -472,7 +472,7 @@
     },
     "links": {
       "company": "Company",
-      "support": "Support", 
+      "support": "Support",
       "legal": "Legal",
       "privacyPolicy": "Privacy Policy",
       "termsOfService": "Terms of Service"

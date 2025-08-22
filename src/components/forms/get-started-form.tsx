@@ -741,17 +741,23 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                       </div>
                     </div>
                     
-                    <div className="text-3xl font-black text-white mb-2">
-                      €599
-                      <span className="text-base font-normal text-gray-400 ml-2">
-                        {locale === 'sq' ? '/muaj' : '/month'}
-                      </span>
+                    <div className="mb-2">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-3xl font-black text-white">€39.9</span>
+                        <span className="text-xl font-bold text-gray-400 line-through">€49.9</span>
+                        <span className="text-base font-normal text-gray-400">
+                          {locale === 'sq' ? '/muaj' : '/month'}
+                        </span>
+                      </div>
+                      <div className="inline-block bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs px-2 py-1 rounded-full mt-1">
+                        {locale === 'sq' ? '20% ZBRITJE - 3 MUAJT E PARË' : '20% OFF - FIRST 3 MONTHS'}
+                      </div>
                     </div>
                     
                     <p className="text-sm text-gray-400 mb-4">
                       {locale === 'sq' 
-                        ? '7 ditë provë falas - anullo kur të duash' 
-                        : '7-day free trial - cancel anytime'}
+                        ? '3 ditë provë falas - anullo kur të duash' 
+                        : '3-day free trial - cancel anytime'}
                     </p>
 
                     <ul className="space-y-2 text-sm text-gray-300 mb-6">
@@ -771,7 +777,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                         <svg className="w-4 h-4 text-emerald-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
-                        {locale === 'sq' ? 'Kthim i plotë brenda 7 ditëve' : '100% refund within 7 days'}
+                        {locale === 'sq' ? 'Kthim i plotë brenda 3 ditëve' : '100% refund within 3 days'}
                       </li>
                       <li className="flex items-center">
                         <svg className="w-4 h-4 text-emerald-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -786,10 +792,10 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                       onClick={handlePayNow}
                       disabled={isSubmitting}
                       className={`
-                        w-full py-3 px-6 rounded-2xl font-bold transition-all duration-300 text-white
+                        w-full py-4 px-6 rounded-2xl font-bold transition-all duration-300 text-white shadow-lg
                         ${isSubmitting 
                           ? 'bg-gray-600 cursor-not-allowed' 
-                          : 'bg-gradient-to-r from-emerald-500 to-cyan-500 hover:shadow-xl transform hover:scale-105'
+                          : 'bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 hover:shadow-2xl hover:shadow-orange-500/25 transform hover:scale-105'
                         }
                       `}
                     >
@@ -805,7 +811,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                           </svg>
-                          {locale === 'sq' ? 'Paguaj me Stripe' : 'Pay with Stripe'}
+                          {locale === 'sq' ? 'Fillo Tani - €39.9/muaj' : 'Start Now - €39.9/month'}
                         </div>
                       )}
                     </button>

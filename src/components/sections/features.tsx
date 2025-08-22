@@ -80,8 +80,8 @@ export default function Features({ locale, dictionary }: { locale: string, dicti
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             {locale === 'sq' 
-              ? 'Të gjitha veçoritë të përfshira në abonimin tuaj 15€/muaj' 
-              : 'All features included in your $60/month subscription'}
+              ? 'Të gjitha veçoritë të përfshira në abonimin tuaj €49.9/muaj' 
+              : 'All features included in your €49.9/month subscription'}
           </div>
         </div>
       </div>

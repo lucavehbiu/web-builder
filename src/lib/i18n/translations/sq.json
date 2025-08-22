@@ -104,7 +104,7 @@
   "about": {
     "hero": {
       "title": "Përshëndetje, Unë Jam",
-      "titleHighlight": "Zhvilluesja Jote Web",
+      "titleHighlight": "Developer-i Juaj Personal",
       "subtitle": "I ndihmoj bizneset e vogla të krijojnë një prezencë profesionale online pa shpenzuar shumë para."
     },
     "story": {
@@ -152,13 +152,13 @@
     "cta": {
       "title": "Le të Ndërtojmë Diçka të Madhe Së Bashku",
       "subtitle": "Gati për t'i dhënë biznesit tënd prezencën profesionale web që meriton?",
-      "button": "Fillo për 15€/muaj"
+      "button": "Fillo për 49.9€/muaj"
     }
   },
   "services": {
     "hero": {
       "title": "Zgjidhje Komplet Web për",
-      "price": "15€/muaj",
+      "price": "49.9€/muaj",
       "subtitle": "Gjithçka që i duhet biznesit tënd të vogël për të krijuar një prezencë profesionale online."
     },
     "included": {
@@ -298,7 +298,7 @@
     },
     "cta": {
       "title": "Gati për të Filluar?",
-      "subtitle": "Bashkohu me qindra biznese të vogla me faqe profesionale për vetëm 15€/muaj.",
+      "subtitle": "Bashkohu me qindra biznese të vogla me faqe profesionale për vetëm 49.9€/muaj.",
       "button": "Fillo Faqen Sot"
     }
   },
@@ -306,7 +306,7 @@
     "hero": {
       "title": "Shiko",
       "titleHighlight": "Çfarë Është E Mundur",
-      "subtitle": "Faqe të vërteta për biznese të vërteta, të gjitha ndërtuara për 15€/muaj."
+      "subtitle": "Faqe të vërteta për biznese të vërteta, të gjitha ndërtuara për 49.9€/muaj."
     },
     "projects": {
       "resultsLabel": "Rezultatet:",
@@ -339,13 +339,13 @@
       "title": "Fillo Projektin Sot",
       "subtitle": "Gati për t'u Bashkuar me Këto Histori Suksesi?",
       "description": "Biznesi yt meriton një faqe që punon aq fort sa ti.",
-      "button": "Fillo për 15€/muaj"
+      "button": "Fillo për 49.9€/muaj"
     }
   },
   "getStarted": {
     "header": {
       "title": "Fillo Faqen Tënde",
-      "price": "15€/muaj",
+      "price": "49.9€/muaj",
       "subtitle": "Vetëm disa pyetje dhe do jesh në rrugën për një faqe profesionale."
     },
     "progress": {

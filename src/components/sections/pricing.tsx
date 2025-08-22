@@ -134,8 +134,8 @@ function GradientText({
 import type { Dictionary } from '@/lib/i18n/types'
 
 export default function Pricing({ locale, dictionary }: { locale: string, dictionary: Dictionary }) {
-  const currency = locale === 'sq' ? '€' : '$'
-  const price = locale === 'sq' ? '15' : '60'
+  const currency = '€'
+  const price = '49.9'
   
   return (
     <section className="bg-gradient-to-br from-gray-50 to-white py-24 sm:py-32">
@@ -165,13 +165,23 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
               <h3 className="text-2xl font-bold text-gray-900">
                 {locale === 'sq' ? 'Gjithçka që ju Nevojitet' : 'Everything You Need'}
               </h3>
-              <div className="mt-6 flex items-baseline justify-center gap-x-2">
-                <span className="text-5xl font-bold tracking-tight text-gray-900">
-                  {currency}{price}
-                </span>
-                <span className="text-base font-semibold leading-7 text-gray-600">
-                  /{locale === 'sq' ? 'muaj' : 'month'}
-                </span>
+              <div className="mt-6">
+                <div className="flex items-baseline justify-center gap-x-2">
+                  <span className="text-5xl font-bold tracking-tight text-gray-900">
+                    {currency}39.9
+                  </span>
+                  <span className="text-3xl font-bold text-gray-400 line-through">
+                    {currency}{price}
+                  </span>
+                  <span className="text-base font-semibold leading-7 text-gray-600">
+                    /{locale === 'sq' ? 'muaj' : 'month'}
+                  </span>
+                </div>
+                <div className="mt-2 flex justify-center">
+                  <span className="inline-flex items-center rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-3 py-1 text-xs font-medium text-white">
+                    {locale === 'sq' ? '20% ZBRITJE - 3 MUAJT E PARË' : '20% OFF - FIRST 3 MONTHS'}
+                  </span>
+                </div>
               </div>
               <p className="mt-4 text-base text-gray-600">
                 {locale === 'sq' 
