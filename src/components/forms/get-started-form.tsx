@@ -32,6 +32,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
     fullName: '',
     email: '',
     phone: '',
+    countryCode: '+355',
     // Step 2
     hasWebsite: '',
     currentWebsiteUrl: '',
@@ -124,17 +125,46 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
     }
   }
 
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
   const validateStep1 = () => {
     const required = ['businessName', 'industry', 'businessDescription', 'fullName', 'email']
     const missing = required.filter(field => !formData[field as keyof typeof formData].toString().trim())
-    return missing.length === 0
+    
+    // Check if all required fields are filled
+    if (missing.length > 0) {
+      return false
+    }
+    
+    // Validate email format
+    if (!validateEmail(formData.email)) {
+      return false
+    }
+    
+    return true
   }
 
   const nextStep = () => {
     if (currentStep === 1) {
       // Validate Step 1 before proceeding
-      if (!validateStep1()) {
+      const required = ['businessName', 'industry', 'businessDescription', 'fullName', 'email']
+      const missing = required.filter(field => !formData[field as keyof typeof formData].toString().trim())
+      
+      if (missing.length > 0) {
         showNotification(dictionary.getStarted.notifications.fillRequired, 'error')
+        return
+      }
+      
+      if (!validateEmail(formData.email)) {
+        showNotification(
+          locale === 'sq' 
+            ? 'Ju lutemi vendosni një email të vlefshëm (p.sh. emri@example.com)' 
+            : 'Please enter a valid email address (e.g. name@example.com)',
+          'error'
+        )
         return
       }
     }
@@ -183,6 +213,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
       fullName: '',
       email: '',
       phone: '',
+      countryCode: '+355',
       hasWebsite: '',
       currentWebsiteUrl: '',
       neededPages: [],
@@ -358,13 +389,40 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   {dictionary.getStarted.step1.phone}
                 </label>
-                <input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => handleInputChange('phone', e.target.value)}
-                  placeholder={dictionary.getStarted.step1.phonePlaceholder}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent focus:bg-white/15 transition-all"
-                />
+                <div className="flex">
+                  <select
+                    value={formData.countryCode || '+355'}
+                    onChange={(e) => handleInputChange('countryCode', e.target.value)}
+                    className="px-3 py-3 bg-white/10 border border-white/20 rounded-l-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent focus:bg-white/15 transition-all [&>option]:bg-gray-800 [&>option]:text-white"
+                  >
+                    <option value="+355">🇦🇱 +355</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+49">🇩🇪 +49</option>
+                    <option value="+33">🇫🇷 +33</option>
+                    <option value="+39">🇮🇹 +39</option>
+                    <option value="+34">🇪🇸 +34</option>
+                    <option value="+31">🇳🇱 +31</option>
+                    <option value="+41">🇨🇭 +41</option>
+                    <option value="+43">🇦🇹 +43</option>
+                    <option value="+32">🇧🇪 +32</option>
+                    <option value="+30">🇬🇷 +30</option>
+                    <option value="+381">🇷🇸 +381</option>
+                    <option value="+383">🇽🇰 +383</option>
+                    <option value="+382">🇲🇪 +382</option>
+                    <option value="+387">🇧🇦 +387</option>
+                    <option value="+385">🇭🇷 +385</option>
+                    <option value="+386">🇸🇮 +386</option>
+                    <option value="+389">🇲🇰 +389</option>
+                  </select>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                    placeholder={locale === 'sq' ? '69 123 4567' : '123 456 7890'}
+                    className="flex-1 px-4 py-3 bg-white/10 border border-l-0 border-white/20 rounded-r-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent focus:bg-white/15 transition-all"
+                  />
+                </div>
               </div>
 
               <div className="flex justify-end pt-6">
