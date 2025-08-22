@@ -1,15 +1,15 @@
 // Removed unused StarRating component
 /*
-function StarRating({ 
-  rating = 5, 
-  size = 'md', 
-  showText = false, 
+function StarRating({
+  rating = 5,
+  size = 'md',
+  showText = false,
   text,
-  className = '' 
+  className = ''
 }: StarRatingProps) {
   const sizeClasses = {
     sm: 'h-4 w-4',
-    md: 'h-5 w-5', 
+    md: 'h-5 w-5',
     lg: 'h-6 w-6'
   }
 
@@ -24,10 +24,10 @@ function StarRating({
       <div className="flex" role="img" aria-label={`${rating} out of 5 stars`}>
         <span className="sr-only">{rating} out of 5 stars</span>
         {[...Array(5)].map((_, i) => (
-          <svg 
-            key={`star-${i}`} 
-            className={`${sizeClasses[size]} ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`} 
-            fill="currentColor" 
+          <svg
+            key={`star-${i}`}
+            className={`${sizeClasses[size]} ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
+            fill="currentColor"
             viewBox="0 0 20 20"
             aria-hidden="true"
           >
@@ -46,7 +46,7 @@ function StarRating({
 */
 
 // Removed unused AnimatedIndicator component
-/*  
+/*
 interface AnimatedIndicatorProps {
   variant?: 'ping' | 'pulse' | 'bounce';
   color?: 'blue' | 'green' | 'red' | 'white';
@@ -54,11 +54,11 @@ interface AnimatedIndicatorProps {
   className?: string;
 }
 
-function AnimatedIndicator({ 
-  variant = 'ping', 
-  color = 'blue', 
+function AnimatedIndicator({
+  variant = 'ping',
+  color = 'blue',
   size = 'md',
-  className = '' 
+  className = ''
 }: AnimatedIndicatorProps) {
   const sizeClasses = {
     sm: 'h-1 w-1',
@@ -72,7 +72,7 @@ function AnimatedIndicator({
       ping: 'bg-blue-400'
     },
     green: {
-      bg: 'bg-green-500', 
+      bg: 'bg-green-500',
       ping: 'bg-green-400'
     },
     red: {
@@ -89,10 +89,10 @@ function AnimatedIndicator({
 
   return (
     <span className={`relative flex ${sizeClasses[size]} ${className}`}>
-      <span 
+      <span
         className={`animate-${variant} absolute inline-flex h-full w-full rounded-full ${colorConfig.ping} opacity-75`}
       ></span>
-      <span 
+      <span
         className={`relative inline-flex rounded-full ${sizeClasses[size]} ${colorConfig.bg}`}
       ></span>
     </span>
@@ -110,12 +110,12 @@ interface GradientTextProps {
   className?: string;
 }
 
-function GradientText({ 
-  children, 
-  gradient = 'primary', 
+function GradientText({
+  children,
+  gradient = 'primary',
   from,
   to,
-  className = '' 
+  className = ''
 }: GradientTextProps) {
   const gradientClasses = {
     primary: 'from-blue-600 to-purple-600',
@@ -136,7 +136,7 @@ import type { Dictionary } from '@/lib/i18n/types'
 export default function Pricing({ locale, dictionary }: { locale: string, dictionary: Dictionary }) {
   const currency = '€'
   const price = '49.9'
-  
+
   return (
     <section className="bg-gradient-to-br from-gray-50 to-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -184,7 +184,7 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                 </div>
               </div>
               <p className="mt-4 text-base text-gray-600">
-                {locale === 'sq' 
+                {locale === 'sq'
                   ? 'Anulo në çdo kohë. Pa kontratë afatgjatë.'
                   : 'Cancel anytime. No long-term contract.'}
               </p>
@@ -197,7 +197,7 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                   locale === 'sq' ? 'Dizajn profesional i personalizuar' : 'Professional custom design',
                   locale === 'sq' ? 'Hosting dhe domain të përfshirë*' : 'Hosting and domain included*',
                   locale === 'sq' ? 'Certifikatë SSL për siguri' : 'SSL certificate for security',
-                  locale === 'sq' ? 'Optimizim për motorët e kërkimit (SEO)' : 'Search engine optimization (SEO)',
+                  locale === 'sq' ? 'Optimizim për motorët e kërkimit (SEO + AI SEO)' : 'Search engine optimization (SEO + AI SEO)',
                   locale === 'sq' ? 'Dizajn plotësisht responsiv' : 'Fully responsive design',
                   locale === 'sq' ? 'Përditësime mujore të përmbajtjes' : 'Monthly content updates',
                   locale === 'sq' ? 'Mbështetje direkte nga zhvilluesi' : 'Direct developer support',
@@ -206,18 +206,18 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                   locale === 'sq' ? 'Email biznesi të përfshirë' : 'Business email included'
                 ].map((feature) => (
                   <li key={feature} className="flex items-start">
-                    <svg 
-                      className="h-6 w-6 flex-shrink-0 text-green-500 mr-3" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="h-6 w-6 flex-shrink-0 text-green-500 mr-3"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M5 13l4 4L19 7" 
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
                       />
                     </svg>
                     <span>{feature}</span>
@@ -256,7 +256,7 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
         <div className="mx-auto mt-16 max-w-4xl">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900">
-              {locale === 'sq' 
+              {locale === 'sq'
                 ? 'Krahasimi: Të gjitha Opsionet vs Luca'
                 : 'All Options vs Luca'}
             </h3>
@@ -266,7 +266,7 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                 : 'See how much money you save with our service'}
             </p>
           </div>
-          
+
           <div className="overflow-hidden rounded-lg shadow-lg border border-gray-200 overflow-x-auto">
             <table className="w-full min-w-max">
               <thead className="bg-gray-50">
@@ -372,7 +372,7 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
               </tbody>
             </table>
           </div>
-          
+
           <div className="text-center mt-6">
             <p className="text-sm text-gray-600">
               {locale === 'sq'
