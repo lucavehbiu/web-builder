@@ -112,6 +112,7 @@ export default async function Services({
       updates: dictionary.services.comparison.agenciesUpdates,
       contract: dictionary.services.comparison.agenciesContract,
       timeline: dictionary.services.comparison.agenciesTimeline,
+      speed: dictionary.services.comparison.agenciesSpeed,
       firstYear: dictionary.services.comparison.agenciesFirstYear,
       highlight: false
     },
@@ -122,6 +123,7 @@ export default async function Services({
       updates: dictionary.services.comparison.webbuilderUpdates,
       contract: dictionary.services.comparison.webbuilderContract,
       timeline: dictionary.services.comparison.webbuilderTimeline,
+      speed: dictionary.services.comparison.webbuilderSpeed,
       firstYear: dictionary.services.comparison.webbuilderFirstYear,
       highlight: true
     },
@@ -132,7 +134,19 @@ export default async function Services({
       updates: dictionary.services.comparison.diyUpdates,
       contract: dictionary.services.comparison.diyContract,
       timeline: dictionary.services.comparison.diyTimeline,
+      speed: dictionary.services.comparison.diySpeed,
       firstYear: dictionary.services.comparison.diyFirstYear,
+      highlight: false
+    },
+    {
+      category: dictionary.services.comparison.wix,
+      setup: dictionary.services.comparison.wixSetup,
+      hosting: dictionary.services.comparison.wixHosting,
+      updates: dictionary.services.comparison.wixUpdates,
+      contract: dictionary.services.comparison.wixContract,
+      timeline: dictionary.services.comparison.wixTimeline,
+      speed: dictionary.services.comparison.wixSpeed,
+      firstYear: dictionary.services.comparison.wixFirstYear,
       highlight: false
     }
   ]
@@ -279,7 +293,7 @@ export default async function Services({
           <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">{dictionary.services.comparison.title}</h2>
           <p className="text-xl text-gray-600 mb-16 text-center">{dictionary.services.comparison.subtitle}</p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {comparison.map((option) => (
               <div key={option.category} className={`rounded-2xl p-8 ${option.highlight ? 'bg-gradient-to-br from-blue-50 to-purple-50 ring-2 ring-blue-200 relative' : 'bg-gray-50'}`}>
                 {option.highlight && (
@@ -295,25 +309,29 @@ export default async function Services({
                 </h3>
 
                 <div className="space-y-4">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">{dictionary.services.comparison.setup}</span>
-                    <span className="font-medium">{option.setup}</span>
+                  <div className="flex justify-between items-start">
+                    <span className={`text-sm ${option.highlight ? 'text-blue-600' : 'text-gray-500'}`}>{dictionary.services.comparison.setup}</span>
+                    <span className={`text-sm text-right font-medium ${option.highlight ? 'text-blue-800' : 'text-gray-700'} max-w-[60%]`}>{option.setup}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">{dictionary.services.comparison.hosting}</span>
-                    <span className="font-medium">{option.hosting}</span>
+                  <div className="flex justify-between items-start">
+                    <span className={`text-sm ${option.highlight ? 'text-blue-600' : 'text-gray-500'}`}>{dictionary.services.comparison.hosting}</span>
+                    <span className={`text-sm text-right font-medium ${option.highlight ? 'text-blue-800' : 'text-gray-700'} max-w-[60%]`}>{option.hosting}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">{dictionary.services.comparison.updates}</span>
-                    <span className="font-medium">{option.updates}</span>
+                  <div className="flex justify-between items-start">
+                    <span className={`text-sm ${option.highlight ? 'text-blue-600' : 'text-gray-500'}`}>{dictionary.services.comparison.updates}</span>
+                    <span className={`text-sm text-right font-medium ${option.highlight ? 'text-blue-800' : 'text-gray-700'} max-w-[60%]`}>{option.updates}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">{dictionary.services.comparison.contract}</span>
-                    <span className="font-medium">{option.contract}</span>
+                  <div className="flex justify-between items-start">
+                    <span className={`text-sm ${option.highlight ? 'text-blue-600' : 'text-gray-500'}`}>{dictionary.services.comparison.contract}</span>
+                    <span className={`text-sm text-right font-medium ${option.highlight ? 'text-blue-800' : 'text-gray-700'} max-w-[60%]`}>{option.contract}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">{dictionary.services.comparison.timeline}</span>
-                    <span className="font-medium">{option.timeline}</span>
+                  <div className="flex justify-between items-start">
+                    <span className={`text-sm ${option.highlight ? 'text-blue-600' : 'text-gray-500'}`}>{dictionary.services.comparison.timeline}</span>
+                    <span className={`text-sm text-right font-medium ${option.highlight ? 'text-blue-800' : 'text-gray-700'} max-w-[60%]`}>{option.timeline}</span>
+                  </div>
+                  <div className="flex justify-between items-start">
+                    <span className={`text-sm ${option.highlight ? 'text-blue-600' : 'text-gray-500'}`}>{dictionary.services.comparison.speed}</span>
+                    <span className={`text-sm text-right font-medium ${option.highlight ? 'text-blue-800' : 'text-gray-700'} max-w-[60%]`}>{option.speed}</span>
                   </div>
                   <div className="border-t pt-4 mt-4">
                     <div className="flex justify-between">

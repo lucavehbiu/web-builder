@@ -257,8 +257,8 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900">
               {locale === 'sq' 
-                ? 'Krahasimi: Agjencitë Tradicionale vs Luca'
-                : 'Traditional Web Agency vs Luca'}
+                ? 'Krahasimi: Të gjitha Opsionet vs Luca'
+                : 'All Options vs Luca'}
             </h3>
             <p className="text-gray-600 mt-2">
               {locale === 'sq'
@@ -267,18 +267,21 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
             </p>
           </div>
           
-          <div className="overflow-hidden rounded-lg shadow-lg border border-gray-200">
-            <table className="w-full">
+          <div className="overflow-hidden rounded-lg shadow-lg border border-gray-200 overflow-x-auto">
+            <table className="w-full min-w-max">
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
                     {locale === 'sq' ? 'Veçori' : 'Feature'}
                   </th>
                   <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
-                    {locale === 'sq' ? 'Agjencitë e Tjera' : 'Others'}
+                    {locale === 'sq' ? 'Agjenci' : 'Agencies'}
                   </th>
                   <th className="px-6 py-4 text-center text-sm font-semibold text-emerald-600">
                     Luca
+                  </th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                    {locale === 'sq' ? 'DIY/Wix' : 'DIY/Wix'}
                   </th>
                 </tr>
               </thead>
@@ -289,13 +292,15 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                   </td>
                   <td className="px-6 py-4 text-center text-sm text-red-600 font-semibold">€500-2000</td>
                   <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">€0</td>
+                  <td className="px-6 py-4 text-center text-sm text-orange-600">€0</td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="px-6 py-4 text-sm text-gray-900">
-                    {locale === 'sq' ? 'Kosto Dizajni' : 'Design Fee'}
+                    {locale === 'sq' ? 'Kosto Mujore' : 'Monthly Cost'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-red-600 font-semibold">€1000-5000</td>
-                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">€0</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600 font-semibold">€100-300+</td>
+                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">€50</td>
+                  <td className="px-6 py-4 text-center text-sm text-orange-600">€15-50</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm text-gray-900">Domain</td>
@@ -303,6 +308,7 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                   <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
                     {locale === 'sq' ? 'E përfshirë' : 'Included'}
                   </td>
+                  <td className="px-6 py-4 text-center text-sm text-orange-600">€15/vit</td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="px-6 py-4 text-sm text-gray-900">Hosting</td>
@@ -310,11 +316,17 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                   <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
                     {locale === 'sq' ? 'E përfshirë' : 'Included'}
                   </td>
+                  <td className="px-6 py-4 text-center text-sm text-orange-600">
+                    {locale === 'sq' ? 'E përfshirë*' : 'Included*'}
+                  </td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm text-gray-900">SSL</td>
                   <td className="px-6 py-4 text-center text-sm text-red-600">€10/muaj ekstra</td>
                   <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                    {locale === 'sq' ? 'E përfshirë' : 'Included'}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm text-orange-600">
                     {locale === 'sq' ? 'E përfshirë' : 'Included'}
                   </td>
                 </tr>
@@ -326,6 +338,23 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                   <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
                     {locale === 'sq' ? 'E përfshirë' : 'Included'}
                   </td>
+                  <td className="px-6 py-4 text-center text-sm text-orange-600">
+                    {locale === 'sq' ? 'Kufizuar/Vetë' : 'Limited/DIY'}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {locale === 'sq' ? 'Shpejtësia' : 'Speed/Time'}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">
+                    {locale === 'sq' ? 'E ngadaltë' : 'Slow'}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                    {locale === 'sq' ? 'E shpejtë' : 'Fast'}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm text-orange-600">
+                    {locale === 'sq' ? 'E gjatë/Ngadaltë' : 'Time intensive/Slow'}
+                  </td>
                 </tr>
                 <tr className="bg-gradient-to-r from-emerald-50 to-cyan-50 border-t-2 border-emerald-200">
                   <td className="px-6 py-4 text-sm font-bold text-gray-900">
@@ -333,11 +362,12 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                   </td>
                   <td className="px-6 py-4 text-center text-lg font-bold text-red-600">€2000+</td>
                   <td className="px-6 py-4 text-center text-lg font-bold text-emerald-600">
-                    €39.9* 
+                    €50*
                     <div className="text-xs font-normal text-gray-500">
-                      *{locale === 'sq' ? 'Me zbritje fillimi' : 'With launch discount'}
+                      *{locale === 'sq' ? '€600/vit' : '€600/year'}
                     </div>
                   </td>
+                  <td className="px-6 py-4 text-center text-lg font-bold text-orange-600">€500+</td>
                 </tr>
               </tbody>
             </table>
@@ -346,8 +376,13 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
           <div className="text-center mt-6">
             <p className="text-sm text-gray-600">
               {locale === 'sq'
-                ? '💰 Kurseni mbi €2000 në muajin e parë krahasuar me agjencitë tradicionale'
-                : '💰 Save over €2000 in the first month compared to traditional agencies'}
+                ? '💰 Kurseni mbi €1500+ në muajin e parë krahasuar me të gjitha opsionet e tjera'
+                : '💰 Save over €1500+ in the first month compared to all other options'}
+            </p>
+            <p className="text-sm text-emerald-600 font-semibold mt-2">
+              {locale === 'sq'
+                ? '⚡ Luca: Më i shpejtë, më i lirë, më profesional'
+                : '⚡ Luca: Faster, cheaper, more professional'}
             </p>
             <p className="text-xs text-gray-500 mt-2">
               {locale === 'sq'

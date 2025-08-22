@@ -223,30 +223,42 @@ export interface Dictionary {
       agencies: string
       webbuilder: string
       diy: string
+      wix: string
       setup: string
       hosting: string
       updates: string
       contract: string
       timeline: string
+      speed: string
       firstYear: string
       agenciesSetup: string
       agenciesHosting: string
       agenciesUpdates: string
       agenciesContract: string
       agenciesTimeline: string
+      agenciesSpeed: string
       agenciesFirstYear: string
       webbuilderSetup: string
       webbuilderHosting: string
       webbuilderUpdates: string
       webbuilderContract: string
       webbuilderTimeline: string
+      webbuilderSpeed: string
       webbuilderFirstYear: string
       diySetup: string
       diyHosting: string
       diyUpdates: string
       diyContract: string
       diyTimeline: string
+      diySpeed: string
       diyFirstYear: string
+      wixSetup: string
+      wixHosting: string
+      wixUpdates: string
+      wixContract: string
+      wixTimeline: string
+      wixSpeed: string
+      wixFirstYear: string
     }
     faq: {
       title: string
