@@ -124,7 +124,21 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
     }
   }
 
+  const validateStep1 = () => {
+    const required = ['businessName', 'industry', 'businessDescription', 'fullName', 'email']
+    const missing = required.filter(field => !formData[field as keyof typeof formData].toString().trim())
+    return missing.length === 0
+  }
+
   const nextStep = () => {
+    if (currentStep === 1) {
+      // Validate Step 1 before proceeding
+      if (!validateStep1()) {
+        showNotification(dictionary.getStarted.notifications.fillRequired, 'error')
+        return
+      }
+    }
+    
     if (currentStep < 3) setCurrentStep(currentStep + 1)
   }
 
@@ -357,9 +371,18 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-3 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  disabled={!validateStep1()}
+                  className={`
+                    group relative overflow-hidden rounded-2xl px-8 py-3 font-bold shadow-xl transition-all duration-300 text-white
+                    ${validateStep1() 
+                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 hover:shadow-2xl transform hover:scale-105 cursor-pointer' 
+                      : 'bg-gray-600 cursor-not-allowed opacity-50'
+                    }
+                  `}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {validateStep1() && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  )}
                   <span className="relative flex items-center">
                     {dictionary.getStarted.buttons.nextStep}
                     <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
