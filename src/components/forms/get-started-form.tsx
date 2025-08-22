@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Notification from '@/components/ui/notification'
 import { Dictionary } from '@/lib/i18n/types'
@@ -14,6 +14,7 @@ interface GetStartedFormProps {
 export default function GetStartedForm({ dictionary, locale }: GetStartedFormProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submittedLeadId, setSubmittedLeadId] = useState<string | null>(null)
   const [notification, setNotification] = useState<{
     message: string
     type: 'success' | 'error' | 'info'
@@ -45,8 +46,13 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
     hearAboutUs: ''
   })
   
-  // Random number of people who signed up today (between 8-24)
-  const [signupsToday] = useState(() => Math.floor(Math.random() * 17) + 8)
+  // Random number of people who signed up today (between 8-24) - fixed for hydration
+  const [signupsToday, setSignupsToday] = useState(15) // Default to avoid hydration mismatch
+  
+  // Set random number on client side only
+  useEffect(() => {
+    setSignupsToday(Math.floor(Math.random() * 17) + 8)
+  }, [])
 
   const showNotification = (message: string, type: 'success' | 'error' | 'info') => {
     setNotification({
@@ -102,28 +108,13 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
       const result = await response.json()
       console.log('Form submitted successfully:', result)
       
+      // Store the lead ID for payment processing
+      setSubmittedLeadId(result.leadId)
+      
       showNotification(dictionary.getStarted.notifications.submitSuccess, 'success')
       
-      // Reset form after successful submission
-      setFormData({
-        businessName: '',
-        industry: '',
-        businessDescription: '',
-        fullName: '',
-        email: '',
-        phone: '',
-        hasWebsite: '',
-        currentWebsiteUrl: '',
-        neededPages: [],
-        preferredDomain: '',
-        hasBranding: '',
-        colorScheme: '',
-        launchTimeline: '',
-        contentReady: '',
-        specialRequirements: '',
-        hearAboutUs: ''
-      })
-      setCurrentStep(1)
+      // Move to payment step
+      setCurrentStep(4)
       
     } catch (error) {
       console.error('Form submission error:', error)
@@ -135,6 +126,63 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
 
   const nextStep = () => {
     if (currentStep < 3) setCurrentStep(currentStep + 1)
+  }
+
+  const handlePayNow = async () => {
+    setIsSubmitting(true)
+    try {
+      const response = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          leadId: submittedLeadId,
+          email: formData.email,
+          businessName: formData.businessName,
+          locale,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to create checkout session')
+      }
+
+      const { checkoutUrl } = await response.json()
+      
+      // Redirect to Stripe checkout
+      window.location.href = checkoutUrl
+    } catch (error) {
+      console.error('Payment error:', error)
+      showNotification('Failed to process payment. Please try again.', 'error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleWaitForContact = () => {
+    // Reset form and show thank you message
+    setFormData({
+      businessName: '',
+      industry: '',
+      businessDescription: '',
+      fullName: '',
+      email: '',
+      phone: '',
+      hasWebsite: '',
+      currentWebsiteUrl: '',
+      neededPages: [],
+      preferredDomain: '',
+      hasBranding: '',
+      colorScheme: '',
+      launchTimeline: '',
+      contentReady: '',
+      specialRequirements: '',
+      hearAboutUs: ''
+    })
+    setCurrentStep(1)
+    setSubmittedLeadId(null)
+    showNotification(locale === 'sq' ? 'Faleminderit! Do të kontaktohemi brenda 24 orëve.' : 'Thank you! We will contact you within 24 hours.', 'success')
   }
 
   const prevStep = () => {
@@ -195,16 +243,16 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-gray-400">
-              {dictionary.getStarted.progress.step} {currentStep} {dictionary.getStarted.progress.of} 3
+              {currentStep === 4 ? (locale === 'sq' ? 'Pagesë' : 'Payment') : `${dictionary.getStarted.progress.step} ${currentStep} ${dictionary.getStarted.progress.of} 3`}
             </span>
             <span className="text-sm text-gray-400">
-              {Math.round((currentStep / 3) * 100)}% {dictionary.getStarted.progress.complete}
+              {currentStep === 4 ? '100%' : `${Math.round((currentStep / 3) * 100)}%`} {dictionary.getStarted.progress.complete}
             </span>
           </div>
           <div className="w-full bg-gray-700 rounded-full h-2">
             <div
               className="bg-gradient-to-r from-emerald-500 to-cyan-500 h-2 rounded-full transition-all duration-300"
-              style={{ width: `${(currentStep / 3) * 100}%` }}
+              style={{ width: `${currentStep === 4 ? 100 : (currentStep / 3) * 100}%` }}
             ></div>
           </div>
         </div>
@@ -661,6 +709,203 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                 {' '}{dictionary.getStarted.step3.and}{' '}
                 <Link href={`/${locale}/privacy`} className="text-emerald-400 hover:underline">{dictionary.getStarted.step3.privacyPolicy}</Link>
               </p>
+            </div>
+          )}
+
+          {/* Step 4: Payment Options */}
+          {currentStep === 4 && (
+            <div className="space-y-6">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-white mb-2">
+                  {locale === 'sq' ? 'Zgjidh Opsionin e Pagesës' : 'Choose Payment Option'}
+                </h2>
+                <p className="text-gray-400">
+                  {locale === 'sq' 
+                    ? 'Zgjidh nëse dëshiron të paguash tani apo të presësh për kontakt' 
+                    : 'Choose whether to pay now or wait for our contact'}
+                </p>
+              </div>
+
+              {/* Payment Options */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                {/* Pay Now Option */}
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-3xl opacity-75 group-hover:opacity-100 transition duration-300 blur"></div>
+                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 hover:bg-white/15 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-bold text-white">
+                        {locale === 'sq' ? 'Paguaj Tani' : 'Pay Now'}
+                      </h3>
+                      <div className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        {locale === 'sq' ? 'E REKOMANDUAR' : 'RECOMMENDED'}
+                      </div>
+                    </div>
+                    
+                    <div className="text-3xl font-black text-white mb-2">
+                      €599
+                      <span className="text-base font-normal text-gray-400 ml-2">
+                        {locale === 'sq' ? '/muaj' : '/month'}
+                      </span>
+                    </div>
+                    
+                    <p className="text-sm text-gray-400 mb-4">
+                      {locale === 'sq' 
+                        ? '7 ditë provë falas - anullo kur të duash' 
+                        : '7-day free trial - cancel anytime'}
+                    </p>
+
+                    <ul className="space-y-2 text-sm text-gray-300 mb-6">
+                      <li className="flex items-center">
+                        <svg className="w-4 h-4 text-emerald-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        {locale === 'sq' ? 'Fillim i menjëhershëm' : 'Immediate start'}
+                      </li>
+                      <li className="flex items-center">
+                        <svg className="w-4 h-4 text-emerald-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        {locale === 'sq' ? 'Prioritet i lartë' : 'High priority'}
+                      </li>
+                      <li className="flex items-center">
+                        <svg className="w-4 h-4 text-emerald-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        {locale === 'sq' ? 'Kthim i plotë brenda 7 ditëve' : '100% refund within 7 days'}
+                      </li>
+                      <li className="flex items-center">
+                        <svg className="w-4 h-4 text-emerald-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        {locale === 'sq' ? 'Mbështetje 24/7' : '24/7 support'}
+                      </li>
+                    </ul>
+
+                    <button
+                      type="button"
+                      onClick={handlePayNow}
+                      disabled={isSubmitting}
+                      className={`
+                        w-full py-3 px-6 rounded-2xl font-bold transition-all duration-300 text-white
+                        ${isSubmitting 
+                          ? 'bg-gray-600 cursor-not-allowed' 
+                          : 'bg-gradient-to-r from-emerald-500 to-cyan-500 hover:shadow-xl transform hover:scale-105'
+                        }
+                      `}
+                    >
+                      {isSubmitting ? (
+                        <div className="flex items-center justify-center">
+                          <svg className="w-5 h-5 animate-spin mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                          </svg>
+                          {locale === 'sq' ? 'Po përpunohet...' : 'Processing...'}
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-center">
+                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                          </svg>
+                          {locale === 'sq' ? 'Paguaj me Stripe' : 'Pay with Stripe'}
+                        </div>
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Wait for Contact Option */}
+                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-bold text-white">
+                      {locale === 'sq' ? 'Pres Kontaktin' : 'Wait for Contact'}
+                    </h3>
+                    <div className="bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-xs font-medium">
+                      {locale === 'sq' ? 'FALAS' : 'FREE'}
+                    </div>
+                  </div>
+                  
+                  <div className="text-3xl font-black text-white mb-2">
+                    {locale === 'sq' ? 'Falas' : 'Free'}
+                    <span className="text-base font-normal text-gray-400 ml-2">
+                      {locale === 'sq' ? 'konsultim' : 'consultation'}
+                    </span>
+                  </div>
+                  
+                  <p className="text-sm text-gray-400 mb-4">
+                    {locale === 'sq' 
+                      ? 'Pa angazhim - diskutojmë së pari' 
+                      : 'No commitment - we discuss first'}
+                  </p>
+
+                  <ul className="space-y-2 text-sm text-gray-300 mb-6">
+                    <li className="flex items-center">
+                      <svg className="w-4 h-4 text-blue-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {locale === 'sq' ? 'Konsultim falas' : 'Free consultation'}
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-4 h-4 text-blue-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {locale === 'sq' ? 'Ofertë e personalizuar' : 'Custom quote'}
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-4 h-4 text-blue-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {locale === 'sq' ? 'Përgjigje brenda 24 orëve' : 'Response within 24 hours'}
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-4 h-4 text-blue-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {locale === 'sq' ? 'Pa angazhim' : 'No commitment'}
+                    </li>
+                  </ul>
+
+                  <button
+                    type="button"
+                    onClick={handleWaitForContact}
+                    className="w-full py-3 px-6 rounded-2xl font-bold transition-all duration-300 text-white bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30"
+                  >
+                    <div className="flex items-center justify-center">
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      </svg>
+                      {locale === 'sq' ? 'Kontakto Më Vonë' : 'Contact Me Later'}
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              {/* Refund Policy */}
+              <div className="bg-blue-500/10 rounded-2xl p-6 border border-blue-500/20">
+                <div className="flex items-center mb-3">
+                  <svg className="w-6 h-6 text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  <h3 className="font-semibold text-white">
+                    {locale === 'sq' ? '7-Ditë Garanci Kthimi të Plotë' : '7-Day Full Refund Guarantee'}
+                  </h3>
+                </div>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  {locale === 'sq' 
+                    ? 'Nëse nuk je i kënaqur me shërbimin tonë brenda 7 ditëve të para, do të merrësh kthimin e plotë të parave - pa pyetje. Ne jemi të sigurt që do të jesh i kënaqur me punën tonë profesionale.' 
+                    : "If you're not satisfied with our service within the first 7 days, you'll get a full refund - no questions asked. We're confident you'll love our professional work."}
+                </p>
+              </div>
+
+              {/* Security Badge */}
+              <div className="text-center">
+                <div className="inline-flex items-center bg-white/5 rounded-full px-4 py-2 border border-white/10">
+                  <svg className="w-4 h-4 text-emerald-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  <span className="text-xs text-gray-400">
+                    {locale === 'sq' ? 'Pagesa e sigurt me Stripe' : 'Secure payment with Stripe'}
+                  </span>
+                </div>
+              </div>
             </div>
           )}
         </form>
