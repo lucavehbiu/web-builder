@@ -31,6 +31,11 @@ export async function POST(req: Request) {
           quantity: 1,
         },
       ],
+      discounts: [
+        {
+          coupon: '2s3T6HI7', // Launch discount coupon
+        },
+      ],
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://lucavehbiu.com'}/${locale}/payment-success?session_id={CHECKOUT_SESSION_ID}&lead_id=${leadId}`,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://lucavehbiu.com'}/${locale}/payment-cancelled`,
       metadata: {
@@ -39,7 +44,7 @@ export async function POST(req: Request) {
         locale: locale,
       },
       subscription_data: {
-        trial_period_days: 7, // 7-day trial for refund period
+        trial_period_days: 3, // 3-day trial period
         metadata: {
           leadId: leadId || '',
           businessName: businessName || '',
