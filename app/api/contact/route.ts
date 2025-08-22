@@ -166,8 +166,20 @@ export async function POST(req: Request) {
             </div>
             
             <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 16px; margin: 20px 0;">
-              <h4 style="color: #1e40af; margin-top: 0;">💡 Remember: 7-Day Guarantee</h4>
-              <p style="color: #1e40af; margin-bottom: 0;">If you're not completely satisfied within the first 7 days, you'll get a full refund - no questions asked. We're confident you'll love our work!</p>
+              <h4 style="color: #1e40af; margin-top: 0;">💡 Remember: 3-Day Guarantee</h4>
+              <p style="color: #1e40af; margin-bottom: 0;">If you're not completely satisfied within the first 3 days, you'll get a full refund - no questions asked. We're confident you'll love our work!</p>
+            </div>
+            
+            <div style="background: #faf5ff; border-left: 4px solid #9333ea; padding: 16px; margin: 20px 0;">
+              <h4 style="color: #6b21a8; margin-top: 0;">🔐 Manage Your Subscription</h4>
+              <p style="color: #6b21a8; margin-bottom: 10px;">Access your customer portal to:</p>
+              <ul style="color: #6b21a8; margin: 10px 0;">
+                <li>Update payment methods</li>
+                <li>Download invoices</li>
+                <li>Manage your subscription</li>
+                <li>View billing history</li>
+              </ul>
+              <a href="https://billing.stripe.com/p/login/cNi4gz1WHfpj3Tu2gugQE00" style="display: inline-block; background: linear-gradient(135deg, #9333ea, #db2777); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px;">Access Customer Portal</a>
             </div>
             
             <p>If you have any questions or want to discuss your project, simply reply to this email.</p>
