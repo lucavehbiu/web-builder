@@ -195,7 +195,7 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
               <ul role="list" className="space-y-4 text-base leading-7 text-gray-600">
                 {[
                   locale === 'sq' ? 'Dizajn profesional i personalizuar' : 'Professional custom design',
-                  locale === 'sq' ? 'Hosting dhe domain të përfshirë' : 'Hosting and domain included',
+                  locale === 'sq' ? 'Hosting dhe domain të përfshirë*' : 'Hosting and domain included*',
                   locale === 'sq' ? 'Certifikatë SSL për siguri' : 'SSL certificate for security',
                   locale === 'sq' ? 'Optimizim për motorët e kërkimit (SEO)' : 'Search engine optimization (SEO)',
                   locale === 'sq' ? 'Dizajn plotësisht responsiv' : 'Fully responsive design',
@@ -249,6 +249,111 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Comparison Table */}
+        <div className="mx-auto mt-16 max-w-4xl">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-gray-900">
+              {locale === 'sq' 
+                ? 'Krahasimi: Agjencitë Tradicionale vs Luca'
+                : 'Traditional Web Agency vs Luca'}
+            </h3>
+            <p className="text-gray-600 mt-2">
+              {locale === 'sq'
+                ? 'Shikoni sa para kurseni me shërbimin tonë'
+                : 'See how much money you save with our service'}
+            </p>
+          </div>
+          
+          <div className="overflow-hidden rounded-lg shadow-lg border border-gray-200">
+            <table className="w-full">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
+                    {locale === 'sq' ? 'Veçori' : 'Feature'}
+                  </th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                    {locale === 'sq' ? 'Agjencitë e Tjera' : 'Others'}
+                  </th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-emerald-600">
+                    Luca
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 bg-white">
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {locale === 'sq' ? 'Kosto Instalimi' : 'Setup Fee'}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600 font-semibold">€500-2000</td>
+                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">€0</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {locale === 'sq' ? 'Kosto Dizajni' : 'Design Fee'}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600 font-semibold">€1000-5000</td>
+                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">€0</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-900">Domain</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">€15/vit ekstra*</td>
+                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                    {locale === 'sq' ? 'E përfshirë' : 'Included'}
+                  </td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-6 py-4 text-sm text-gray-900">Hosting</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">€20/muaj ekstra</td>
+                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                    {locale === 'sq' ? 'E përfshirë' : 'Included'}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-900">SSL</td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">€10/muaj ekstra</td>
+                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                    {locale === 'sq' ? 'E përfshirë' : 'Included'}
+                  </td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {locale === 'sq' ? 'Përditësime' : 'Updates'}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm text-red-600">€50/orë</td>
+                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                    {locale === 'sq' ? 'E përfshirë' : 'Included'}
+                  </td>
+                </tr>
+                <tr className="bg-gradient-to-r from-emerald-50 to-cyan-50 border-t-2 border-emerald-200">
+                  <td className="px-6 py-4 text-sm font-bold text-gray-900">
+                    {locale === 'sq' ? 'Totali Muaji i Parë' : 'Total First Month'}
+                  </td>
+                  <td className="px-6 py-4 text-center text-lg font-bold text-red-600">€2000+</td>
+                  <td className="px-6 py-4 text-center text-lg font-bold text-emerald-600">
+                    €39.9* 
+                    <div className="text-xs font-normal text-gray-500">
+                      *{locale === 'sq' ? 'Me zbritje fillimi' : 'With launch discount'}
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div className="text-center mt-6">
+            <p className="text-sm text-gray-600">
+              {locale === 'sq'
+                ? '💰 Kurseni mbi €2000 në muajin e parë krahasuar me agjencitë tradicionale'
+                : '💰 Save over €2000 in the first month compared to traditional agencies'}
+            </p>
+            <p className="text-xs text-gray-500 mt-2">
+              {locale === 'sq'
+                ? '*Deri në €15/vit, jo më shumë'
+                : '*Up to €15/year, not more'}
+            </p>
           </div>
         </div>
       </div>

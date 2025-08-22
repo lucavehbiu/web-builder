@@ -13,13 +13,13 @@
     "language": "Gjuha"
   },
   "hero": {
-    "title": "Duke Sjellë Biznesin Tuaj në Dritë",
-    "subtitle": "Mos lejo që biznesi yt të qëndrojë i fshehur në errësirë. Faqe profesionale që të bëjnë të dukshëm për klientët që kërkojnë online.",
-    "description": "Ndriçoj bizneset online me faqe profesionale që gjenden, besohen dhe zgjidhen nga klientët.",
-    "cta": "Hyr në Dritë",
-    "secondaryCta": "Shiko si Funksionon",
-    "badge": "Prezencë Profesionale në Web • Dorëzim i Shpejtë • Partneri i Suksesit Tuaj",
-    "proof": "Bashkohu me 200+ biznese që shkëlqejnë online"
+    "title": "Duku Online Pa Shpenzime të Mëdha",
+    "subtitle": "Faqe profesionale për biznese shqiptare. €49.9/muaj përfshin gjithçka - domain, hosting, SSL, përditësime. Zero kosto instalimi.",
+    "description": "Pa €500 kosto instalimi. Pa €1000 kosto dizajni. Pa kosto të fshehura. Vetëm €49.9/muaj gjithëpërfshirëse për biznesin tuaj online.",
+    "cta": "Fillo Sot - Kurse €2000+",
+    "secondaryCta": "Shiko Çfarë Përfshin",
+    "badge": "€49.9 Gjithëpërfshirëse • Pa Kosto Instalimi • Fillo Sot",
+    "proof": "Bashkohu me 200+ biznese shqiptare tashmë online"
   },
   "navigation": {
     "logoText": "Luca",
@@ -81,25 +81,25 @@
     }
   },
   "pricing": {
-    "title": "Një Çmim i Thjeshtë, Gjithçka e Përfshirë",
-    "subtitle": "Pa tarifa të fshehura, pa surpriza, pa kontrata",
+    "title": "Kurse €2000+ Krahasuar me Agjencitë Tradicionale",
+    "subtitle": "Pa €500 kosto instalimi • Pa €1000 kosto dizajni • Pa kosto të fshehura • Vetëm €49.9/muaj gjithëpërfshirëse",
     "monthly": "Mujor",
     "yearly": "Vjetor",
-    "mostPopular": "Më i Popullarizuar",
-    "getStarted": "Fillo të Bësh Më Shumë Para",
+    "mostPopular": "Kurse €500 Kosto Instalimi",
+    "getStarted": "Fillo Sot - Pa Kosto Instalimi",
     "currency": "€",
-    "guarantee": "Garanci 90-Ditëshe Rikthimi Parash",
-    "includes": "Gjithçka që të Duhet e Përfshirë:",
-    "feature1": "Dizajn faqeje i personalizuar (pa shabllone)",
-    "feature2": "E optimizuar për mobile për të gjitha pajisjet",
-    "feature3": "Hosting profesional + domain",
-    "feature4": "Certifikatë sigurie SSL",
-    "feature5": "Përgatitje SEO miqësore me Google",
-    "feature6": "Përditësime mujore të përmbajtjes",
-    "feature7": "Qasje direkte tek unë (pa qendra thirrjesh)",
-    "feature8": "Garanci 99.9% funksionimi",
-    "feature9": "Backup ditor i faqes tënde",
-    "feature10": "Përgatitje email profesionale"
+    "guarantee": "3-Ditë Garanci Rikthimi Parash",
+    "includes": "Çfarë të Tjerët Paguajnë Veç (Gjithçka e Përfshirë):",
+    "feature1": "✓ Instalim Faqeje (€500 vlerë - FALAS)",
+    "feature2": "✓ Dizajn i Personalizuar (€1000 vlerë - FALAS)",
+    "feature3": "✓ Regjistrim Domain (€15/vit - FALAS)",
+    "feature4": "✓ Hosting Premium (€20/muaj - FALAS)",
+    "feature5": "✓ Certifikatë SSL (€10/muaj - FALAS)",
+    "feature6": "✓ Përditësime Mujore (€50/muaj - FALAS)",
+    "feature7": "✓ Optimizim Mobile (€300 vlerë - FALAS)",
+    "feature8": "✓ Përgatitje Google SEO (€200 vlerë - FALAS)",
+    "feature9": "✓ Mbështetje 24/7 (€30/muaj - FALAS)",
+    "feature10": "✓ Vlerë Totale: €95+/muaj për vetëm €49.9"
   },
   "about": {
     "hero": {
@@ -404,7 +404,7 @@
       "next1": "Do shqyrtoj informacionin tënd brenda 24 orëve",
       "next2": "Do caktojmë një thirrje të shkurtër për të diskutuar projektin",
       "next3": "Do krijoj një mockup dizajni për aprovimin tënd",
-      "next4": "Faqja jote do ndërtohet dhe lançohet në 1-2 javë",
+      "next4": "Faqja jote do ndërtohet dhe lançohet në 3 - 5 ditë pune",
       "next5": "Mirëmbajtja mujore fillon menjëherë",
       "terms": "Duke dorëzuar, pranon",
       "termsOfService": "Kushtet e Shërbimit",

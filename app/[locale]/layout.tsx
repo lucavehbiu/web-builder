@@ -24,11 +24,11 @@ export async function generateMetadata({
 
   return {
     title: isAlbanian
-      ? "Luca - Faqe Profesionale për Bizneset e Vogla"
-      : "Luca - Bringing Your Business Into the Light",
+      ? "Faqe Profesionale €49.9/Muaj - Pa Kosto Instalimi | Luca Web Design"
+      : "Professional Websites €49.9/Month - No Setup Fees | Luca Web Design Albania",
     description: isAlbanian
-      ? "Duke sjellë biznesin tuaj në dritë. Faqe profesionale që të bëjnë të dukshëm online. €49.9/muaj, gjithëpërfshirëse."
-      : "Professional websites that make your business visible online. Bringing you into the light with €49.9/month all-inclusive service.",
+      ? "Faqe profesionale për biznesin tuaj. €49.9/muaj gjithëpërfshirëse - pa kosto instalimi, pa tarifa të fshehura. Domain, hosting, SSL të përfshira. 3 ditë garanci kthimi."
+      : "Get your business online with professional websites. €49.9/month all-inclusive - no setup costs, no hidden fees. Domain, hosting, SSL included. 3-day money back guarantee.",
     icons: {
       icon: [
         { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -44,8 +44,8 @@ export async function generateMetadata({
     },
     manifest: '/site.webmanifest',
     keywords: isAlbanian
-      ? ["dizajn ueb", "biznes i vogël", "ndërtues faqesh", "faqe profesionale", "faqe shqip"]
-      : ["web design", "small business", "website builder", "professional websites"],
+      ? ["faqe pa kosto instalimi", "web design tirane", "€49.9 faqe biznesi", "ndertim faqesh shqiperi", "dizajn faqesh gjithëpërfshirëse", "faqe biznesi tirane", "faqe profesionale pa pagese fillestare", "ndertim faqesh me cmim fiks", "faqe interneti shqiperi"]
+      : ["no setup fee website", "all inclusive web design albania", "€49.9 website albania", "tirana web developer", "small business website albania", "website design albania", "web developer tirana", "affordable website albanian business", "professional website no upfront cost"],
     authors: [{ name: "Luca" }],
     creator: "Luca",
     publisher: "Luca",
@@ -66,20 +66,20 @@ export async function generateMetadata({
       url: "https://lucavehbiu.com",
       siteName: "Luca",
       title: isAlbanian
-        ? "Luca - Faqe Profesionale për Bizneset e Vogla"
-        : "Luca - Bringing Your Business Into the Light",
+        ? "€49.9/Muaj Gjithëpërfshirëse - Pa Kosto Instalimi | Luca Web Design"
+        : "€49.9/Month All-Inclusive - No Setup Fees | Luca Web Design Albania",
       description: isAlbanian
-        ? "Duke sjellë biznesin tuaj në dritë. Faqe profesionale që të bëjnë të dukshëm online."
-        : "Professional websites that make your business visible online. Bringing you into the light.",
+        ? "€49.9/muaj përfshin gjithçka - domain, hosting, SSL, përditësime. Zero kosto instalimi. Kurse €2000+ krahasuar me agjencitë. 3 ditë garanci."
+        : "€49.9/month includes everything - domain, hosting, SSL, updates. Zero setup costs. Save €2000+ vs agencies. 3-day guarantee.",
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary_large_image", 
       title: isAlbanian
-        ? "Luca - Faqe Profesionale për Bizneset e Vogla"
-        : "Luca - Bringing Your Business Into the Light",
+        ? "€49.9/Muaj - Pa Kosto Instalimi | Luca Web Design"
+        : "€49.9/Month - No Setup Fees | Luca Web Design Albania",
       description: isAlbanian
-        ? "Duke sjellë biznesin tuaj në dritë. Faqe profesionale që të bëjnë të dukshëm online."
-        : "Professional websites that make your business visible online. Bringing you into the light.",
+        ? "Faqe profesionale €49.9/muaj gjithëpërfshirëse. Zero kosto instalimi. Kurse €2000+. 3 ditë garanci."
+        : "Professional websites €49.9/month all-inclusive. Zero setup costs. Save €2000+. 3-day guarantee.",
       creator: "@lucavehbiu",
     },
     verification: {

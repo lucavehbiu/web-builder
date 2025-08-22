@@ -13,13 +13,13 @@
     "language": "Language"
   },
   "hero": {
-    "title": "Bringing Your Business Into the Light",
-    "subtitle": "Don't let your business stay hidden in the dark. Professional websites that make you visible to customers searching online.",
-    "description": "I illuminate businesses online with professional websites that get found, trusted, and chosen by customers.",
-    "cta": "Step Into the Light",
-    "secondaryCta": "See How It Works",
-    "badge": "Professional Web Presence • Fast Delivery • Your Success Partner",
-    "proof": "Join 200+ businesses shining online"
+    "title": "Get Found Online Without Breaking the Bank",
+    "subtitle": "Professional websites for Albanian businesses. €49.9/month includes everything - domain, hosting, SSL, updates. Zero setup costs.",
+    "description": "No €500 setup fee. No €1000 design fee. No hidden costs. Just €49.9/month all-inclusive to get your business visible online.",
+    "cta": "Start Today - Save €2000+",
+    "secondaryCta": "See What's Included",
+    "badge": "€49.9 All-Inclusive • No Setup Fees • Start Today",
+    "proof": "Join 200+ Albanian businesses already online"
   },
   "navigation": {
     "logoText": "Luca",
@@ -81,25 +81,25 @@
     }
   },
   "pricing": {
-    "title": "One Simple Price, Everything Included",
-    "subtitle": "No hidden fees, no surprises, no contracts",
+    "title": "Save €2000+ vs Traditional Agencies",
+    "subtitle": "No €500 setup fee • No €1000 design fee • No hidden costs • Just €49.9/month all-inclusive",
     "monthly": "Monthly",
-    "yearly": "Yearly",
-    "mostPopular": "Most Popular",
-    "getStarted": "Start Making More Money",
-    "currency": "$",
-    "guarantee": "90-Day Money-Back Guarantee",
-    "includes": "Everything You Need Included:",
-    "feature1": "Custom website design (no templates)",
-    "feature2": "Mobile-optimized for all devices",
-    "feature3": "Professional hosting + domain",
-    "feature4": "SSL security certificate",
-    "feature5": "Google-friendly SEO setup",
-    "feature6": "Monthly content updates",
-    "feature7": "Direct access to me (no call centers)",
-    "feature8": "99.9% uptime guarantee",
-    "feature9": "Daily backups of your site",
-    "feature10": "Professional email setup"
+    "yearly": "Yearly", 
+    "mostPopular": "Save €500 Setup Fee",
+    "getStarted": "Start Today - No Setup Costs",
+    "currency": "€",
+    "guarantee": "3-Day Money-Back Guarantee",
+    "includes": "What Others Charge Extra For (All Included):",
+    "feature1": "✓ Website Setup (€500 value - FREE)",
+    "feature2": "✓ Custom Design (€1000 value - FREE)", 
+    "feature3": "✓ Domain Registration (€15/year - FREE)",
+    "feature4": "✓ Premium Hosting (€20/month - FREE)",
+    "feature5": "✓ SSL Certificate (€10/month - FREE)",
+    "feature6": "✓ Monthly Updates (€50/month - FREE)",
+    "feature7": "✓ Mobile Optimization (€300 value - FREE)",
+    "feature8": "✓ Google SEO Setup (€200 value - FREE)",
+    "feature9": "✓ 24/7 Support (€30/month - FREE)",
+    "feature10": "✓ Total Value: €95+/month for only €49.9"
   },
   "about": {
     "hero": {

@@ -734,10 +734,10 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                   <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 hover:bg-white/15 transition-all">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-lg font-bold text-white">
-                        {locale === 'sq' ? 'Paguaj Tani' : 'Pay Now'}
+                        {locale === 'sq' ? 'Kompletoni Sot' : 'Complete Setup Today'}
                       </h3>
-                      <div className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                        {locale === 'sq' ? 'E REKOMANDUAR' : 'RECOMMENDED'}
+                      <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-medium animate-pulse">
+                        {locale === 'sq' ? 'KURSE €500' : 'SAVE €500'}
                       </div>
                     </div>
                     
@@ -759,6 +759,23 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                         ? '3 ditë provë falas - anullo kur të duash' 
                         : '3-day free trial - cancel anytime'}
                     </p>
+
+                    <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 mb-4">
+                      <div className="text-center">
+                        <h4 className="text-white font-bold text-sm mb-2">
+                          {locale === 'sq' ? 'Çfarë Përfshihet për €39.9/muaj:' : "What's Included for €39.9/month:"}
+                        </h4>
+                        <ul className="space-y-1 text-xs text-gray-300">
+                          <li>✓ {locale === 'sq' ? 'Instalim komplet faqeje (€500 vlerë - FALAS)' : 'Complete website setup (€500 value - FREE)'}</li>
+                          <li>✓ {locale === 'sq' ? 'Dizajn profesional (€1000 vlerë - FALAS)' : 'Professional design (€1000 value - FREE)'}</li>
+                          <li>✓ {locale === 'sq' ? 'Domain-i juaj (.com/.al)' : 'Your own domain (.com/.al)'}</li>
+                          <li>✓ {locale === 'sq' ? 'Hosting i shpejtë dhe i sigurt' : 'Fast secure hosting'}</li>
+                          <li>✓ {locale === 'sq' ? 'Certifikatë sigurie SSL' : 'SSL security certificate'}</li>
+                          <li>✓ {locale === 'sq' ? 'Përditësime mujore të përmbajtjes' : 'Monthly content updates'}</li>
+                          <li>✓ {locale === 'sq' ? 'Mbështetje 24/7' : '24/7 support'}</li>
+                        </ul>
+                      </div>
+                    </div>
 
                     <ul className="space-y-2 text-sm text-gray-300 mb-6">
                       <li className="flex items-center">
