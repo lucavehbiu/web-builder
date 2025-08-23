@@ -1,4 +1,4 @@
-# Working with Tailwind CSS v4 & Next.js 15.3.4 - Learning Notes
+# Working with Tailwind CSS v4, Next.js 15.3.4 & shadcn/ui - Learning Notes
 
 *Documentation of key insights, patterns, and solutions discovered while building components*
 
@@ -29,6 +29,111 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 ```
+
+## 🧩 shadcn/ui Integration
+
+### Installation & Setup
+```bash
+# Core dependencies for shadcn/ui
+npm install @radix-ui/react-slot class-variance-authority clsx tailwind-merge lucide-react
+```
+
+### Utils Configuration
+```typescript
+// src/lib/utils.ts - Essential utility for class merging
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+
+### Core Components Structure
+```
+src/
+  components/
+    ui/                    # shadcn/ui components
+      button.tsx          # Button with variants (default, outline, ghost, etc.)
+      badge.tsx           # Badge component for status indicators
+      card.tsx            # Card with Header, Content, Footer
+    sections/             # Page sections using shadcn components
+```
+
+### Button Component Usage
+```tsx
+import { Button } from '@/components/ui/button'
+import { ChevronRight } from 'lucide-react'
+
+// Primary button
+<Button size="lg">
+  Get Started
+  <ChevronRight className="ml-2 h-4 w-4" />
+</Button>
+
+// Secondary/ghost button
+<Button variant="ghost" size="lg">
+  Learn More
+</Button>
+
+// As Link wrapper
+<Button asChild>
+  <Link href="/contact">Contact</Link>
+</Button>
+```
+
+### Badge Component Usage
+```tsx
+import { Badge } from '@/components/ui/badge'
+import { Circle } from 'lucide-react'
+
+// Default emerald badge
+<Badge variant="default">
+  <Circle className="w-1.5 h-1.5 fill-emerald-400 text-emerald-400 mr-2" />
+  Available now
+</Badge>
+
+// Success badge
+<Badge variant="success">Most Popular</Badge>
+
+// Outline badge
+<Badge variant="outline">All features included</Badge>
+```
+
+### Card Component Usage
+```tsx
+import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/card'
+
+<Card className="border-gray-100 shadow-none">
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card description</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Card content goes here</p>
+  </CardContent>
+  <CardFooter>
+    <Button className="w-full">Action</Button>
+  </CardFooter>
+</Card>
+```
+
+### Icon Integration with Lucide React
+```tsx
+import { ChevronRight, Check, Circle, Star, CheckCircle } from 'lucide-react'
+
+// Icons automatically inherit text color and can be styled
+<Check className="h-4 w-4 text-emerald-500" />
+<Star className="h-3 w-3 text-yellow-400 fill-yellow-400" />
+<Circle className="w-1.5 h-1.5 fill-emerald-400 text-emerald-400" />
+```
+
+### Design System Benefits
+- **Consistent styling**: All components follow the same design tokens
+- **Accessible by default**: Built on Radix UI primitives
+- **Type-safe variants**: Class Variance Authority (CVA) for component variants
+- **Minimal bundle size**: Tree-shakable, only imports what you use
+- **Easy customization**: All styles can be overridden with className
 
 ## 🎨 Tailwind CSS v4 Key Changes
 
@@ -257,6 +362,8 @@ export default function NewsletterForm() {
 5. **TypeScript path mapping** must match your file structure
 6. **Metadata API** provides excellent built-in SEO support
 7. **Responsive design** should be mobile-first with Tailwind utilities
+8. **shadcn/ui provides consistency** - use for buttons, badges, cards instead of custom classes
+9. **Lucide React icons** integrate seamlessly with shadcn components
 
 ## 🔧 Debugging Checklist
 
@@ -268,9 +375,12 @@ When encountering issues:
 - [ ] Verify Tailwind class names (v4 changes)
 - [ ] Test both server and client rendering
 - [ ] Check browser console for React errors
+- [ ] Verify shadcn/ui component imports and variants
+- [ ] Check Lucide React icon imports
 
 ---
 
-*Last updated: December 2024*
+*Last updated: January 2025*
 *Next.js Version: 15.3.4*
 *Tailwind CSS Version: 4.x*
+*shadcn/ui: Integrated with core components*

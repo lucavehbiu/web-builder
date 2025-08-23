@@ -132,67 +132,71 @@ function GradientText({
 */
 
 import type { Dictionary } from '@/lib/i18n/types'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { Check } from 'lucide-react'
 
 export default function Pricing({ locale, dictionary }: { locale: string, dictionary: Dictionary }) {
   const currency = '€'
   const price = '49.9'
 
   return (
-    <section className="bg-gradient-to-br from-gray-50 to-white py-24 sm:py-32">
+    <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header */}
+        {/* Minimal Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-2xl font-medium tracking-tight text-gray-900 sm:text-3xl mb-3">
             {dictionary.pricing.title}
           </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
+          <p className="text-base text-gray-600 font-light">
             {dictionary.pricing.subtitle}
           </p>
         </div>
 
-        {/* Pricing Card */}
-        <div className="mx-auto mt-16 max-w-2xl lg:mt-24">
-          <div className="relative rounded-3xl bg-white p-8 shadow-2xl ring-1 ring-gray-200 sm:p-10">
-            {/* Popular Badge */}
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <span className="inline-flex items-center rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 px-6 py-2 text-sm font-semibold text-white shadow-md">
+        {/* Clean Pricing Card with shadcn */}
+        <div className="mx-auto mt-12 max-w-2xl lg:mt-16">
+          <Card className="relative p-6 sm:p-8">
+            {/* Subtle Badge */}
+            <div className="absolute -top-2.5 left-1/2 transform -translate-x-1/2">
+              <Badge variant="default">
                 {dictionary.pricing.mostPopular}
-              </span>
+              </Badge>
             </div>
 
-            {/* Pricing Header */}
+            {/* Clean Pricing Header */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="text-lg font-normal text-gray-900 mb-4">
                 {locale === 'sq' ? 'Gjithçka që ju Nevojitet' : 'Everything You Need'}
               </h3>
-              <div className="mt-6">
+              <div className="mt-4">
                 <div className="flex items-baseline justify-center gap-x-2">
-                  <span className="text-5xl font-bold tracking-tight text-gray-900">
+                  <span className="text-3xl font-medium tracking-tight text-gray-900">
                     {currency}39.9
                   </span>
-                  <span className="text-3xl font-bold text-gray-400 line-through">
+                  <span className="text-xl font-normal text-gray-400 line-through">
                     {currency}{price}
                   </span>
-                  <span className="text-base font-semibold leading-7 text-gray-600">
+                  <span className="text-sm font-normal leading-7 text-gray-600">
                     /{locale === 'sq' ? 'muaj' : 'month'}
                   </span>
                 </div>
                 <div className="mt-2 flex justify-center">
-                  <span className="inline-flex items-center rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-3 py-1 text-xs font-medium text-white">
+                  <span className="inline-flex items-center rounded-md bg-orange-50 border border-orange-200 px-2.5 py-1 text-xs font-normal text-orange-700">
                     {locale === 'sq' ? '20% ZBRITJE - 3 MUAJT E PARË' : '20% OFF - FIRST 3 MONTHS'}
                   </span>
                 </div>
               </div>
-              <p className="mt-4 text-base text-gray-600">
+              <p className="mt-3 text-sm text-gray-500 font-light">
                 {locale === 'sq'
                   ? 'Anulo në çdo kohë. Pa kontratë afatgjatë.'
                   : 'Cancel anytime. No long-term contract.'}
               </p>
             </div>
 
-            {/* Features List */}
-            <div className="mt-10">
-              <ul role="list" className="space-y-4 text-base leading-7 text-gray-600">
+            {/* Minimal Features List with shadcn */}
+            <CardContent className="mt-6 px-0">
+              <ul role="list" className="space-y-3 text-sm leading-6 text-gray-600">
                 {[
                   locale === 'sq' ? 'Dizajn profesional i personalizuar' : 'Professional custom design',
                   locale === 'sq' ? 'Hosting dhe domain të përfshirë*' : 'Hosting and domain included*',
@@ -206,185 +210,168 @@ export default function Pricing({ locale, dictionary }: { locale: string, dictio
                   locale === 'sq' ? 'Email biznesi të përfshirë' : 'Business email included'
                 ].map((feature) => (
                   <li key={feature} className="flex items-start">
-                    <svg
-                      className="h-6 w-6 flex-shrink-0 text-green-500 mr-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>{feature}</span>
+                    <Check className="h-4 w-4 flex-shrink-0 text-emerald-500 mr-3 mt-0.5" />
+                    <span className="font-light">{feature}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </CardContent>
 
-            {/* CTA Button */}
-            <div className="mt-10">
-              <a
-                href={`/${locale}/get-started`}
-                className="group relative overflow-hidden block w-full rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-4 text-center text-lg font-bold text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative">
+            {/* Clean CTA Button with shadcn */}
+            <CardFooter className="px-0">
+              <Button className="w-full" size="lg" asChild>
+                <a href={`/${locale}/get-started`}>
                   {dictionary.pricing.getStarted}
-                </span>
-              </a>
-            </div>
+                </a>
+              </Button>
+            </CardFooter>
 
-            {/* Additional Info */}
-            <div className="mt-8 border-t border-gray-200 pt-8">
+            {/* Subtle Additional Info */}
+            <div className="mt-4 border-t border-gray-100 pt-4">
               <div className="text-center">
-                <p className="text-sm text-gray-500">
+                <p className="text-xs text-gray-500 font-light">
                   {locale === 'sq'
                     ? '✓ Pa tarifa fillimi  ✓ Pa kosto të fshehura  ✓ Anulo në çdo kohë'
                     : '✓ No setup fees  ✓ No hidden costs  ✓ Cancel anytime'}
                 </p>
               </div>
             </div>
-          </div>
+          </Card>
         </div>
 
-        {/* Comparison Table */}
-        <div className="mx-auto mt-16 max-w-4xl">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900">
+        {/* Simple Comparison Table */}
+        <div className="mx-auto mt-12 max-w-4xl">
+          <div className="text-center mb-6">
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
               {locale === 'sq'
                 ? 'Krahasimi: Të gjitha Opsionet vs Luca'
                 : 'All Options vs Luca'}
             </h3>
-            <p className="text-gray-600 mt-2">
+            <p className="text-sm text-gray-600 font-light">
               {locale === 'sq'
                 ? 'Shikoni sa para kurseni me shërbimin tonë'
                 : 'See how much money you save with our service'}
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-lg shadow-lg border border-gray-200 overflow-x-auto">
+          <div className="overflow-hidden rounded-md border border-gray-200 overflow-x-auto">
             <table className="w-full min-w-max">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-900">
                     {locale === 'sq' ? 'Veçori' : 'Feature'}
                   </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                  <th className="px-4 py-3 text-center text-xs font-medium text-gray-900">
                     {locale === 'sq' ? 'Agjenci' : 'Agencies'}
                   </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-emerald-600">
+                  <th className="px-4 py-3 text-center text-xs font-medium text-emerald-600">
                     Luca
                   </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
+                  <th className="px-4 py-3 text-center text-xs font-medium text-gray-900">
                     {locale === 'sq' ? 'DIY/Wix' : 'DIY/Wix'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 bg-white">
+              <tbody className="divide-y divide-gray-100 bg-white">
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">
+                  <td className="px-4 py-3 text-xs text-gray-900">
                     {locale === 'sq' ? 'Kosto Instalimi' : 'Setup Fee'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-red-600 font-semibold">€500-2000</td>
-                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">€0</td>
-                  <td className="px-6 py-4 text-center text-sm text-orange-600">€0</td>
+                  <td className="px-4 py-3 text-center text-xs text-red-600 font-medium">€500-2000</td>
+                  <td className="px-4 py-3 text-center text-xs text-emerald-600 font-medium">€0</td>
+                  <td className="px-4 py-3 text-center text-xs text-orange-600">€0</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="px-6 py-4 text-sm text-gray-900">
+                <tr className="bg-gray-25">
+                  <td className="px-4 py-3 text-xs text-gray-900">
                     {locale === 'sq' ? 'Kosto Mujore' : 'Monthly Cost'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-red-600 font-semibold">€100-300+</td>
-                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">€50</td>
-                  <td className="px-6 py-4 text-center text-sm text-orange-600">€15-50</td>
+                  <td className="px-4 py-3 text-center text-xs text-red-600 font-medium">€100-300+</td>
+                  <td className="px-4 py-3 text-center text-xs text-emerald-600 font-medium">€50</td>
+                  <td className="px-4 py-3 text-center text-xs text-orange-600">€15-50</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">Domain</td>
-                  <td className="px-6 py-4 text-center text-sm text-red-600">€15/vit ekstra*</td>
-                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                  <td className="px-4 py-3 text-xs text-gray-900">Domain</td>
+                  <td className="px-4 py-3 text-center text-xs text-red-600">€15/vit ekstra*</td>
+                  <td className="px-4 py-3 text-center text-xs text-emerald-600 font-medium">
                     {locale === 'sq' ? 'E përfshirë' : 'Included'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-orange-600">€15/vit</td>
+                  <td className="px-4 py-3 text-center text-xs text-orange-600">€15/vit</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="px-6 py-4 text-sm text-gray-900">Hosting</td>
-                  <td className="px-6 py-4 text-center text-sm text-red-600">€20/muaj ekstra</td>
-                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                <tr className="bg-gray-25">
+                  <td className="px-4 py-3 text-xs text-gray-900">Hosting</td>
+                  <td className="px-4 py-3 text-center text-xs text-red-600">€20/muaj ekstra</td>
+                  <td className="px-4 py-3 text-center text-xs text-emerald-600 font-medium">
                     {locale === 'sq' ? 'E përfshirë' : 'Included'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-orange-600">
+                  <td className="px-4 py-3 text-center text-xs text-orange-600">
                     {locale === 'sq' ? 'E përfshirë*' : 'Included*'}
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">SSL</td>
-                  <td className="px-6 py-4 text-center text-sm text-red-600">€10/muaj ekstra</td>
-                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                  <td className="px-4 py-3 text-xs text-gray-900">SSL</td>
+                  <td className="px-4 py-3 text-center text-xs text-red-600">€10/muaj ekstra</td>
+                  <td className="px-4 py-3 text-center text-xs text-emerald-600 font-medium">
                     {locale === 'sq' ? 'E përfshirë' : 'Included'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-orange-600">
+                  <td className="px-4 py-3 text-center text-xs text-orange-600">
                     {locale === 'sq' ? 'E përfshirë' : 'Included'}
                   </td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="px-6 py-4 text-sm text-gray-900">
+                <tr className="bg-gray-25">
+                  <td className="px-4 py-3 text-xs text-gray-900">
                     {locale === 'sq' ? 'Përditësime' : 'Updates'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-red-600">€50/orë</td>
-                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                  <td className="px-4 py-3 text-center text-xs text-red-600">€50/orë</td>
+                  <td className="px-4 py-3 text-center text-xs text-emerald-600 font-medium">
                     {locale === 'sq' ? 'E përfshirë' : 'Included'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-orange-600">
+                  <td className="px-4 py-3 text-center text-xs text-orange-600">
                     {locale === 'sq' ? 'Kufizuar/Vetë' : 'Limited/DIY'}
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">
+                  <td className="px-4 py-3 text-xs text-gray-900">
                     {locale === 'sq' ? 'Shpejtësia' : 'Speed/Time'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-red-600">
+                  <td className="px-4 py-3 text-center text-xs text-red-600">
                     {locale === 'sq' ? 'E ngadaltë' : 'Slow'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-emerald-600 font-semibold">
+                  <td className="px-4 py-3 text-center text-xs text-emerald-600 font-medium">
                     {locale === 'sq' ? 'E shpejtë' : 'Fast'}
                   </td>
-                  <td className="px-6 py-4 text-center text-sm text-orange-600">
+                  <td className="px-4 py-3 text-center text-xs text-orange-600">
                     {locale === 'sq' ? 'E gjatë/Ngadaltë' : 'Time intensive/Slow'}
                   </td>
                 </tr>
-                <tr className="bg-gradient-to-r from-emerald-50 to-cyan-50 border-t-2 border-emerald-200">
-                  <td className="px-6 py-4 text-sm font-bold text-gray-900">
+                <tr className="bg-emerald-50 border-t border-emerald-200">
+                  <td className="px-4 py-3 text-xs font-medium text-gray-900">
                     {locale === 'sq' ? 'Totali Muaji i Parë' : 'Total First Month'}
                   </td>
-                  <td className="px-6 py-4 text-center text-lg font-bold text-red-600">€2000+</td>
-                  <td className="px-6 py-4 text-center text-lg font-bold text-emerald-600">
+                  <td className="px-4 py-3 text-center text-sm font-medium text-red-600">€2000+</td>
+                  <td className="px-4 py-3 text-center text-sm font-medium text-emerald-600">
                     €50*
-                    <div className="text-xs font-normal text-gray-500">
+                    <div className="text-xs font-light text-gray-500">
                       *{locale === 'sq' ? '€600/vit' : '€600/year'}
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-center text-lg font-bold text-orange-600">€500+</td>
+                  <td className="px-4 py-3 text-center text-sm font-medium text-orange-600">€500+</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <div className="text-center mt-6">
-            <p className="text-sm text-gray-600">
+          <div className="text-center mt-4">
+            <p className="text-xs text-gray-600 font-light">
               {locale === 'sq'
-                ? '💰 Kurseni mbi €1500+ në muajin e parë krahasuar me të gjitha opsionet e tjera'
-                : '💰 Save over €1500+ in the first month compared to all other options'}
+                ? 'Kurseni mbi €1500+ në muajin e parë krahasuar me të gjitha opsionet e tjera'
+                : 'Save over €1500+ in the first month compared to all other options'}
             </p>
-            <p className="text-sm text-emerald-600 font-semibold mt-2">
+            <p className="text-xs text-emerald-600 font-normal mt-1">
               {locale === 'sq'
-                ? '⚡ Luca: Më i shpejtë, më i lirë, më profesional'
-                : '⚡ Luca: Faster, cheaper, more professional'}
+                ? 'Luca: Më i shpejtë, më i lirë, më profesional'
+                : 'Luca: Faster, cheaper, more professional'}
             </p>
-            <p className="text-xs text-gray-500 mt-2">
+            <p className="text-xs text-gray-500 mt-1 font-light">
               {locale === 'sq'
                 ? '*Deri në €15/vit, jo më shumë'
                 : '*Up to €15/year, not more'}

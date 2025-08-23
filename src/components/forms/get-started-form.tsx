@@ -3,8 +3,14 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Notification from '@/components/ui/notification'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Label } from '@/components/ui/label'
+import { Progress } from '@/components/ui/progress'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { Dictionary } from '@/lib/i18n/types'
 import { Locale } from '@/lib/i18n/config'
+import { ChevronRight, ChevronLeft, Send, CreditCard, MessageCircle, Shield, Lock } from 'lucide-react'
 
 interface GetStartedFormProps {
   dictionary: Dictionary
@@ -15,6 +21,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submittedLeadId, setSubmittedLeadId] = useState<string | null>(null)
+  const [showTerms, setShowTerms] = useState(false)
   const [notification, setNotification] = useState<{
     message: string
     type: 'success' | 'error' | 'info'
@@ -44,7 +51,9 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
     launchTimeline: '',
     contentReady: '',
     specialRequirements: '',
-    hearAboutUs: ''
+    hearAboutUs: '',
+    // Terms acceptance
+    acceptedTerms: false
   })
   
   // Random number of people who signed up today (between 8-24) - fixed for hydration
@@ -67,7 +76,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
     setNotification(prev => ({ ...prev, isVisible: false }))
   }
 
-  const handleInputChange = (field: string, value: string | string[]) => {
+  const handleInputChange = (field: string, value: string | string[] | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
 
@@ -220,7 +229,8 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
       launchTimeline: '',
       contentReady: '',
       specialRequirements: '',
-      hearAboutUs: ''
+      hearAboutUs: '',
+      acceptedTerms: false
     })
     setCurrentStep(1)
     setSubmittedLeadId(null)
@@ -236,15 +246,15 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
       <div className="max-w-2xl mx-auto px-4">
         {/* Page Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-300">
-              {dictionary.getStarted.header.title}{" "}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
+            <span className="block text-white mb-2">
+              {dictionary.getStarted.header.title}
             </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400">
+            <span className="block text-emerald-400 font-semibold">
               {dictionary.getStarted.header.price}
             </span>
           </h1>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-lg text-gray-400 leading-relaxed mb-8 max-w-2xl mx-auto font-light">
             {dictionary.getStarted.header.subtitle}
           </p>
           
@@ -291,12 +301,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
               {currentStep === 4 ? '100%' : `${Math.round((currentStep / 3) * 100)}%`} {dictionary.getStarted.progress.complete}
             </span>
           </div>
-          <div className="w-full bg-gray-700 rounded-full h-2">
-            <div
-              className="bg-gradient-to-r from-emerald-500 to-cyan-500 h-2 rounded-full transition-all duration-300"
-              style={{ width: `${currentStep === 4 ? 100 : (currentStep / 3) * 100}%` }}
-            ></div>
-          </div>
+          <Progress value={currentStep === 4 ? 100 : (currentStep / 3) * 100} className="h-2" />
         </div>
 
         {/* Form */}
@@ -310,9 +315,9 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <Label className="block text-sm font-medium text-gray-300 mb-2">
                   {dictionary.getStarted.step1.businessName} <span className="text-red-400">*</span>
-                </label>
+                </Label>
                 <input
                   type="text"
                   required
@@ -324,14 +329,14 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <Label className="block text-sm font-medium text-gray-300 mb-2">
                   {dictionary.getStarted.step1.industry} <span className="text-red-400">*</span>
-                </label>
+                </Label>
                 <select
                   required
                   value={formData.industry}
                   onChange={(e) => handleInputChange('industry', e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent focus:bg-white/15 transition-all [&>option]:bg-gray-800 [&>option]:text-white"
+                  className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent focus:bg-white/15 transition-all [&>option]:bg-gray-800 [&>option]:text-white [&>option]:py-2"
                 >
                   <option value="">{dictionary.getStarted.step1.selectIndustry}</option>
                   {dictionary.getStarted.industries.map(industry => (
@@ -423,28 +428,15 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
               </div>
 
               <div className="flex justify-end pt-6">
-                <button
+                <Button
                   type="button"
                   onClick={nextStep}
                   disabled={!validateStep1()}
-                  className={`
-                    group relative overflow-hidden rounded-2xl px-8 py-3 font-bold shadow-xl transition-all duration-300 text-white
-                    ${validateStep1() 
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 hover:shadow-2xl transform hover:scale-105 cursor-pointer' 
-                      : 'bg-gray-600 cursor-not-allowed opacity-50'
-                    }
-                  `}
+                  size="lg"
                 >
-                  {validateStep1() && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  )}
-                  <span className="relative flex items-center">
-                    {dictionary.getStarted.buttons.nextStep}
-                    <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </button>
+                  {dictionary.getStarted.buttons.nextStep}
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
               </div>
             </div>
           )}
@@ -590,29 +582,23 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
               </div>
 
               <div className="flex justify-between pt-6">
-                <button
+                <Button
                   type="button"
                   onClick={prevStep}
-                  className="bg-white/10 text-gray-300 px-8 py-3 rounded-2xl font-semibold hover:bg-white/20 transition-all duration-200 flex items-center border border-white/20"
+                  variant="outline"
+                  className="bg-white/10 text-gray-300 border-white/20 hover:bg-white/20"
                 >
-                  <svg className="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
+                  <ChevronLeft className="mr-2 h-4 w-4" />
                   {dictionary.getStarted.buttons.back}
-                </button>
-                <button
+                </Button>
+                <Button
                   type="button"
                   onClick={nextStep}
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 px-8 py-3 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  size="lg"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span className="relative flex items-center">
-                    {dictionary.getStarted.buttons.nextStep}
-                    <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </button>
+                  {dictionary.getStarted.buttons.nextStep}
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
               </div>
             </div>
           )}
@@ -632,7 +618,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                 <select
                   value={formData.launchTimeline}
                   onChange={(e) => handleInputChange('launchTimeline', e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent focus:bg-white/15 transition-all [&>option]:bg-gray-800 [&>option]:text-white"
+                  className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent focus:bg-white/15 transition-all [&>option]:bg-gray-800 [&>option]:text-white [&>option]:py-2"
                 >
                   <option value="">{dictionary.getStarted.step3.selectTimeline}</option>
                   {dictionary.getStarted.timelines.map(timeline => (
@@ -702,7 +688,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                 <select
                   value={formData.hearAboutUs}
                   onChange={(e) => handleInputChange('hearAboutUs', e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent focus:bg-white/15 transition-all [&>option]:bg-gray-800 [&>option]:text-white"
+                  className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent focus:bg-white/15 transition-all [&>option]:bg-gray-800 [&>option]:text-white [&>option]:py-2"
                 >
                   <option value="">{dictionary.getStarted.step3.selectOption}</option>
                   {dictionary.getStarted.hearAboutOptions.map(option => (
@@ -738,55 +724,136 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                 </ol>
               </div>
 
-              <div className="flex justify-between pt-6">
-                <button
-                  type="button"
-                  onClick={prevStep}
-                  className="bg-white/10 text-gray-300 px-8 py-3 rounded-2xl font-semibold hover:bg-white/20 transition-all duration-200 flex items-center border border-white/20"
-                >
-                  <svg className="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                  {dictionary.getStarted.buttons.back}
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`
-                    group relative overflow-hidden rounded-2xl px-8 py-3 font-bold shadow-xl transition-all duration-300
-                    ${isSubmitting 
-                      ? 'bg-gray-600 cursor-not-allowed' 
-                      : 'bg-gradient-to-r from-emerald-500 to-cyan-500 hover:shadow-2xl transform hover:scale-105'
-                    } text-white
-                  `}
-                >
-                  {!isSubmitting && <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
-                  <span className="relative flex items-center">
-                    {isSubmitting ? (
-                      <>
-                        <svg className="mr-2 h-5 w-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                        </svg>
-                        {dictionary.getStarted.buttons.submitting}
-                      </>
-                    ) : (
-                      <>
-                        {dictionary.getStarted.buttons.submit}
-                        <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                        </svg>
-                      </>
-                    )}
-                  </span>
-                </button>
+              {/* Terms and Conditions */}
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <Checkbox 
+                    id="terms"
+                    checked={formData.acceptedTerms}
+                    onCheckedChange={(checked) => handleInputChange('acceptedTerms', checked === true)}
+                    className="h-3.5 w-3.5"
+                  />
+                  <Label htmlFor="terms" className="text-sm text-gray-300 cursor-pointer font-light">
+                    {locale === 'sq' 
+                      ? (
+                        <span>
+                          Unë pranoj{' '}
+                          <button 
+                            type="button"
+                            onClick={() => setShowTerms(!showTerms)}
+                            className="text-emerald-400 hover:text-emerald-300 underline"
+                          >
+                            kushtet dhe shërbimet
+                          </button>
+                          {' '}dhe politikën e privatësisë
+                        </span>
+                      )
+                      : (
+                        <span>
+                          I accept the{' '}
+                          <button 
+                            type="button"
+                            onClick={() => setShowTerms(!showTerms)}
+                            className="text-emerald-400 hover:text-emerald-300 underline"
+                          >
+                            terms and conditions
+                          </button>
+                          {' '}and privacy policy
+                        </span>
+                      )}
+                  </Label>
+                </div>
+                
+                {showTerms && (
+                  <div className="bg-white/5 rounded-lg border border-white/20 p-4">
+                    <ScrollArea className="h-32 w-full">
+                      <div className="text-sm text-gray-300 space-y-3 pr-4">
+                        <div>
+                          <p className="font-medium text-white mb-1">1. {locale === 'sq' ? 'Shërbimi' : 'Service'}</p>
+                          <p className="font-light">{locale === 'sq' 
+                            ? 'Ne ofrojmë shërbime zhvillimi dhe mirëmbajtjeje për faqe interneti. Shërbimi përfshin dizajn, zhvillim, hosting dhe mbështetje.'
+                            : 'We provide website development and maintenance services. Service includes design, development, hosting and support.'}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <p className="font-medium text-white mb-1">2. {locale === 'sq' ? 'Pagesa' : 'Payment'}</p>
+                          <p className="font-light">{locale === 'sq'
+                            ? 'Pagesa është mujore në shumën €39.9/muaj. Pagesa është e detyrueshme dhe bëhet paraprakisht për çdo muaj.'
+                            : 'Payment is monthly at €39.9/month. Payment is mandatory and made in advance for each month.'}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <p className="font-medium text-white mb-1">3. {locale === 'sq' ? 'Anulimi' : 'Cancellation'}</p>
+                          <p className="font-light">{locale === 'sq'
+                            ? 'Mund të anuloni shërbimin në çdo kohë me njoftim 30-ditor. Nuk ka tarifa anulimi.'
+                            : 'You may cancel the service at any time with 30-day notice. No cancellation fees.'}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <p className="font-medium text-white mb-1">4. {locale === 'sq' ? 'Përgjegjësia' : 'Responsibility'}</p>
+                          <p className="font-light">{locale === 'sq'
+                            ? 'Ne jemi përgjegjës për mirëmbajtjen dhe funksionimin e faqes suaj. Ju jeni përgjegjës për përmbajtjen që siguroni.'
+                            : 'We are responsible for maintaining and operating your website. You are responsible for content you provide.'}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <p className="font-medium text-white mb-1">5. {locale === 'sq' ? 'Privatësia' : 'Privacy'}</p>
+                          <p className="font-light">{locale === 'sq'
+                            ? 'Të dhënat tuaja mbrohen sipas politikës sonë të privatësisë. Nuk i ndajmë të dhënat me palë të treta.'
+                            : 'Your data is protected according to our privacy policy. We do not share data with third parties.'}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <p className="font-medium text-white mb-1">6. {locale === 'sq' ? 'Ndërrimi i Kushteve' : 'Terms Changes'}</p>
+                          <p className="font-light">{locale === 'sq'
+                            ? 'Ne rezervojmë të drejtën për të ndryshuar këto kushte me njoftim paraprak.'
+                            : 'We reserve the right to change these terms with prior notice.'}
+                          </p>
+                        </div>
+                      </div>
+                    </ScrollArea>
+                  </div>
+                )}
               </div>
 
-              <p className="text-xs text-gray-500 text-center mt-4">
-                {dictionary.getStarted.step3.terms}{' '}
-                <Link href={`/${locale}/terms`} className="text-emerald-400 hover:underline">{dictionary.getStarted.step3.termsOfService}</Link>
-                {' '}{dictionary.getStarted.step3.and}{' '}
-                <Link href={`/${locale}/privacy`} className="text-emerald-400 hover:underline">{dictionary.getStarted.step3.privacyPolicy}</Link>
-              </p>
+              <div className="flex justify-between pt-6">
+                <Button
+                  type="button"
+                  onClick={prevStep}
+                  variant="outline"
+                  className="bg-white/10 text-gray-300 border-white/20 hover:bg-white/20"
+                >
+                  <ChevronLeft className="mr-2 h-4 w-4" />
+                  {dictionary.getStarted.buttons.back}
+                </Button>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting || !formData.acceptedTerms}
+                  className={`
+                    ${isSubmitting || !formData.acceptedTerms
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : ''
+                    }
+                  `}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                      {dictionary.getStarted.buttons.submitting}
+                    </>
+                  ) : (
+                    <>
+                      {dictionary.getStarted.buttons.submit}
+                      <Send className="ml-2 h-4 w-4" />
+                    </>
+                  )}
+                </Button>
+              </div>
             </div>
           )}
 
@@ -882,34 +949,25 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                       </li>
                     </ul>
 
-                    <button
+                    <Button
                       type="button"
                       onClick={handlePayNow}
                       disabled={isSubmitting}
-                      className={`
-                        w-full py-4 px-6 rounded-2xl font-bold transition-all duration-300 text-white shadow-lg
-                        ${isSubmitting 
-                          ? 'bg-gray-600 cursor-not-allowed' 
-                          : 'bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 hover:shadow-2xl hover:shadow-orange-500/25 transform hover:scale-105'
-                        }
-                      `}
+                      className="w-full bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 hover:from-yellow-400 hover:via-orange-400 hover:to-red-400"
+                      size="lg"
                     >
                       {isSubmitting ? (
-                        <div className="flex items-center justify-center">
-                          <svg className="w-5 h-5 animate-spin mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                          </svg>
+                        <>
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
                           {locale === 'sq' ? 'Po përpunohet...' : 'Processing...'}
-                        </div>
+                        </>
                       ) : (
-                        <div className="flex items-center justify-center">
-                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                          </svg>
+                        <>
+                          <CreditCard className="w-4 h-4 mr-2" />
                           {locale === 'sq' ? 'Fillo Tani - €39.9/muaj' : 'Start Now - €39.9/month'}
-                        </div>
+                        </>
                       )}
-                    </button>
+                    </Button>
                   </div>
                 </div>
 
@@ -964,18 +1022,16 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                     </li>
                   </ul>
 
-                  <button
+                  <Button
                     type="button"
                     onClick={handleWaitForContact}
-                    className="w-full py-3 px-6 rounded-2xl font-bold transition-all duration-300 text-white bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30"
+                    variant="outline"
+                    className="w-full bg-white/10 text-white border-white/20 hover:bg-white/20 hover:border-white/30"
+                    size="lg"
                   >
-                    <div className="flex items-center justify-center">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                      </svg>
-                      {locale === 'sq' ? 'Kontakto Më Vonë' : 'Contact Me Later'}
-                    </div>
-                  </button>
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    {locale === 'sq' ? 'Kontakto Më Vonë' : 'Contact Me Later'}
+                  </Button>
                 </div>
               </div>
 
@@ -999,9 +1055,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
               {/* Security Badge */}
               <div className="text-center">
                 <div className="inline-flex items-center bg-white/5 rounded-full px-4 py-2 border border-white/10">
-                  <svg className="w-4 h-4 text-emerald-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
+                  <Lock className="w-4 h-4 text-emerald-400 mr-2" />
                   <span className="text-xs text-gray-400">
                     {locale === 'sq' ? 'Pagesa e sigurt me Stripe' : 'Secure payment with Stripe'}
                   </span>
