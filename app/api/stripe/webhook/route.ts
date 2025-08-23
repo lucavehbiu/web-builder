@@ -14,14 +14,21 @@ const supabase = createClient(
 )
 
 export async function POST(req: Request) {
+  console.log('🔔 Webhook received at:', new Date().toISOString())
+  
   if (!stripe) {
+    console.error('❌ Stripe not configured')
     return NextResponse.json({ error: 'Stripe not configured' }, { status: 500 })
   }
 
   const body = await req.text()
   const sig = req.headers.get('stripe-signature')
 
+  console.log('📝 Webhook body length:', body.length)
+  console.log('🔐 Webhook signature present:', !!sig)
+
   if (!sig) {
+    console.error('❌ No signature provided')
     return NextResponse.json({ error: 'No signature' }, { status: 400 })
   }
 
@@ -29,21 +36,27 @@ export async function POST(req: Request) {
 
   try {
     event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET || '')
+    console.log('✅ Webhook signature verified successfully')
   } catch (error) {
-    console.error('Webhook signature verification failed:', error)
+    console.error('❌ Webhook signature verification failed:', error)
     return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
   }
 
   try {
-    console.log(`Processing webhook event: ${event.type}`)
+    console.log(`🎯 Processing webhook event: ${event.type}`)
+    console.log('📊 Event data object:', 'id' in event.data.object ? event.data.object.id : 'no id')
     
     switch (event.type) {
       case 'checkout.session.completed':
         const session = event.data.object as Stripe.Checkout.Session
+        console.log('🛒 Checkout session completed:', session.id)
+        console.log('👤 Customer email:', session.customer_email)
+        console.log('📋 Session metadata:', JSON.stringify(session.metadata))
         
         // For subscriptions with trial, this event fires when trial starts
         // Update lead with subscription info but keep status as 'trial' until payment
         if (session.metadata?.leadId) {
+          console.log('🔄 Updating lead:', session.metadata.leadId, 'to trial status')
           const { error: updateError } = await supabase
             .from('leads')
             .update({
@@ -56,10 +69,13 @@ export async function POST(req: Request) {
             .eq('id', session.metadata.leadId)
 
           if (updateError) {
-            console.error('Error updating lead trial status:', updateError)
+            console.error('❌ Error updating lead trial status:', updateError)
+          } else {
+            console.log('✅ Lead status updated to trial successfully')
           }
 
           // Send notification emails
+          console.log('📧 Sending trial confirmation emails...')
           const mailjetAuth = btoa(`${process.env.MAILJET_API_KEY}:${process.env.MAILJET_SECRET_KEY}`)
           
           // Send confirmation email to customer
@@ -129,8 +145,14 @@ export async function POST(req: Request) {
                 }
               ]
             })
+          }).then(response => {
+            if (response.ok) {
+              console.log('✅ Customer confirmation email sent successfully')
+            } else {
+              console.error('❌ Customer confirmation email failed:', response.status, response.statusText)
+            }
           }).catch(error => {
-            console.error('Error sending customer confirmation email:', error)
+            console.error('❌ Error sending customer confirmation email:', error)
           })
 
           // Send notification email to admin about new trial
@@ -181,9 +203,17 @@ export async function POST(req: Request) {
                 }
               ]
             })
+          }).then(response => {
+            if (response.ok) {
+              console.log('✅ Admin trial notification email sent successfully')
+            } else {
+              console.error('❌ Admin trial notification email failed:', response.status, response.statusText)
+            }
           }).catch(error => {
-            console.error('Error sending trial notification email:', error)
+            console.error('❌ Error sending trial notification email:', error)
           })
+        } else {
+          console.log('⚠️ No leadId found in session metadata')
         }
         break
 
