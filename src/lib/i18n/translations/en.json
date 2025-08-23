@@ -103,63 +103,68 @@
   },
   "about": {
     "hero": {
-      "title": "Hi, I'm Your",
-      "titleHighlight": "Web Developer",
-      "subtitle": "I help small businesses establish a professional online presence without breaking the bank."
+      "title": "From Data Science to",
+      "titleHighlight": "Your Personal Web Developer",
+      "subtitle": "Bringing Dutch tech standards and design aesthetics to Albanian businesses. I help non-technical business owners get found online - including through ChatGPT searches."
     },
     "story": {
-      "title": "My Story",
-      "paragraph1": "After years of working with enterprise clients, I noticed something troubling: small businesses were being priced out of having a professional web presence.",
-      "paragraph2": "Quotes of $5,000+ for a simple website, plus hundreds per month for hosting? That didn't sit right with me. I knew there had to be a better way.",
-      "paragraph3": "So I created WebBuilder - a simple, transparent service that gives small businesses everything they need for one affordable monthly price.",
-      "conclusion": "No setup fees. No surprises. Just professional websites that work."
+      "title": "My Journey: From Numbers to Beautiful Websites",
+      "paragraph1": "My story begins in data science and analytics - a non-technical background that taught me to see patterns, understand user behavior, and make data-driven decisions. Living in the Netherlands' thriving tech ecosystem, I witnessed firsthand how advanced technology transforms businesses.",
+      "paragraph2": "But I also developed an eye for beauty and design aesthetics. I realized that powerful technology means nothing without elegant presentation. When I moved between the Netherlands and Albania, I saw a massive gap: Albanian businesses deserved the same world-class digital standards I experienced in Dutch tech companies.",
+      "paragraph3": "Today's reality is exciting: AI costs are plummeting, making advanced technology accessible to everyone. My clients are already being discovered through ChatGPT searches because their websites are properly optimized. You don't need a physical storefront to generate leads when you have a professional online presence.",
+      "paragraph4": "I created this service specifically for non-technical business owners who need affordable, professional solutions. No €5,000+ quotes. No complex technical jargon. Just beautiful, functional websites that work.",
+      "conclusion": "Democratizing Dutch tech standards for Albanian businesses - one website at a time."
     },
     "beliefs": {
-      "title": "What I Believe In",
+      "title": "What Drives My Mission",
       "transparency": {
-        "title": "Transparency",
-        "description": "No hidden fees, no surprises. You know exactly what you're paying for every month."
+        "title": "Data-Driven Transparency",
+        "description": "My analytics background means everything is measurable and transparent. You see exactly what you're paying for and the results you're getting."
       },
       "partnership": {
-        "title": "Partnership",
-        "description": "I'm not just a service provider - I'm your partner in building your online presence."
+        "title": "Tech Made Human",
+        "description": "I translate complex technology into simple solutions. You get Dutch tech standards with personal, Albanian hospitality."
       },
       "efficiency": {
-        "title": "Efficiency",
-        "description": "Quick turnarounds without sacrificing quality. Your website will be live in 1-2 weeks."
+        "title": "AI-Powered Efficiency",
+        "description": "Using AI tools and automation, I deliver faster results at lower costs - savings I pass directly to you."
       },
       "focus": {
-        "title": "Focus",
-        "description": "I specialize in small businesses because that's where I can make the biggest impact."
+        "title": "Leveling the Playing Field",
+        "description": "Every Albanian business deserves world-class digital presence. I'm here to make that affordable and accessible."
       }
     },
     "skills": {
-      "title": "Experience & Skills",
-      "technicalTitle": "Technical Skills",
-      "whatIBringTitle": "What I Bring",
-      "webDevelopment": "Web Development",
-      "uiuxDesign": "UI/UX Design",
-      "seoOptimization": "SEO Optimization",
-      "performanceOptimization": "Performance Optimization",
-      "clientCommunication": "Client Communication",
-      "highlight1": "10+ years of web development experience",
-      "highlight2": "Direct communication - no middlemen or account managers",
-      "highlight3": "Fast response times and personal attention",
-      "highlight4": "Modern, secure, and scalable solutions",
-      "highlight5": "Ongoing support and maintenance included",
-      "highlight6": "Flexible and understanding of small business needs"
+      "title": "Why My Background Makes the Difference",
+      "technicalTitle": "Technical Expertise",
+      "whatIBringTitle": "The Unique Value I Bring",
+      "webDevelopment": "Modern Web Development",
+      "uiuxDesign": "Design Aesthetics & UX",
+      "seoOptimization": "AI-Ready SEO Optimization",
+      "performanceOptimization": "Data-Driven Performance",
+      "clientCommunication": "Non-Technical Communication",
+      "highlight1": "Data science background ensures your website converts visitors into customers",
+      "highlight2": "Dutch tech standards meet Albanian business needs - no cultural barriers",
+      "highlight3": "Design aesthetics training creates memorable brand experiences",
+      "highlight4": "Websites optimized for ChatGPT and AI search discovery",
+      "highlight5": "Generate leads without physical storefront - perfect for service businesses",
+      "highlight6": "Built for non-technical owners - no jargon, just results",
+      "highlight7": "AI cost reductions passed to clients - premium quality at accessible prices",
+      "highlight8": "Living bridge between Dutch innovation and Albanian entrepreneurship"
     },
     "cta": {
-      "title": "Let's Build Something Great Together",
-      "subtitle": "Ready to give your business the professional web presence it deserves?",
-      "button": "Get Started for €49.9/month"
+      "title": "Join the Digital Revolution",
+      "subtitle": "Ready to bring Dutch tech standards to your Albanian business? Let's democratize world-class web presence together.",
+      "button": "Start Your Transformation - €49.9/month"
     }
   },
   "services": {
     "hero": {
       "title": "Complete Web Solution for",
       "price": "€49.9/month",
-      "subtitle": "Everything your small business needs to establish a professional online presence."
+      "subtitle": "Everything your small business needs to establish a professional online presence. From a data analytics background with an eye for beauty, I bring Dutch tech expertise to Albania - helping businesses get discovered on ChatGPT and generate leads without a physical storefront.",
+      "description": "As AI costs drop and digital transformation accelerates, non-technical business owners need affordable, professional websites. My data science experience ensures your site converts visitors into customers, while my design aesthetic creates memorable brand experiences. Clients are already being found through ChatGPT searches - join them in the digital economy.",
+      "badge": "Data-Driven Design • AI-Ready SEO • Dutch Tech Standards"
     },
     "included": {
       "title": "What's Included",
@@ -318,7 +323,9 @@
     "hero": {
       "title": "See",
       "titleHighlight": "What's Possible",
-      "subtitle": "Real websites for real businesses, all built for €49.9/month."
+      "subtitle": "Real websites for real businesses, all built for €49.9/month. From data science-driven design to AI-optimized SEO, each project reflects the Dutch tech standards I bring to Albanian businesses.",
+      "description": "With falling AI costs making advanced technology accessible, even non-technical business owners can compete globally. My portfolio showcases how data analytics expertise combined with design aesthetics creates websites that generate leads without physical storefronts - some clients are already being discovered through ChatGPT searches.",
+      "badge": "AI-Optimized • Data-Driven • Dutch Quality Standards"
     },
     "projects": {
       "resultsLabel": "Results:",

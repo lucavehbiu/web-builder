@@ -50,7 +50,9 @@ export default async function About({
     dictionary.about.skills.highlight3,
     dictionary.about.skills.highlight4,
     dictionary.about.skills.highlight5,
-    dictionary.about.skills.highlight6
+    dictionary.about.skills.highlight6,
+    dictionary.about.skills.highlight7,
+    dictionary.about.skills.highlight8
   ]
 
   return (
@@ -156,6 +158,9 @@ export default async function About({
             </p>
             <p className="mb-6">
               {dictionary.about.story.paragraph3}
+            </p>
+            <p className="mb-6">
+              {dictionary.about.story.paragraph4}
             </p>
             <p className="text-lg font-semibold text-gray-900">
               {dictionary.about.story.conclusion}

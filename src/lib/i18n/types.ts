@@ -91,6 +91,7 @@ export interface Dictionary {
       paragraph1: string
       paragraph2: string
       paragraph3: string
+      paragraph4: string
       conclusion: string
     }
     beliefs: {
@@ -127,6 +128,8 @@ export interface Dictionary {
       highlight4: string
       highlight5: string
       highlight6: string
+      highlight7: string
+      highlight8: string
     }
     cta: {
       title: string
@@ -139,6 +142,8 @@ export interface Dictionary {
       title: string
       price: string
       subtitle: string
+      description: string
+      badge: string
     }
     included: {
       title: string
@@ -298,6 +303,8 @@ export interface Dictionary {
       title: string
       titleHighlight: string
       subtitle: string
+      description: string
+      badge: string
     }
     projects: {
       resultsLabel: string

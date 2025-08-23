@@ -103,63 +103,68 @@
   },
   "about": {
     "hero": {
-      "title": "Përshëndetje, Unë Jam",
-      "titleHighlight": "Developer-i Juaj Personal",
-      "subtitle": "I ndihmoj bizneset e vogla të krijojnë një prezencë profesionale online pa shpenzuar shumë para."
+      "title": "Nga Shkenca e të Dhënave në",
+      "titleHighlight": "Developer-in Tuaj Personal",
+      "subtitle": "Duke sjellë standarde teknologjike holandeze dhe estetikë dizajni për bizneset shqiptare. I ndihmoj pronarët e bizneseve jo-teknike të gjenden online - përfshi edhe në kërkimet e ChatGPT."
     },
     "story": {
-      "title": "Historia Ime",
-      "paragraph1": "Pas vitesh pune me klientë të mëdhenj, vura re diçka shqetësuese: bizneset e vogla po përjashtohen nga pasja e një prezence profesionale web.",
-      "paragraph2": "Oferta mbi 125,000 lekë për një faqe të thjeshtë, plus dhjetëra mijëra lekë në muaj për hosting? Kjo nuk më dukej mirë. E dija se duhej të kishte një mënyrë më të mirë.",
-      "paragraph3": "Kështu krijova Luca - një shërbim i thjeshtë dhe transparent që u jep bizneseve të vogla gjithçka që u duhet për një çmim të përballueshëm mujor.",
-      "conclusion": "Pa tarifa fillestare. Pa surpriza. Vetëm faqe profesionale që funksionojnë."
+      "title": "Udhëtimi Im: Nga Numrat tek Faqet e Bukura",
+      "paragraph1": "Historia ime fillon në shkencën e të dhënave dhe analizat - një background jo-teknik që më mësoi të shoh modele, të kuptoj sjelljet e përdoruesve, dhe të marr vendime të bazuara në të dhëna. Duke jetuar në ekosistemin teknologjik të lulëzuar të Holandës, pashë nga afër se si teknologjia e avancuar transformon bizneset.",
+      "paragraph2": "Por zhvillova edhe një sy për bukurinë dhe estetikën e dizajnit. E kuptova se teknologjia e fuqishme nuk do të thotë asgjë pa prezantim elegant. Kur lëviza mes Holandës dhe Shqipërisë, pashë një boshllëk të madh: bizneset shqiptare meritonin të njëjtat standarde dixhitale botërore që përjetoja në kompanitë teknologjike holandeze.",
+      "paragraph3": "Realiteti i sotëm është emocionues: kostot e AI-së po ulen dramatikisht, duke bërë teknologjinë e avancuar të arritshme për të gjithë. Klientët e mi tashmë po zbulohen përmes kërkimeve në ChatGPT sepse faqet e tyre janë optimizuar siç duhet. Nuk të duhet një dyqan fizik për të gjeneruar leads kur ke një prezencë profesionale online.",
+      "paragraph4": "Krijova këtë shërbim specifikisht për pronarët e bizneseve jo-teknike që kanë nevojë për zgjidhje profesionale dhe të përballueshme. Jo oferta €3,000+. Jo jargon teknik të komplikuar. Vetëm faqe të bukura dhe funksionale që punojnë.",
+      "conclusion": "Duke demokratizuar standardet teknologjike holandeze për bizneset shqiptare - një faqe në herë."
     },
     "beliefs": {
-      "title": "Në Çfarë Besoj",
+      "title": "Çfarë Nxit Misionin Tim",
       "transparency": {
-        "title": "Transparencë",
-        "description": "Pa tarifa të fshehura, pa surpriza. Ti e di saktësisht se për çfarë po paguan çdo muaj."
+        "title": "Transparencë e Bazuar në të Dhëna",
+        "description": "Background-i im në analizë do të thotë se gjithçka është e matshme dhe transparente. Ti sheh saktësisht se për çfarë po paguan dhe rezultatet që po merr."
       },
       "partnership": {
-        "title": "Partneritet",
-        "description": "Unë nuk jam thjesht një ofrues shërbimi - jam partneri yt në ndërtimin e prezencës tënde online."
+        "title": "Teknologji e Bërë Humane",
+        "description": "I përkthej teknologjitë komplekse në zgjidhje të thjeshta. Merr standarde teknologjike holandeze me mikpritje personale shqiptare."
       },
       "efficiency": {
-        "title": "Efikasitet",
-        "description": "Përfundime të shpejta pa sakrifikuar cilësinë. Faqja jote do jetë aktive brenda 1-2 javëve."
+        "title": "Efikasitet i Fuqizuar nga AI",
+        "description": "Duke përdorur mjete AI dhe automatizim, ofroj rezultate më të shpejta me kosto më të ulëta - kursime që i kaloj direkt tek ti."
       },
       "focus": {
-        "title": "Fokus",
-        "description": "Specializohem në biznese të vogla sepse atje mund të bëj ndikimin më të madh."
+        "title": "Barazimi i Fushës së Lojës",
+        "description": "Çdo biznes shqiptar meriton prezencë dixhitale botërore. Jam këtu për ta bërë këtë të përballueshme dhe të arritshme."
       }
     },
     "skills": {
-      "title": "Përvojë & Aftësi",
-      "technicalTitle": "Aftësi Teknike",
-      "whatIBringTitle": "Çfarë Sjell",
-      "webDevelopment": "Zhvillim Web",
-      "uiuxDesign": "Dizajn UI/UX",
-      "seoOptimization": "Optimizim SEO",
-      "performanceOptimization": "Optimizim Performance",
-      "clientCommunication": "Komunikim me Klientin",
-      "highlight1": "Mbi 10 vjet përvojë në zhvillim web",
-      "highlight2": "Komunikim direkt - pa ndërmjetës apo menaxherë llogarish",
-      "highlight3": "Kohë të shpejta përgjigjeje dhe vëmendje personale",
-      "highlight4": "Zgjidhje moderne, të sigurta dhe të përshkallëzueshme",
-      "highlight5": "Mbështetje dhe mirëmbajtje e vazhdueshme e përfshirë",
-      "highlight6": "Fleksibël dhe me kuptim për nevojat e bizneseve të vogla"
+      "title": "Pse Background-i Im Bën Ndryshimin",
+      "technicalTitle": "Ekspertiza Teknike",
+      "whatIBringTitle": "Vlera Unike që Sjell",
+      "webDevelopment": "Zhvillim Web Modern",
+      "uiuxDesign": "Estetikë Dizajni & UX",
+      "seoOptimization": "Optimizim SEO i Gatshëm për AI",
+      "performanceOptimization": "Performance i Bazuar në të Dhëna",
+      "clientCommunication": "Komunikim Jo-Teknik",
+      "highlight1": "Background-i në shkencën e të dhënave siguron që faqja jote konverton vizitorët në klientë",
+      "highlight2": "Standardet teknologjike holandeze takojnë nevojat e bizneseve shqiptare - pa barriera kulturore",
+      "highlight3": "Trajnimi në estetikën e dizajnit krijon përvojat e paharrueshme të markës",
+      "highlight4": "Faqe të optimizuara për zbulim në ChatGPT dhe kërkim me AI",
+      "highlight5": "Gjenero leads pa dyqan fizik - perfekt për bizneset e shërbimeve",
+      "highlight6": "Ndërtuar për pronarë jo-teknikë - pa jargon, vetëm rezultate",
+      "highlight7": "Ulja e kostove të AI-së kalon tek klientët - cilësi premium me çmime të arritshme",
+      "highlight8": "Ura e gjallë mes inovacionit holandez dhe sipërmarrjes shqiptare"
     },
     "cta": {
-      "title": "Le të Ndërtojmë Diçka të Madhe Së Bashku",
-      "subtitle": "Gati për t'i dhënë biznesit tënd prezencën profesionale web që meriton?",
-      "button": "Fillo për 49.9€/muaj"
+      "title": "Bashkohu me Revolucionin Dixhital",
+      "subtitle": "Gati për t'i sjellë standardet teknologjike holandeze biznesit tënd shqiptar? Le të demokratizojmë së bashku prezencën web botërore.",
+      "button": "Fillo Transformimin Tënd - €49.9/muaj"
     }
   },
   "services": {
     "hero": {
       "title": "Zgjidhje Komplet Web për",
       "price": "49.9€/muaj",
-      "subtitle": "Gjithçka që i duhet biznesit tënd të vogël për të krijuar një prezencë profesionale online."
+      "subtitle": "Gjithçka që i duhet biznesit tënd të vogël për të krijuar një prezencë profesionale online. Nga një background në analizë të dhënash me sy për bukurinë, sjell ekspertizë teknologjike holandeze në Shqipëri - duke ndihmuar bizneset të zbulohen në ChatGPT dhe të gjenerojnë leads pa dyqan fizik.",
+      "description": "Ndërsa kostot e AI-së ulen dhe transformimi dixhital përshpejtohet, pronarët e bizneseve jo-teknike kanë nevojë për faqe profesionale dhe të përballueshme. Përvoja ime në shkencën e të dhënave siguron që faqja juaj konverton vizitorët në klientë, ndërsa estetika ime e dizajnit krijon përvoja marke të paharrueshme. Klientët tashmë po gjenden përmes kërkimeve në ChatGPT - bashkohuni me ta në ekonominë dixhitale.",
+      "badge": "Dizajn i Bazuar në të Dhëna • SEO Gati për AI • Standarde Teknologjike Holandeze"
     },
     "included": {
       "title": "Çfarë Përfshihet",
@@ -285,15 +290,15 @@
       "title": "Pyetje të Shpeshta",
       "q1": {
         "question": "Çfarë nëse kam nevojë për më shumë se 5 faqe?",
-        "answer": "Faqe shtesë mund të shtohen për 250 lekë/muaj për faqe. Shumica e bizneseve të vogla gjejnë se 4-5 faqe janë të mjaftueshme."
+        "answer": "Faqe shtesë mund të shtohen për 5 €/muaj për faqe. Shumica e bizneseve të vogla gjejnë se 4-5 faqe janë të mjaftueshme."
       },
       "q2": {
         "question": "A mund ta anuloj kur të dua?",
         "answer": "Po, nuk ka kontrata afatgjata. Mund ta anulosh me 30 ditë njoftim. Ti gjithmonë do të zotërosh domenin dhe përmbajtjen."
       },
       "q3": {
-        "question": "Çfarë nëse domeni im kushton më shumë se 375 lekë/vit?",
-        "answer": "Do paguash ndryshimin. Shumica e domeneve .com janë rreth 300-375 lekë/vit, por domenet premium mund të kushtojnë më shumë."
+        "question": "Çfarë nëse domeni im kushton më shumë se 15 €/vit?",
+        "answer": "Do paguash diferencen. Shumica e domeneve .com janë rreth 15 €/vit, por domenet premium mund të kushtojnë më shumë."
       },
       "q4": {
         "question": "A punoni me faqe e-commerce?",
@@ -318,7 +323,9 @@
     "hero": {
       "title": "Shiko",
       "titleHighlight": "Çfarë Është E Mundur",
-      "subtitle": "Faqe të vërteta për biznese të vërteta, të gjitha ndërtuara për 49.9€/muaj."
+      "subtitle": "Faqe të vërteta për biznese të vërteta, të gjitha ndërtuara për 49.9€/muaj. Nga dizajni i bazuar në shkencën e të dhënave tek SEO e optimizuar me AI, çdo projekt pasqyron standardet teknologjike holandeze që sjell për bizneset shqiptare.",
+      "description": "Me kostot e AI-së që ulen duke e bërë teknologjinë e avancuar të aksesueshme, edhe pronarët e bizneseve jo-teknike mund të konkurrojnë globalisht. Portofoli im tregon si ekspertiza në analizë të dhënash e kombinuar me estetikën e dizajnit krijon faqe që gjenerojnë leads pa dyqane fizike - disa klientë tashmë po zbulohen përmes kërkimeve në ChatGPT.",
+      "badge": "AI-Optimizuar • Bazuar në të Dhëna • Standarde Cilësie Holandeze"
     },
     "projects": {
       "resultsLabel": "Rezultatet:",

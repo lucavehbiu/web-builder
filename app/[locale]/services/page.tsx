@@ -200,7 +200,7 @@ export default async function Services({
         <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40 text-center">
           <div className="mb-8 inline-flex items-center rounded-full bg-emerald-500/10 px-6 py-2 text-sm font-medium text-emerald-300 ring-1 ring-inset ring-emerald-500/20 backdrop-blur-sm">
             <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-ping"></div>
-            {locale === 'sq' ? 'Zgjidhje Komplet për Biznesin' : 'Complete Business Solution'}
+            {dictionary.services.hero.badge}
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">
@@ -213,8 +213,12 @@ export default async function Services({
             </span>
           </h1>
           
-          <p className="text-xl text-gray-300 leading-relaxed mb-12">
+          <p className="text-xl text-gray-300 leading-relaxed mb-6">
             {dictionary.services.hero.subtitle}
+          </p>
+          
+          <p className="text-lg text-gray-400 leading-relaxed mb-12 max-w-3xl mx-auto">
+            {dictionary.services.hero.description}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
