@@ -107,7 +107,6 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
       }
 
       const result = await response.json()
-      console.log('Form submitted successfully:', result)
       
       // Store the lead ID for payment processing
       setSubmittedLeadId(result.leadId)
@@ -117,8 +116,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
       // Move to payment step
       setCurrentStep(4)
       
-    } catch (error) {
-      console.error('Form submission error:', error)
+    } catch {
       showNotification(dictionary.getStarted.notifications.submitError, 'error')
     } finally {
       setIsSubmitting(false)
@@ -196,8 +194,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
       
       // Redirect to Stripe checkout
       window.location.href = checkoutUrl
-    } catch (error) {
-      console.error('Payment error:', error)
+    } catch {
       showNotification('Failed to process payment. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)
