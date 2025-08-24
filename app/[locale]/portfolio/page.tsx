@@ -258,7 +258,7 @@ export default async function Portfolio({
                   </div>
 
                   {/* URL */}
-                  <Button asChild variant="outline" size="sm">
+                  <Button asChild variant="default" size="sm">
                     <Link
                       href={project.url}
                       target="_blank"

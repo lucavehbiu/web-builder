@@ -294,7 +294,7 @@
       },
       "q2": {
         "question": "Can I cancel anytime?",
-        "answer": "Yes, there are no long-term contracts. You can cancel with 30 days notice. You'll always own your domain and content."
+        "answer": "Yes, there are no long-term contracts. You can cancel with 30 days notice. Only your domain stays with you - website hosting and files are not included after cancellation."
       },
       "q3": {
         "question": "What if my domain costs more than $15/year?",
@@ -306,7 +306,7 @@
       },
       "q5": {
         "question": "What happens to my website if I cancel?",
-        "answer": "You keep your domain and can download all your content. I'll provide you with all files and help with the transition."
+        "answer": "You keep your domain only. The website hosting, files, and content are not included after cancellation - only the domain registration remains yours."
       },
       "q6": {
         "question": "How many monthly updates do I get?",

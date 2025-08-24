@@ -194,7 +194,7 @@ export default function MobileNav({
             <div className="mt-6">
               <Link
                 href={`/${locale}/get-started`}
-                className="block w-full text-center px-6 py-4 rounded-xl font-semibold bg-gradient-to-r from-emerald-500 to-cyan-500 text-white hover:from-emerald-400 hover:to-cyan-400 shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-[1.02]"
+                className="block w-full text-center px-6 py-4 rounded-xl font-semibold bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 text-white hover:from-emerald-400 hover:via-green-500 hover:to-teal-500 shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-[1.02]"
                 onClick={() => setIsOpen(false)}
               >
                 {dictionary?.common?.getStarted || 'Start Your Project'}

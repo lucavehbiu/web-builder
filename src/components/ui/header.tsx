@@ -58,7 +58,7 @@ export default function Header({ locale, dictionary }: HeaderProps) {
             <LanguageSwitcher locale={locale} />
             <Link
               href={`/${locale}/get-started`}
-              className="px-6 py-3 duration-300 ease-linear border border-emerald-500 text-emerald-400 hover:text-white hover:bg-emerald-600 rounded-xl font-light"
+              className="px-6 py-3 duration-300 ease-linear bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 text-white hover:from-emerald-400 hover:via-green-500 hover:to-teal-500 rounded-xl font-light shadow-lg hover:shadow-emerald-500/25"
             >
               {dictionary.common.getStarted}
             </Link>

@@ -286,7 +286,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                 alt="User profile"
                 className="w-12 h-12 rounded-full border-2 border-white shadow-lg object-cover"
               />
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 flex items-center justify-center text-white font-semibold text-sm border-2 border-white shadow-lg animate-pulse">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-400 via-green-500 to-teal-500 flex items-center justify-center text-white font-semibold text-sm border-2 border-white shadow-lg animate-pulse">
                 <div className="w-3 h-3 bg-white rounded-full animate-ping"></div>
               </div>
             </div>
@@ -719,23 +719,23 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
                 <h3 className="font-semibold text-white mb-3">{dictionary.getStarted.step3.whatNext}</h3>
                 <ol className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">1</span>
+                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">1</span>
                     {dictionary.getStarted.step3.next1}
                   </li>
                   <li className="flex items-start">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">2</span>
+                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">2</span>
                     {dictionary.getStarted.step3.next2}
                   </li>
                   <li className="flex items-start">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">3</span>
+                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">3</span>
                     {dictionary.getStarted.step3.next3}
                   </li>
                   <li className="flex items-start">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">4</span>
+                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">4</span>
                     {dictionary.getStarted.step3.next4}
                   </li>
                   <li className="flex items-start">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">5</span>
+                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 text-white rounded-full flex items-center justify-center text-xs font-medium mr-3 mt-0.5">5</span>
                     {dictionary.getStarted.step3.next5}
                   </li>
                 </ol>
@@ -892,7 +892,7 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 {/* Pay Now Option */}
                 <div className="relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-3xl opacity-75 group-hover:opacity-100 transition duration-300 blur"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 rounded-3xl opacity-75 group-hover:opacity-100 transition duration-300 blur"></div>
                   <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 hover:bg-white/15 transition-all">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-lg font-bold text-white">

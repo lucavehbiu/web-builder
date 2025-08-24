@@ -67,30 +67,30 @@ export default function Testimonials({ locale }: { locale: string }) {
     }
   ] : [
     {
-      content: "Online orders went from 3 per day to 20 per day! The new website helped me double sales in less than 3 months. Every dollar I spent was worth double back.",
-      author: "Mike Rodriguez",
-      role: "Owner, Mario's Pizza",
-      location: "Brooklyn, NY",
+      content: "Online orders went from 3 per day to 20 per day! The new website helped me double sales in less than 3 months. Every euro I spent was worth double back.",
+      author: "Marco van der Berg",
+      role: "Owner, De Gouden Pizza",
+      location: "Amsterdam, NL",
       metric: "+127% Orders",
-      avatar: "MR",
+      avatar: "MB",
       verified: true
     },
     {
       content: "Finally customers can book appointments online! It's saved me 2 hours a day I used to spend on the phone. Appointments have tripled since launch.",
-      author: "David Chen",
-      role: "Owner, Elite Auto Repair", 
-      location: "Phoenix, AZ",
+      author: "Pieter Jansen",
+      role: "Owner, Amsterdam Auto Care", 
+      location: "Utrecht, NL",
       metric: "+89% New Customers",
-      avatar: "DC",
+      avatar: "PJ",
       verified: true
     },
     {
-      content: "Online sales went from $2,000 to $5,100 per month. Now 60% of my business comes from the website. Best investment I've ever made for my boutique!",
-      author: "Sarah Martinez",
-      role: "Owner, Bella's Boutique",
-      location: "Austin, TX", 
+      content: "Online sales went from €2,000 to €5,100 per month. Now 60% of my business comes from the website. Best investment I've ever made for my boutique!",
+      author: "Emma de Wit",
+      role: "Owner, Bella's Fashion House",
+      location: "Rotterdam, NL", 
       metric: "+156% Sales",
-      avatar: "SM",
+      avatar: "EW",
       verified: true
     }
   ]

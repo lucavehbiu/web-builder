@@ -294,7 +294,7 @@
       },
       "q2": {
         "question": "A mund ta anuloj kur të dua?",
-        "answer": "Po, nuk ka kontrata afatgjata. Mund ta anulosh me 30 ditë njoftim. Ti gjithmonë do të zotërosh domenin dhe përmbajtjen."
+        "answer": "Po, nuk ka kontrata afatgjata. Mund ta anulosh me 30 ditë njoftim. Vetëm domeni mbetet me ty - hosting-u i faqes dhe skedarët nuk përfshihen pas anulimit."
       },
       "q3": {
         "question": "Çfarë nëse domeni im kushton më shumë se 15 €/vit?",
@@ -306,7 +306,7 @@
       },
       "q5": {
         "question": "Çfarë ndodh me faqen time nëse anuloj?",
-        "answer": "Mban domenin dhe mund të shkarkosh të gjithë përmbajtjen. Do të të jap të gjitha skedarët dhe do të ndihmoj me tranzicionin."
+        "answer": "Mban vetëm domenin. Hosting-u i faqes, skedarët dhe përmbajtja nuk përfshihen pas anulimit - vetëm regjistrimi i domenit mbetet yt."
       },
       "q6": {
         "question": "Sa përditësime mujore marr?",
