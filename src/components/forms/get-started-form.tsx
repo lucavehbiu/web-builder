@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
+// Link removed - not used in this component
 import Notification from '@/components/ui/notification'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -10,7 +10,7 @@ import { Progress } from '@/components/ui/progress'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Dictionary } from '@/lib/i18n/types'
 import { Locale } from '@/lib/i18n/config'
-import { ChevronRight, ChevronLeft, Send, CreditCard, MessageCircle, Shield, Lock } from 'lucide-react'
+import { ChevronRight, ChevronLeft, Send, CreditCard, MessageCircle, Lock } from 'lucide-react'
 
 interface GetStartedFormProps {
   dictionary: Dictionary

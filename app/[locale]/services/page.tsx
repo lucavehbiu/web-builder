@@ -3,7 +3,7 @@ import Header from '@/components/ui/header'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
+// Tabs removed - using simple grid layout instead
 import { getDictionary } from '@/lib/i18n/get-dictionary'
 import { Locale } from '@/lib/i18n/config'
 import { ChevronRight, Check, Circle } from 'lucide-react'
