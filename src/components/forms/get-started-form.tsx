@@ -139,15 +139,20 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
 
   const validateStep1 = () => {
     const required = ['businessName', 'industry', 'businessDescription', 'fullName', 'email']
-    const missing = required.filter(field => !formData[field as keyof typeof formData].toString().trim())
+    const missing = required.filter(field => {
+      const value = formData[field as keyof typeof formData]
+      return !value || value.toString().trim() === ''
+    })
     
     // Check if all required fields are filled
     if (missing.length > 0) {
+      console.log('Missing fields:', missing)
       return false
     }
     
     // Validate email format
     if (!validateEmail(formData.email)) {
+      console.log('Invalid email:', formData.email)
       return false
     }
     
@@ -428,15 +433,27 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
               </div>
 
               <div className="flex justify-end pt-6">
-                <Button
-                  type="button"
-                  onClick={nextStep}
-                  disabled={!validateStep1()}
-                  size="lg"
-                >
-                  {dictionary.getStarted.buttons.nextStep}
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
+                {validateStep1() ? (
+                  <Button
+                    type="button"
+                    onClick={nextStep}
+                    size="lg"
+                  >
+                    {dictionary.getStarted.buttons.nextStep}
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                ) : (
+                  <Button
+                    type="button"
+                    disabled
+                    size="lg"
+                    variant="secondary"
+                    className="opacity-50 cursor-not-allowed"
+                  >
+                    {dictionary.getStarted.buttons.nextStep}
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                )}
               </div>
             </div>
           )}
@@ -726,12 +743,12 @@ export default function GetStartedForm({ dictionary, locale }: GetStartedFormPro
 
               {/* Terms and Conditions */}
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center gap-3">
                   <Checkbox 
                     id="terms"
                     checked={formData.acceptedTerms}
                     onCheckedChange={(checked) => handleInputChange('acceptedTerms', checked === true)}
-                    className="h-3.5 w-3.5"
+                    className="border-gray-400 data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
                   />
                   <Label htmlFor="terms" className="text-sm text-gray-300 cursor-pointer font-light">
                     {locale === 'sq' 
