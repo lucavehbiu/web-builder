@@ -28,7 +28,7 @@ const socialLinks = [
   { name: 'GitHub', href: 'https://github.com/lucavehbiu/', icon: GitHubIcon },
   { name: 'Twitter', href: '#', icon: TwitterIcon },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/luca-vehbiu/', icon: LinkedInIcon },
-] 
+]
 
 export default function FooterEnhanced() {
   const currentYear = new Date().getFullYear()
@@ -63,7 +63,7 @@ export default function FooterEnhanced() {
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!email.trim()) {
       showNotification('Please enter your email address.', 'error')
       return
@@ -79,13 +79,13 @@ export default function FooterEnhanced() {
     try {
       // Simulate API call for newsletter subscription
       await new Promise(resolve => setTimeout(resolve, 1500))
-      
+
       // Here you would typically send to your newsletter service
       // Newsletter subscription for: email
-      
+
       showNotification('Thank you for subscribing! You\'ll receive updates soon.', 'success')
       setEmail('') // Clear the input
-      
+
     } catch {
       // Newsletter subscription error occurred
       showNotification('Sorry, there was an error. Please try again.', 'error')
@@ -107,7 +107,7 @@ export default function FooterEnhanced() {
             <p className="text-sm text-gray-300 mb-6 max-w-md">
               Bringing your business into the light. Professional websites that make you visible online.
             </p>
-            
+
             {/* Social links */}
             <div className="flex space-x-4">
               {socialLinks.map((item) => (
@@ -128,8 +128,8 @@ export default function FooterEnhanced() {
             <h3 className="text-sm font-semibold text-white mb-4">Get In Touch</h3>
             <ul className="space-y-3">
               <li>
-                <a 
-                  href="mailto:info@lucavehbiu.com" 
+                <a
+                  href="mailto:info@lucavehbiu.com"
                   className="text-sm text-gray-300 hover:text-emerald-400 transition-colors flex items-center"
                 >
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,8 +139,8 @@ export default function FooterEnhanced() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://wa.me/31644765785" 
+                <a
+                  href="https://wa.me/31644765785"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-gray-300 hover:text-emerald-400 transition-colors flex items-center"
@@ -152,7 +152,7 @@ export default function FooterEnhanced() {
                 </a>
               </li>
             </ul>
-            
+
             {/* Quick Navigation */}
             <div className="mt-6">
               <h4 className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wider">Quick Links</h4>
@@ -199,7 +199,7 @@ export default function FooterEnhanced() {
                 {isSubmitting ? 'Subscribing...' : 'Subscribe'}
               </button>
             </form>
-            
+
             <Link
               href="/get-started"
               className="inline-flex items-center text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors mt-4"
@@ -216,7 +216,7 @@ export default function FooterEnhanced() {
         <div className="mt-8 pt-6 border-t border-gray-800">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs text-gray-400">
-              © {currentYear} WebBuilder. All rights reserved.
+              © {currentYear} Luca. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
               <Link href="/privacy" className="text-xs text-gray-400 hover:text-gray-300 transition-colors">

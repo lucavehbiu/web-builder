@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand section */}
           <div className="space-y-8 xl:col-span-1">
             <div>
-              <h2 className="text-2xl font-bold">WebBuilder</h2>
+              <h2 className="text-2xl font-bold">Luca</h2>
               <p className="mt-2 text-sm leading-6 text-gray-300">
                 Professional websites for small businesses. €49.9/month, all-inclusive.
               </p>
@@ -137,7 +137,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
-              © {new Date().getFullYear()} WebBuilder. All rights reserved.
+              © {new Date().getFullYear()} Luca. All rights reserved.
             </p>
           </div>
         </div>
