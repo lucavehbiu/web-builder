@@ -257,6 +257,18 @@ input[type="reset"] {
   animation-delay: 2s;
 }
 
+/* Mobile navigation slide-in animation */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /* Mobile-first responsive utilities */
 @media (max-width: 640px) {
   /* Improve text readability on small screens */
