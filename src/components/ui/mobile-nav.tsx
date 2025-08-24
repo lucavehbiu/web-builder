@@ -186,7 +186,7 @@ export default function MobileNav({
             </ul>
 
             {/* Language Switcher */}
-            <div className="mt-8 pt-8 border-t ${theme === 'dark' ? 'border-gray-700/50' : 'border-gray-200/50'}">
+            <div className={`mt-8 pt-8 border-t ${theme === 'dark' ? 'border-gray-700/50' : 'border-gray-200/50'}`}>
               <LanguageSwitcher locale={locale as Locale} />
             </div>
 

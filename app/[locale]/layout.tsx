@@ -98,9 +98,74 @@ export default async function LocaleLayout({
   const { locale } = await params
   // Dictionary will be used for footer translations later
   // const dictionary = await getDictionary(locale)
+  const isAlbanian = locale === 'sq'
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Luca Web Design",
+    "alternateName": "Luca Vehbiu Web Development",
+    "description": isAlbanian 
+      ? "Faqe profesionale për biznese shqiptare. €49.9/muaj gjithëpërfshirëse - pa kosto instalimi, pa tarifa të fshehura."
+      : "Professional websites for Albanian businesses. €49.9/month all-inclusive - no setup costs, no hidden fees.",
+    "url": "https://lucavehbiu.com",
+    "telephone": "+31644765785",
+    "email": "info@lucavehbiu.com",
+    "priceRange": "€49.9/month",
+    "founder": {
+      "@type": "Person",
+      "name": "Luca Vehbiu",
+      "email": "info@lucavehbiu.com"
+    },
+    "sameAs": [
+      "https://github.com/lucavehbiu",
+      "https://www.linkedin.com/in/luca-vehbiu/"
+    ],
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Albania"
+      },
+      {
+        "@type": "Country", 
+        "name": "Netherlands"
+      }
+    ],
+    "serviceType": [
+      "Web Design",
+      "Website Development", 
+      "Professional Websites",
+      "Business Websites",
+      "All-inclusive Web Solutions"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "49.9",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "49.9",
+        "priceCurrency": "EUR",
+        "referenceQuantity": {
+          "@type": "QuantitativeValue",
+          "value": "1",
+          "unitCode": "MON"
+        }
+      },
+      "description": isAlbanian
+        ? "Faqe profesionale me gjithçka të përfshirë - domain, hosting, SSL, përditësime"
+        : "Professional websites with everything included - domain, hosting, SSL, updates"
+    }
+  }
 
   return (
     <html lang={locale} className="h-full" style={{overscrollBehavior: 'none'}}>
+      <head>
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body className={`${inter.className} ${inter.variable} h-full flex flex-col`} style={{overscrollBehavior: 'none'}}>
         <div className="flex-grow">
           {children}
