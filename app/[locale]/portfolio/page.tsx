@@ -101,6 +101,48 @@ export default async function Portfolio({
       technologies: ["AWS", "PostgreSQL", "Vertica", "Lambda", "Rails", "React", "Python", "Pentaho", "ECS", "Kubernetes"],
       screenshot: "https://storage.googleapis.com/web-builder-luca/reelmetrics.webp",
       url: "https://www.reelmetrics.com/"
+    },
+    {
+      title: "Gmail Unlimited - Auto Expander",
+      category: "Chrome Extension",
+      description: "A privacy-first Chrome extension that eliminates the need to click 'View entire message' by automatically expanding clipped messages as you read them in Gmail. Features zero data collection, 100% local processing, and open source code.",
+      results: [
+        "Automatic email expansion without clicking",
+        "Privacy-first with zero data collection",
+        "Free tier with 5 expansions per day",
+        "40% cheaper than competitors"
+      ],
+      technologies: ["Chrome Extension API", "JavaScript", "Gmail Integration", "Local Storage"],
+      screenshot: "https://storage.googleapis.com/web-builder-luca/gmail-unlimited.webp",
+      url: "https://chromewebstore.google.com/detail/gmail-unlimited-auto-expa/kdpjhkldbphgpabiibfefeddhkbkgkdh"
+    },
+    {
+      title: "Remind Me - Smart Web Reminders",
+      category: "Chrome Extension",
+      description: "An intelligent companion for setting contextual reminders while browsing. Right-click any text or element to set a reminder with smart context retention that saves the webpage URL and selected content. Features flexible scheduling and optional email notifications.",
+      results: [
+        "One-click contextual reminders",
+        "Smart URL and content retention",
+        "Flexible scheduling options",
+        "4.7 star rating on Chrome Web Store"
+      ],
+      technologies: ["Chrome Extension API", "JavaScript", "Context Menus", "Notifications API"],
+      screenshot: "https://storage.googleapis.com/web-builder-luca/remind-me.webp",
+      url: "https://chromewebstore.google.com/detail/remind-me-smart-web-remin/knpjfdamdoddlpkpflhfgepomeafopem"
+    },
+    {
+      title: "DealHawk - Lego Arbitrage Alerts",
+      category: "Chrome Extension",
+      description: "A powerful tool for discovering profitable Lego arbitrage opportunities by automatically monitoring retiring Lego sets and comparing prices across Amazon, Walmart, and Target. Features real-time alerts, profit calculator, and fully customizable thresholds.",
+      results: [
+        "Automatic scanning every 30 minutes",
+        "Multi-retailer price comparison",
+        "Real-time browser notifications",
+        "100% privacy - all data stays local"
+      ],
+      technologies: ["Chrome Extension API", "JavaScript", "Web Scraping", "Price Monitoring"],
+      screenshot: "https://storage.googleapis.com/web-builder-luca/dealhawk.webp",
+      url: "https://chromewebstore.google.com/detail/dealhawk-lego-arbitrage-a/diaedglmnhblmbakcignnpolpjogdekj"
     }
   ]
 
